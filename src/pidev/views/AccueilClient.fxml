@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="creer" prefHeight="541.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidev.views.AcceuilClientController">
+   <children>
+      <ImageView fitHeight="552.0" fitWidth="900.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../utils/images/profilclient.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="img" fitHeight="141.0" fitWidth="143.0" layoutX="189.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="nom" layoutX="466.0" layoutY="96.0" prefHeight="35.0" prefWidth="88.0">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="prenom" layoutX="645.0" layoutY="101.0" prefHeight="30.0" prefWidth="107.0">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="mail1" layoutX="82.0" layoutY="479.0" prefHeight="30.0" prefWidth="312.0">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="telephone" layoutX="466.0" layoutY="479.0" prefHeight="30.0" prefWidth="221.0">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="role" layoutX="154.0" layoutY="246.0" prefHeight="25.0" prefWidth="115.0">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="edit" layoutX="33.0" layoutY="330.0" onAction="#editer" prefHeight="132.0" prefWidth="204.0" />
+      <JFXButton layoutX="275.0" layoutY="337.0" onAction="#gererlivraison" prefHeight="125.0" prefWidth="204.0" text=" " />
+      <JFXButton layoutX="489.0" layoutY="330.0" onAction="#boutique" prefHeight="125.0" prefWidth="158.0" text=" " />
+      <JFXButton layoutX="657.0" layoutY="330.0" onAction="#gererproduit" prefHeight="141.0" prefWidth="189.0" text=" " />
+      <Label fx:id="datenais" layoutX="584.0" layoutY="125.0" prefHeight="25.0" prefWidth="158.0">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="30.0" fitWidth="56.0" layoutX="804.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../utils/images/logouy.png" />
+         </image>
+      </ImageView>
+      <JFXButton fx:id="logos" layoutX="798.0" layoutY="34.0" onAction="#logoutt" prefHeight="49.0" prefWidth="54.0" text=" " />
+      <ImageView fitHeight="49.0" fitWidth="54.0" layoutX="29.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../utils/images/Image1.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

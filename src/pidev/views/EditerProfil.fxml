@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="386.0" prefWidth="572.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidev.views.EditerProfilController">
+   <children>
+      <AnchorPane id="AnchorPane" layoutX="10.0" layoutY="10.0" prefHeight="510.0" prefWidth="694.0">
+         <children>
+            <AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="721.0">
+               <children>
+                  <BorderPane fx:id="border_pane" prefHeight="500.0" prefWidth="698.0" style="-fx-background-color: #fff;">
+                     <center>
+                        <StackPane fx:id="stackPane" BorderPane.alignment="CENTER">
+                           <children>
+                              <Pane fx:id="pnlDernierRec" prefHeight="500.0" prefWidth="498.0" style="-fx-background-color: #fff;">
+                                 <children>
+                                    <Label id=".labeltitre" fx:id="rec" layoutX="47.0" layoutY="47.0" styleClass="labeltitre" text="Editer Profil">
+                                       <font>
+                                          <Font name="Ebrima Bold" size="25.0" />
+                                       </font>
+                                       <stylesheets>
+                                          <URL value="@../../../../JavaApplication1/src/javaapplication1/util/css/stylehseet.css" />
+                                          <URL value="@../utils/css/stylehseet.css" />
+                                       </stylesheets>
+                                    </Label>
+                                    <JFXButton fx:id="editer" alignment="CENTER" buttonType="RAISED" layoutX="68.0" layoutY="380.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#Editer" prefHeight="35.0" prefWidth="110.0" ripplerFill="#4059a9" styleClass="envoyer_btn" stylesheets="@../utils/css/stylehseet.css" text="Editer" textFill="#4059a9">
+                                       <font>
+                                          <Font name="Impact" size="17.0" />
+                                       </font>
+                                       <effect>
+                                          <Glow />
+                                       </effect>
+                                    </JFXButton>
+                                    <JFXButton fx:id="annuler" alignment="CENTER" buttonType="RAISED" layoutX="68.0" layoutY="441.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#annuler" prefHeight="35.0" prefWidth="110.0" ripplerFill="#4059a9" styleClass="envoyer_btn" text="Annuler" textFill="#4059a9">
+                                       <font>
+                                          <Font name="Impact" size="17.0" />
+                                       </font>
+                                       <effect>
+                                          <Glow />
+                                       </effect>
+                                       <stylesheets>
+                                          <URL value="@../utils/css/stylehseet.css" />
+                                          <URL value="@../utils/css/stylehseet.css" />
+                                       </stylesheets>
+                                    </JFXButton>
+                                    <JFXDatePicker fx:id="date" defaultColor="#4059a9" layoutX="54.0" layoutY="295.0" overLay="true" prefHeight="43.0" prefWidth="185.0" promptText="Date de naissance" />
+                                    <JFXTextField fx:id="nom" labelFloat="true" layoutX="54.0" layoutY="103.0" maxWidth="293.0" minWidth="137.0" prefHeight="37.0" prefWidth="137.0" promptText="Nom" unFocusColor="#4059a9" />
+                                    <JFXTextField fx:id="email" labelFloat="true" layoutX="54.0" layoutY="157.0" maxWidth="350.0" minWidth="287.0" prefHeight="37.0" prefWidth="350.0" promptText="Email" unFocusColor="#4059a9" />
+                                    <JFXTextField fx:id="prenom" labelFloat="true" layoutX="263.0" layoutY="103.0" maxWidth="293.0" minWidth="137.0" prefHeight="37.0" prefWidth="137.0" promptText="Prenom" unFocusColor="#4059a9" />
+                                    <JFXTextField fx:id="motpass" labelFloat="true" layoutX="54.0" layoutY="232.0" maxWidth="293.0" minWidth="137.0" prefHeight="37.0" prefWidth="137.0" promptText="Mot de passe" unFocusColor="#4059a9" />
+                                    <JFXTextField fx:id="numerotel" labelFloat="true" layoutX="263.0" layoutY="232.0" maxWidth="293.0" minWidth="137.0" prefHeight="37.0" prefWidth="137.0" promptText="Telephone" unFocusColor="#4059a9" />
+                                    <JFXButton fx:id="choisirimg" layoutX="260.0" layoutY="293.0" onAction="#choisirimage" prefHeight="44.0" prefWidth="161.0" text="Changer l'image" textFill="#8f4646">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </JFXButton>
+                                    <ImageView fx:id="img" fitHeight="121.0" fitWidth="159.0" layoutX="282.0" layoutY="337.0" pickOnBounds="true" preserveRatio="true" />
+                                    <ImageView fitHeight="35.0" fitWidth="58.0" layoutX="9.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../utils/images/back.png" />
+                                       </image>
+                                    </ImageView>
+                                    <JFXButton fx:id="back" onAction="#back" prefHeight="49.0" prefWidth="54.0" text=" " />
+                                    <ImageView fitHeight="69.0" fitWidth="57.0" layoutX="409.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../utils/images/imagedelete.png" />
+                                       </image>
+                                    </ImageView>
+                                    <JFXButton fx:id="Desactiver" layoutX="405.0" layoutY="5.0" onAction="#Desactiver" prefHeight="61.0" prefWidth="62.0" text=" " />
+                                 </children>
+                              </Pane>
+                           </children>
+                        </StackPane>
+                     </center>
+                     <children>
+                        <JFXButton alignment="CENTER" buttonType="RAISED" layoutX="42.0" layoutY="330.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="100.0" ripplerFill="#4059a9" styleClass="envoyer_btn" stylesheets="@../../util/css/stylehseet.css" text="Envoyer" textFill="#4059a9">
+                           <font>
+                              <Font name="Impact" size="17.0" />
+                           </font>
+                           <effect>
+                              <Glow />
+                           </effect>
+                        </JFXButton>
+                        <JFXButton alignment="CENTER" buttonType="RAISED" layoutX="219.0" layoutY="330.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="100.0" ripplerFill="#4059a9" styleClass="envoyer_btn" stylesheets="@../../util/css/stylehseet.css" text="Annuler" textFill="#4059a9">
+                           <font>
+                              <Font name="Impact" size="17.0" />
+                           </font>
+                           <effect>
+                              <Glow />
+                           </effect>
+                        </JFXButton>
+                     </children>
+                     <left>
+                        <Pane prefHeight="500.0" prefWidth="223.0" styleClass="left" BorderPane.alignment="CENTER">
+                           <children>
+                              <HBox layoutX="23.0" layoutY="14.0" spacing="5.0">
+                                 <children>
+                                    <Circle fx:id="btnClose" fill="#f44336" onMouseClicked="#handleMouseEvent" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+                                    <Circle fill="#fbdd2d" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+                                    <Circle fill="#00c71c" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+                                 </children>
+                              </HBox>
+                              <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="61.0" layoutY="170.0" pickOnBounds="true" smooth="false">
+                                 <image>
+                                    <Image url="@../utils/images/s4s.png" />
+                                 </image>
+                                 <styleClass>
+                                    <String fx:value="envoyer_btn" />
+                                    <String fx:value="content-area-circle-btns" />
+                                    <String fx:value="img" />
+                                 </styleClass>
+                              </ImageView>
+                              <Label layoutX="46.0" layoutY="270.0" stylesheets="@../../../../PiDev/src/pidev/utils/css/stylehseet.css" text="Stock For Speed">
+                                 <font>
+                                    <Font name="Impact" size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <stylesheets>
+                              <URL value="@../utils/stylehseet.css" />
+                              <URL value="@../utils/css/stylehseet.css" />
+                           </stylesheets>
+                        </Pane>
+                     </left>
+                  </BorderPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
