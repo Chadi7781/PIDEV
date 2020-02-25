@@ -5,6 +5,8 @@
  */
 package pidev.entity;
 
+import java.sql.Date;
+
 /**
  *
  * @author Maryem
@@ -31,6 +33,11 @@ public class Utilisateur {
     private String date_naissance;
     private String prenom;
     private String cin;
+    private Date datenaissance;
+
+    public void setDatenaissance(Date datenaissance) {
+        this.datenaissance = datenaissance;
+    }
 
     public Utilisateur(int id, String username, String username_canonical, String email, String email_canonical, String enabled, String salt, String password, String last_login, String confirmation_token, String password_requested_at, String roles, String activite, String telephone, String adresse, String photo, String mission, String date_naissance, String prenom, String cin) {
         this.id = id;
@@ -56,6 +63,24 @@ public class Utilisateur {
     }
 
     public Utilisateur() {
+    }
+
+    public Utilisateur(String nom, String prenom, String email, String cin, String adresse, Date datenaissance, String employe, String mission, String numtel) {
+        
+        this.username = nom;
+        this.prenom = prenom;
+        this.email = email;
+        this.cin = cin;
+        this.adresse = adresse;
+        this.datenaissance = datenaissance;
+        this.roles = mission;
+        this.mission = mission;
+        this.telephone = numtel;
+        
+    }
+
+    public Date getDatenaissance() {
+        return datenaissance;
     }
 
     public int getId() {

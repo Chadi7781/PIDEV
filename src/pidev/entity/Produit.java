@@ -21,6 +21,9 @@ public class Produit {
         this.id_depot = id_depot;
         this.nom_pd = nom_pd;
     }
+
+    public Produit() {
+    }
     
     
     

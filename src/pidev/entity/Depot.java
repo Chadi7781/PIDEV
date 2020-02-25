@@ -1,48 +1,77 @@
 package pidev.entity;
+
+import java.sql.Date;
+
+
 public class Depot {
-    private int id ;
-    private String pays;
-    private String attitude;
-    private String langitude;
+    private Integer id ;
     private int surface ;
+    private String adr;
     private int id_pro;
     private int prix;
-    String datedebut;
-    String datefin;
-
-    public String getDatedebut() {
-        return datedebut;
-    }
-
-    public void setDatedebut(String datedebut) {
-        this.datedebut = datedebut;
-    }
-
-    public String getDatefin() {
-        return datefin;
-    }
-
-    public void setDatefin(String datefin) {
-        this.datefin = datefin;
-    }
+    private String Etat;
+    private Date datefin;
+    private Date datedebut;
     
-    public Depot(int id, String pays, String attitude, String langitude, int surface, int id_pro) {
+    public Depot(int id, int surface, int id_pro,String adr) {
         this.id = id;
-        this.pays = pays;
-        this.attitude = attitude;
-        this.langitude = langitude;
         this.surface = surface;
         this.id_pro = id_pro;
+        this.adr = adr;
     }
 
+    public void setAdr(String adr) {
+        this.adr = adr;
+    }
+
+    public String getAdr() {
+        return adr;
+    }
+    
+    
+
     public Depot() {
+    }
+
+    public void setEtat(String Etat) {
+        this.Etat = Etat;
+    }
+
+    public String getEtat() {
+        return Etat;
+    }
+
+    public Depot(int id, String adr , String Etat, int prix, int surface) {
+        this.id = id;
+        this.surface = surface;
+        this.prix = prix;
+        this.Etat = Etat;
+        this.adr=adr;
     }
 
     public int getPrix() {
         return prix;
     }
 
-    public void setPrix(int prix) {
+    public Date getDatedebut() {
+        return datedebut;
+    }
+
+    public Date getDatefin() {
+        return datefin;
+    }
+
+    public void setDatedebut(Date datedebut) {
+        this.datedebut = datedebut;
+    }
+
+    public void setDatefin(Date datefin) {
+        this.datefin = datefin;
+    }
+    
+    
+
+    public void setPrix(Integer prix) {
         this.prix = prix;
     }
     
@@ -51,23 +80,11 @@ public class Depot {
     
     
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public String getPays() {
-        return pays;
-    }
-
-    public String getAttitude() {
-        return attitude;
-    }
-
-    public String getLangitude() {
-        return langitude;
-    }
-
-    public int getSurface() {
+    public Integer getSurface() {
         return surface;
     }
 
@@ -79,19 +96,7 @@ public class Depot {
         this.id = id;
     }
 
-    public void setPays(String pays) {
-        this.pays = pays;
-    }
-
-    public void setAttitude(String attitude) {
-        this.attitude = attitude;
-    }
-
-    public void setLangitude(String langitude) {
-        this.langitude = langitude;
-    }
-
-    public void setSurface(int surface) {
+    public void setSurface(Integer surface) {
         this.surface = surface;
     }
 
@@ -101,8 +106,9 @@ public class Depot {
 
     @Override
     public String toString() {
-        return "Depot{" + "id=" + id + ", pays=" + pays + ", attitude=" + attitude + ", langitude=" + langitude + ", surface=" + surface + ", id_pro=" + id_pro + '}';
+        return super.toString(); //To change body of generated methods, choose Tools | Templates.
     }
+
     
     
     
