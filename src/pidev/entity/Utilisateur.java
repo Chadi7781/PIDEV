@@ -35,9 +35,6 @@ public class Utilisateur {
     private String cin;
     private Date datenaissance;
 
-    public void setDatenaissance(Date datenaissance) {
-        this.datenaissance = datenaissance;
-    }
 
     public Utilisateur(int id, String username, String username_canonical, String email, String email_canonical, String enabled, String salt, String password, String last_login, String confirmation_token, String password_requested_at, String roles, String activite, String telephone, String adresse, String photo, String mission, String date_naissance, String prenom, String cin) {
         this.id = id;
@@ -73,7 +70,7 @@ public class Utilisateur {
         this.cin = cin;
         this.adresse = adresse;
         this.datenaissance = datenaissance;
-        this.roles = mission;
+        this.roles = employe;
         this.mission = mission;
         this.telephone = numtel;
         
@@ -241,6 +238,9 @@ public class Utilisateur {
 
     public void setCin(String cin) {
         this.cin = cin;
+    }
+    public void setDatenaissance(Date datenaissance) {
+        this.datenaissance = datenaissance;
     }
 
     @Override

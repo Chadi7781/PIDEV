@@ -112,11 +112,11 @@ public class LoginController implements Initializable {
                 prStage.setScene(scene);
                 prStage.setResizable(false);
                 prStage.show();
-            }  else {
+            }  else if (role.equals("Admin")){
                  FXMLLoader loader = new FXMLLoader();
                 label.getScene().getWindow().hide();
                 Stage prStage = new Stage();
-                loader.setLocation(getClass().getResource("Admin.fxml"));
+                loader.setLocation(getClass().getResource("Dashboard.fxml"));
                 Parent root = loader.load();
                 Scene scene = new Scene(root);
                 prStage.setScene(scene);

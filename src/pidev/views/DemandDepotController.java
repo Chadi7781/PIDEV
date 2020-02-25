@@ -117,7 +117,7 @@ public class DemandDepotController implements Initializable {
             LoginController irc = loader.getController();
             String mail = irc.username;
 
-            adrs = depot.getSelectionModel().getSelectedItem().getPays();
+            adrs = depot.getSelectionModel().getSelectedItem().getAdr();
             surfac = depot.getSelectionModel().getSelectedItem().getSurface();
             idde = depot.getSelectionModel().getSelectedItem().getId();
             pri = depot.getSelectionModel().getSelectedItem().getPrix();
@@ -173,7 +173,7 @@ public class DemandDepotController implements Initializable {
             for (int i : plistx) {
                 Depot d = new Depot();
                 d.setId(i);
-                d.setPays(sd.getAdresseDepotbyId(i));
+                d.setAdr(sd.getAdresseDepotbyId(i));
                 d.setSurface(sd.getSurfaceDepotbyId(i));
                 d.setPrix(sd.getPrixDepotbyId(i));
                 d.setDatedebut(sd.getDateDebutDepotbyId(i));

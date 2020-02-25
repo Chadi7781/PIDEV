@@ -105,7 +105,7 @@ public class GererEmp {
 
 	@FXML
 	void AjouterEmployer(ActionEvent event) throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/gestionentrepot/gui/AjouterEmp.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("AjouterEmp.fxml"));
 		Scene scene = new Scene(root);
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		stage.setScene(scene);
@@ -116,7 +116,7 @@ public class GererEmp {
 	@FXML
 	void ModifierEmployer(ActionEvent event) throws IOException {
             FXMLLoader loader  = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/gestionentrepot/gui/ModifierEmp.fxml"));
+            loader.setLocation(getClass().getResource("ModifierEmp.fxml"));
             Parent root = loader.load();
 	    Scene scene = new Scene(root);
             ModifierEmp modifier = loader.getController();
@@ -170,7 +170,7 @@ public class GererEmp {
 
 	@FXML
 	void gotodashbord(ActionEvent event) throws IOException {
-                Parent root = FXMLLoader.load(getClass().getResource("/gestionentrepot/gui/Dashboard.fxml"));
+                Parent root = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
 		Scene scene = new Scene(root);
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		stage.setScene(scene);
@@ -184,7 +184,7 @@ public class GererEmp {
 	}
           @FXML
           void gotoEmploye(ActionEvent event) throws IOException {
-              Parent root = FXMLLoader.load(getClass().getResource("/gestionentrepot/gui/GererEmp.fxml"));
+              Parent root = FXMLLoader.load(getClass().getResource("GererEmp.fxml"));
               Scene scene = new Scene(root);
               Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
               stage.setScene(scene);
@@ -195,7 +195,7 @@ public class GererEmp {
     @FXML
     void gotoStock(ActionEvent event) throws IOException {
         
-              Parent root = FXMLLoader.load(getClass().getResource("/gestionentrepot/gui/Stock.fxml"));
+              Parent root = FXMLLoader.load(getClass().getResource("Stock.fxml"));
               Scene scene = new Scene(root);
               Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
               stage.setScene(scene);
@@ -206,7 +206,7 @@ public class GererEmp {
         @FXML
     void gotoDepot(ActionEvent event) throws IOException {
         
-              Parent root = FXMLLoader.load(getClass().getResource("/gestionentrepot/gui/geredepo.fxml"));
+              Parent root = FXMLLoader.load(getClass().getResource("geredepo.fxml"));
               Scene scene = new Scene(root);
               Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
               stage.setScene(scene);
@@ -239,18 +239,19 @@ public class GererEmp {
 		assert Bt_Dashboard1 != null : "fx:id=\"Bt_Dashboard1\" was not injected: check your FXML file 'GererEmp.fxml'.";
 		assert Bt_Emp1 != null : "fx:id=\"Bt_Emp1\" was not injected: check your FXML file 'GererEmp.fxml'.";
 		assert Bt_Stock1 != null : "fx:id=\"Bt_Stock1\" was not injected: check your FXML file 'GererEmp.fxml'.";
-		List<Utilisateur> listemps = control.AfficheToutEmploye();
+		users.clear();
+                List<Utilisateur> listemps = control.AfficheToutEmploye();
 		if (!listemps.isEmpty()) {
 			for (int i = 0; i < listemps.size(); i++) {
 				users.add(listemps.get(i));
 			}
 		}
 		ID_Emp.setCellValueFactory(new PropertyValueFactory<Utilisateur, String>("cin"));
-		Nom.setCellValueFactory(new PropertyValueFactory<Utilisateur, String>("nom"));
+		Nom.setCellValueFactory(new PropertyValueFactory<Utilisateur, String>("username"));
 		Prenom.setCellValueFactory(new PropertyValueFactory<Utilisateur, String>("prenom"));
-		Dare_naissance.setCellValueFactory(new PropertyValueFactory<Utilisateur, Date>("dateNaissance"));
+		Dare_naissance.setCellValueFactory(new PropertyValueFactory<Utilisateur, Date>("datenaissance"));
 		adresse.setCellValueFactory(new PropertyValueFactory<Utilisateur, String>("adresse"));
-		Num_Tel.setCellValueFactory(new PropertyValueFactory<Utilisateur, String>("numtel"));
+		Num_Tel.setCellValueFactory(new PropertyValueFactory<Utilisateur, String>("telephone"));
 		Role.setCellValueFactory(new PropertyValueFactory<Utilisateur, String>("mission"));
 		Tableau.setItems(users);
 	}

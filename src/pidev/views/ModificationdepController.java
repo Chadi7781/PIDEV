@@ -75,8 +75,8 @@ public class ModificationdepController implements Initializable {
             prix1.setText(String.valueOf(sp.getPrixDepotbyId(id)).toString());
             
                     List<String> list = new ArrayList<>();
-        list.add("Disponible");
-        list.add("Non disponible");
+        list.add("dispo");
+        list.add("indispo");
         ObservableList obList = FXCollections.observableList(list);
         comboxdispo.getItems().clear();
         comboxdispo.setItems(obList);
@@ -88,7 +88,7 @@ public class ModificationdepController implements Initializable {
     @FXML
     private void mod(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/gestionentrepot/gui/geredepo.fxml"));
+        loader.setLocation(getClass().getResource("geredepo.fxml"));
         Stage prStage = new Stage();
         Parent root;
         root = loader.load();
@@ -113,7 +113,7 @@ public class ModificationdepController implements Initializable {
     }
       @FXML
     void gotoDashbord(ActionEvent event) throws IOException {
-              Parent root = FXMLLoader.load(getClass().getResource("/gestionentrepot/gui/Dashboard.fxml"));
+              Parent root = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
               Scene scene = new Scene(root);
               Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
               stage.setScene(scene);
@@ -123,7 +123,7 @@ public class ModificationdepController implements Initializable {
     
      @FXML
     void gotoEmploye(ActionEvent event) throws IOException {
-              Parent root = FXMLLoader.load(getClass().getResource("/gestionentrepot/gui/GererEmp.fxml"));
+              Parent root = FXMLLoader.load(getClass().getResource("GererEmp.fxml"));
               Scene scene = new Scene(root);
               Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
               stage.setScene(scene);
@@ -132,7 +132,7 @@ public class ModificationdepController implements Initializable {
     }
                 @FXML
     void gotoStock(ActionEvent event) throws IOException {
-         Parent root = FXMLLoader.load(getClass().getResource("/gestionentrepot/gui/Stock.fxml"));
+         Parent root = FXMLLoader.load(getClass().getResource("Stock.fxml"));
 		Scene scene = new Scene(root);
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		stage.setScene(scene);
@@ -142,7 +142,7 @@ public class ModificationdepController implements Initializable {
             @FXML
     void gotoDepot(ActionEvent event) throws IOException {
         
-              Parent root = FXMLLoader.load(getClass().getResource("/gestionentrepot/gui/geredepo.fxml"));
+              Parent root = FXMLLoader.load(getClass().getResource("geredepo.fxml"));
               Scene scene = new Scene(root);
               Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
               stage.setScene(scene);

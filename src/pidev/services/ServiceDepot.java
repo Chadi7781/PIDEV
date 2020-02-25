@@ -67,7 +67,7 @@ public class ServiceDepot {
         try {
             stm = Conn.createStatement();
        
-        String requeteInsert = "INSERT INTO `depot` VALUES (NULL ,'"  + p.getAdr()+ "' , "+ p.getSurface()+ " ,null , " + p.getPrix()+ ",'" + "Disponible"+ "',null,null);";
+        String requeteInsert = "INSERT INTO `depot` VALUES (NULL ,'"  + p.getAdr()+ "' , "+ p.getSurface()+ " ,null , " + p.getPrix()+ ",'" + "dispo"+ "',null,null);";
            System.out.println(requeteInsert);                           
         stm.executeUpdate(requeteInsert); 
         } catch (SQLException ex) {
@@ -79,7 +79,7 @@ public class ServiceDepot {
         
         ArrayList<Depot> l = new ArrayList<Depot>();
         try {
-            PreparedStatement st = Conn.prepareStatement("select * from depot where etat!='Disponible'");
+            PreparedStatement st = Conn.prepareStatement("select * from depot where etat!='dispo'");
             
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
@@ -290,11 +290,12 @@ public class ServiceDepot {
                       "UPDATE `depot` SET `adresse` = ?,"
                       + " `surface` = ?, `idproduit` = ?, `prix` = ?, "
                       + " `etat` = ? WHERE `id` = ?");
-     pre.setInt(1, p.getSurface());
-     pre.setInt(2, p.getId_pro());
-     pre.setInt(3, p.getPrix());
-     pre.setString(4, p.getEtat());
-     pre.setInt(5,id);
+     pre.setString(1, p.getAdr());
+     pre.setInt(2, p.getSurface());
+     pre.setInt(3, p.getId_pro());
+     pre.setInt(4, p.getPrix());
+     pre.setString(5, p.getEtat());
+     pre.setInt(6,id);
     pre.executeUpdate();
     
           } catch (SQLException ex) {

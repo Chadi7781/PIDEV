@@ -4,14 +4,14 @@ import java.sql.Date;
 
 
 public class Depot {
-    private Integer id ;
+    private int id ;
     private int surface ;
     private String adr;
     private int id_pro;
     private int prix;
     private String Etat;
-    private Date datefin;
-    private Date datedebut;
+    private String datefin;
+    private String datedebut;
     
     public Depot(int id, int surface, int id_pro,String adr) {
         this.id = id;
@@ -27,8 +27,6 @@ public class Depot {
     public String getAdr() {
         return adr;
     }
-    
-    
 
     public Depot() {
     }
@@ -53,33 +51,26 @@ public class Depot {
         return prix;
     }
 
-    public Date getDatedebut() {
+    public String getDatedebut() {
         return datedebut;
     }
 
-    public Date getDatefin() {
+    public String getDatefin() {
         return datefin;
     }
 
-    public void setDatedebut(Date datedebut) {
+    public void setDatedebut(String datedebut) {
         this.datedebut = datedebut;
     }
 
-    public void setDatefin(Date datefin) {
+    public void setDatefin(String datefin) {
         this.datefin = datefin;
     }
-    
-    
 
     public void setPrix(Integer prix) {
         this.prix = prix;
-    }
+    }  
     
-    
-    
-    
-    
-
     public Integer getId() {
         return id;
     }
@@ -108,11 +99,5 @@ public class Depot {
     public String toString() {
         return super.toString(); //To change body of generated methods, choose Tools | Templates.
     }
-
-    
-    
-    
-    
-    
-    
+ 
 }

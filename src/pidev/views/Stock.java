@@ -87,7 +87,7 @@ public class Stock {
 
     @FXML
     void gotoEmploye(ActionEvent event) throws IOException {
-         Parent root = FXMLLoader.load(getClass().getResource("/gestionentrepot/gui/GererEmp.fxml"));
+         Parent root = FXMLLoader.load(getClass().getResource("GererEmp.fxml"));
 		Scene scene = new Scene(root);
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		stage.setScene(scene);
@@ -97,7 +97,7 @@ public class Stock {
 
     @FXML
     void gotoStock(ActionEvent event) throws IOException {
-         Parent root = FXMLLoader.load(getClass().getResource("/gestionentrepot/gui/Stock.fxml"));
+         Parent root = FXMLLoader.load(getClass().getResource("Stock.fxml"));
 		Scene scene = new Scene(root);
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		stage.setScene(scene);
@@ -107,7 +107,7 @@ public class Stock {
 
     @FXML
     void gotodashbord(ActionEvent event) throws IOException {
-         Parent root = FXMLLoader.load(getClass().getResource("/gestionentrepot/gui/Dashboard.fxml"));
+         Parent root = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
 		Scene scene = new Scene(root);
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		stage.setScene(scene);
@@ -117,7 +117,7 @@ public class Stock {
     
         @FXML
     void gotoDepot(ActionEvent event) throws IOException {
-         Parent root = FXMLLoader.load(getClass().getResource("/gestionentrepot/gui/geredepo.fxml"));
+         Parent root = FXMLLoader.load(getClass().getResource("geredepo.fxml"));
 		Scene scene = new Scene(root);
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		stage.setScene(scene);
@@ -149,11 +149,11 @@ public class Stock {
 				prds.add(listemps.get(i));
 			}
 		}
-		Libellé.setCellValueFactory(new PropertyValueFactory<Produit, String>("NOM_PRODUIT"));
-		Poid.setCellValueFactory(new PropertyValueFactory<Produit, Integer>("POIDS"));
-		Etat.setCellValueFactory(new PropertyValueFactory<Produit, String>("ETAT"));
-		Catégorie.setCellValueFactory(new PropertyValueFactory<Produit, String>("CATEGORIE"));
-		Dépot.setCellValueFactory(new PropertyValueFactory<Produit, Integer>("POIDS"));
+		Libellé.setCellValueFactory(new PropertyValueFactory<Produit, String>("nom_pd"));
+		Poid.setCellValueFactory(new PropertyValueFactory<Produit, Integer>("poids"));
+		Etat.setCellValueFactory(new PropertyValueFactory<Produit, String>("Etat"));
+		Catégorie.setCellValueFactory(new PropertyValueFactory<Produit, String>("categorie"));
+		Dépot.setCellValueFactory(new PropertyValueFactory<Produit, Integer>("id_depot"));
 		Tableau.setItems(prds);
     }
 }

@@ -72,7 +72,7 @@ ObservableList<Depot>observableList;
     
     @FXML
     void gotoDashbord(ActionEvent event) throws IOException {
-              Parent root = FXMLLoader.load(getClass().getResource("/gestionentrepot/gui/Dashboard.fxml"));
+              Parent root = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
               Scene scene = new Scene(root);
               Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
               stage.setScene(scene);
@@ -82,7 +82,7 @@ ObservableList<Depot>observableList;
 
     @FXML
     void gotoEmploye(ActionEvent event) throws IOException {
-              Parent root = FXMLLoader.load(getClass().getResource("/gestionentrepot/gui/GererEmp.fxml"));
+              Parent root = FXMLLoader.load(getClass().getResource("GererEmp.fxml"));
               Scene scene = new Scene(root);
               Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
               stage.setScene(scene);
@@ -94,7 +94,7 @@ ObservableList<Depot>observableList;
     private void mod(ActionEvent event) throws IOException {
         if (table.getSelectionModel().getSelectedItem()!=null){
             idl=table.getSelectionModel().getSelectedItem().getId().toString();
-		Parent root = FXMLLoader.load(getClass().getResource("/gestionentrepot/gui/Modificationdep.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("Modificationdep.fxml"));
 		Scene scene = new Scene(root);
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		stage.setScene(scene);
@@ -105,7 +105,7 @@ ObservableList<Depot>observableList;
     @FXML
     void gotoStock(ActionEvent event) throws IOException {
         
-              Parent root = FXMLLoader.load(getClass().getResource("/gestionentrepot/gui/Stock.fxml"));
+              Parent root = FXMLLoader.load(getClass().getResource("Stock.fxml"));
               Scene scene = new Scene(root);
               Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
               stage.setScene(scene);
@@ -133,7 +133,7 @@ ObservableList<Depot>observableList;
 
     @FXML
     private void Ajouter(ActionEvent event) throws IOException {
-              Parent root = FXMLLoader.load(getClass().getResource("/gestionentrepot/gui/Ajouterdepot.fxml"));
+              Parent root = FXMLLoader.load(getClass().getResource("Ajouterdepot.fxml"));
               Scene scene = new Scene(root);
               Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
               stage.setScene(scene);

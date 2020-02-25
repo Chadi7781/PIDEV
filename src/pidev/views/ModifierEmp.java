@@ -170,7 +170,7 @@ public class ModifierEmp {
         }
          @FXML
     void gotoDashboard(ActionEvent event) throws IOException {
-       Parent root = FXMLLoader.load(getClass().getResource("/gestionentrepot/gui/Dashboard.fxml"));
+       Parent root = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
 		Scene scene = new Scene(root);
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		stage.setScene(scene);
@@ -179,7 +179,7 @@ public class ModifierEmp {
 
     @FXML
     void gotoEmploye(ActionEvent event) throws IOException {
-         Parent root = FXMLLoader.load(getClass().getResource("/gestionentrepot/gui/GererEmp.fxml"));
+         Parent root = FXMLLoader.load(getClass().getResource("GererEmp.fxml"));
 		Scene scene = new Scene(root);
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		stage.setScene(scene);
@@ -195,7 +195,7 @@ public class ModifierEmp {
 
     @FXML
     void gotoDepot(ActionEvent event) throws IOException {
-         Parent root = FXMLLoader.load(getClass().getResource("/gestionentrepot/gui/geredepo.fxml"));
+         Parent root = FXMLLoader.load(getClass().getResource("geredepo.fxml"));
 		Scene scene = new Scene(root);
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		stage.setScene(scene);
@@ -206,7 +206,7 @@ public class ModifierEmp {
     
         @FXML
     void gotoStock(ActionEvent event) throws IOException {
-         Parent root = FXMLLoader.load(getClass().getResource("/gestionentrepot/gui/Stock.fxml"));
+         Parent root = FXMLLoader.load(getClass().getResource("Stock.fxml"));
 		Scene scene = new Scene(root);
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		stage.setScene(scene);
