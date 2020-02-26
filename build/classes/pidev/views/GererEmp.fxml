@@ -86,6 +86,11 @@
                   <Font name="Arial" size="18.0" />
                </font>
             </Button>
+            <Button layoutY="351.0" mnemonicParsing="false" onAction="#Livraison" prefHeight="38.0" prefWidth="197.0" style="-fx-background-color: #191970;" text="Livraison" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
    </children>

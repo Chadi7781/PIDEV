@@ -48,6 +48,11 @@
                   <Font name="Arial" size="18.0" />
                </font>
             </JFXButton>
+            <JFXButton layoutY="327.0" onAction="#Livraison" prefHeight="25.0" prefWidth="200.0" style="-fx-background-color: #191970;" text="Livraison" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </JFXButton>
          </children>
       </Pane>
       <TableView fx:id="table" layoutX="208.0" layoutY="63.0" prefHeight="318.0" prefWidth="500.0" stylesheets="@../utils/css/table.css">

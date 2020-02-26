@@ -28,11 +28,6 @@ import pidev.entity.Utilisateur;
 public class GererEmp {
 	ControlEmploye control = new ControlEmploye();
 
-	@FXML
-	private ResourceBundle resources;
-
-	@FXML
-	private URL location;
 
 	@FXML
 	private TableView<Utilisateur> Tableau;
@@ -70,22 +65,16 @@ public class GererEmp {
 	@FXML
 	private Button Bt_Supprimer;
 
-	@FXML
 	private Button Bt_Quitter;
 
-	@FXML
 	private Circle btnClose;
 
-	@FXML
 	private Button Bt_Dashboard;
 
-	@FXML
 	private Button Bt_Emp;
 
-	@FXML
 	private Button Bt_Stock;
 
-	@FXML
 	private Circle btnClose1;
 
 	@FXML
@@ -102,6 +91,8 @@ public class GererEmp {
 	ObservableList<Utilisateur> users = FXCollections.observableArrayList();
 	ObservableList<Utilisateur> allusers;
 	ObservableList<Utilisateur> selectedusers;
+    @FXML
+    private Button Bt_Stock11;
 
 	@FXML
 	void AjouterEmployer(ActionEvent event) throws IOException {
@@ -178,7 +169,6 @@ public class GererEmp {
 
 	}
 
-	@FXML
 	void handleMouseEvent(MouseEvent event) {
 
 	}
@@ -216,7 +206,6 @@ public class GererEmp {
 
     
 
-	@FXML
 	void initialize() {
 		assert Tableau != null : "fx:id=\"Tableau\" was not injected: check your FXML file 'GererEmp.fxml'.";
 		assert ID_Emp != null : "fx:id=\"ID_Emp\" was not injected: check your FXML file 'GererEmp.fxml'.";
@@ -255,4 +244,13 @@ public class GererEmp {
 		Role.setCellValueFactory(new PropertyValueFactory<Utilisateur, String>("mission"));
 		Tableau.setItems(users);
 	}
+
+    @FXML
+    private void Livraison(ActionEvent event) throws IOException {
+         Parent root = FXMLLoader.load(getClass().getResource("AfficherAdmin_Livraison.fxml"));
+              Scene scene = new Scene(root);
+              Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+              stage.setScene(scene);
+              stage.show();
+    }
 }

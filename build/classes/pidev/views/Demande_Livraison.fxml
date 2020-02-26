@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="774.0" prefWidth="1116.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidev.views.Demande_LivraisonController">
+    <children>
+      <Pane layoutX="101.0" prefHeight="104.0" prefWidth="1015.0" style="-fx-background-color: #483D8B;">
+         <children>
+            <Label layoutX="394.0" layoutY="33.0" prefHeight="39.0" prefWidth="352.0" text="Demande De Livraison :" textFill="#f8f6f6">
+               <font>
+                  <Font name="Calibri Bold Italic" size="33.0" />
+               </font>
+            </Label>
+         </children>
+         </Pane>
+         <Text layoutX="628.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adresse Destinataire:" wrappingWidth="79.11327886581421" />
+      <Text layoutX="332.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adresse Expéditeur :" wrappingWidth="99.9635406062007" />
+      <Text layoutX="324.0" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Photo Produit :" wrappingWidth="114.11328375339508" />
+      
+            
+      <Button fx:id="button_Submit" layoutX="856.0" layoutY="708.0" minHeight="18.0" minWidth="34.0" mnemonicParsing="false" onAction="#valider" prefHeight="45.0" prefWidth="172.0" style="-fx-background-color: fffa75;" styleClass="button_Submit" stylesheets="@../Style/demande_livraison.css" text="Valider">
+         <font>
+            <Font name="Arial Black" size="15.0" />
+         </font></Button>
+      <ComboBox fx:id="Comboxpoids" layoutX="786.0" layoutY="219.0" onAction="#combobox" prefHeight="29.0" prefWidth="299.0" promptText="choisissez un intervalle de poids" />
+      <Pane layoutY="-6.0" prefHeight="781.0" prefWidth="293.0" styleClass="left" stylesheets="@../utils/css/demande_livraison.css">
+         <children>
+            
+   
+      <ImageView fitHeight="194.0" fitWidth="190.0" layoutX="42.0" layoutY="197.0" pickOnBounds="true" smooth="false">
+               <image>
+                  <Image url="@../utils/images/s4smdwra.png" />
+               </image>
+               <styleClass>
+                  <String fx:value="envoyer_btn" />
+                  <String fx:value="content-area-circle-btns" />
+                  <String fx:value="img" />
+               </styleClass>
+            </ImageView>
+            <Label layoutX="41.0" layoutY="420.0" prefHeight="39.0" prefWidth="206.0" text="STOCK FOR SPEED" textFill="#f8f6f6" underline="true">
+               <font>
+                  <Font name="Arial Black" size="19.0" />
+               </font>
+            </Label>
+            <Label layoutX="36.0" layoutY="686.0" prefHeight="81.0" prefWidth="216.0" text="tout annulation doit etre avant 24h du date de rèception" textFill="#1b1a1a" wrapText="true">
+               <font>
+                  <Font name="Calibri Bold Italic" size="19.0" />
+               </font>
+            </Label>
+         </children>
+               </Pane>
+      <ImageView fitHeight="38.0" fitWidth="41.0" layoutX="1075.0" layoutY="736.0" pickOnBounds="true" smooth="false" styleClass="img">
+         <image>
+            <Image url="@../utils/images/s4s.png" />
+         </image>
+      </ImageView>
+      <Text layoutX="332.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fragile" />
+      <Text layoutX="737.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Poids" />
+      <RadioButton fx:id="Radiobutton_oui" layoutX="446.0" layoutY="215.0" mnemonicParsing="false" onAction="#checkradio" prefHeight="18.0" prefWidth="91.0" text="Oui">
+         <toggleGroup>
+            <ToggleGroup fx:id="fragile" />
+         </toggleGroup></RadioButton>
+      <RadioButton fx:id="Radiobutton_non" layoutX="545.0" layoutY="215.0" mnemonicParsing="false" onAction="#checkradio" prefHeight="18.0" prefWidth="91.0" text="Non" toggleGroup="$fragile" />
+      <Text layoutX="695.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Livraison a Domicile :" wrappingWidth="151.99999777972698" />
+      <CheckBox fx:id="CheckBox_oui" layoutX="851.0" layoutY="278.0" mnemonicParsing="false" onAction="#CheckBoxes" prefHeight="26.0" prefWidth="70.0" text="Oui" />
+      <CheckBox fx:id="CheckBox_non" layoutX="926.0" layoutY="277.0" mnemonicParsing="false" onAction="#CheckBoxes" prefHeight="26.0" prefWidth="152.0" text="Point de collecte" />
+      <ComboBox fx:id="CheckBox_magasin" layoutX="506.0" layoutY="474.0" onAction="#OnMagasinSelected" prefHeight="29.0" prefWidth="331.0" promptText="Vous devez choisir le point de collecte" />
+      <Text fill="RED" layoutX="308.0" layoutY="552.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prix Total de Livraison en Dinars" />
+      <Text fill="RED" layoutX="308.0" layoutY="618.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date de Reception" />
+      <TextField fx:id="Adresse_expt" layoutX="422.0" layoutY="140.0" promptText="Adresse du Expediteur" />
+      <TextField fx:id="textfield" layoutX="717.0" layoutY="140.0" promptText="Adresse du Destinataire" />
+      <HBox fx:id="hbox" layoutX="322.0" layoutY="305.0" prefHeight="143.0" prefWidth="263.0" style="-fx-background-color: #A9A9A9;" />
+      <Button fx:id="refresh" layoutX="628.0" layoutY="372.0" minWidth="40.0" mnemonicParsing="false" onAction="#onReni" prefHeight="32.0" prefWidth="40.0">
+         <graphic>
+            <ImageView fitHeight="35.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../utils/images/reload.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <HBox fx:id="hboxprix" layoutX="529.0" layoutY="527.0" prefHeight="38.0" prefWidth="124.0">
+         <children>
+            <Label fx:id="labelprix" prefHeight="38.0" prefWidth="124.0" text="10000" textAlignment="CENTER" wrapText="true" />
+         </children>
+      </HBox>
+      <ComboBox fx:id="gouvernorat" layoutX="952.0" layoutY="138.0" onAction="#OngouvernoratSelected" prefHeight="29.0" prefWidth="160.0" promptText="Gouvernorat" />
+      <HBox fx:id="hboxdaterecept" layoutX="432.0" layoutY="592.0" prefHeight="45.0" prefWidth="269.0">
+         <children>
+            <Label fx:id="daterecept" prefHeight="45.0" prefWidth="272.0" />
+         </children>
+      </HBox>
+      <Label fx:id="fuck" layoutX="896.0" layoutY="508.0" prefHeight="168.0" prefWidth="172.0" />
+      <Button fx:id="button_annuuler" layoutX="324.0" layoutY="708.0" mnemonicParsing="false" onAction="#annuler" prefHeight="45.0" prefWidth="160.0" style="-fx-background-color: fffa75;" styleClass="button_Submit" stylesheets="@../Style/demande_livraison.css" text="Annuler" textFill="#212022">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+      <Label fx:id="texthoraire" layoutX="896.0" layoutY="469.0" prefHeight="39.0" prefWidth="206.0" text="Les Horaires du Travail" textFill="#e41212">
+         <font>
+            <Font name="Georgia" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="controle" layoutX="519.0" layoutY="694.0" prefHeight="39.0" prefWidth="352.0" textFill="#234aa4">
+         <font>
+            <Font name="Calibri Bold Italic" size="20.0" />
+         </font>
+      </Label>
+               
+
+        
+    </children>
+
+</AnchorPane>

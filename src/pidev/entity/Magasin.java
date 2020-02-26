@@ -7,25 +7,37 @@ package pidev.entity;
 
 /**
  *
- * @author Maryem
+ * @author 21627
  */
 public class Magasin {
-        private int id_magasin;
-        private String pays; 
-        private String nom;
-       private int latitude; 
-       private int longitude;
-
-    public Magasin(int id_magasin, String pays, String nom, int latitude, int longitude) {
-        this.id_magasin = id_magasin;
-        this.pays = pays;
-        this.nom = nom;
-        this.latitude = latitude;
-        this.longitude = longitude;
-    }
+    private int id_magasin;
+    private String pays;
+    private int log;
+    private int lat;
+    private String nom;
+    private String horaire_travail;
 
     public Magasin() {
     }
+
+    public Magasin(int id_magasin, String pays, int log, int lat, String nom,String horaire_travail) {
+        this.id_magasin = id_magasin;
+        this.pays = pays;
+        this.log = log;
+        this.lat = lat;
+        this.nom = nom;
+        this.horaire_travail = horaire_travail;
+    }
+
+    public Magasin(String pays, int log, int lat, String nom ,String horaire_travail) {
+        this.pays = pays;
+        this.log = log;
+        this.lat = lat;
+        this.nom = nom;
+        this.horaire_travail = horaire_travail;
+    }
+
+   
 
     public int getId_magasin() {
         return id_magasin;
@@ -43,34 +55,45 @@ public class Magasin {
         this.pays = pays;
     }
 
+    public int getLog() {
+        return log;
+    }
+
+    public void setLog(int log) {
+        this.log = log;
+    }
+
+    public int getLat() {
+        return lat;
+    }
+
+    public void setLat(int lat) {
+        this.lat = lat;
+    }
+
     public String getNom() {
         return nom;
     }
 
     public void setNom(String nom) {
+        
         this.nom = nom;
     }
 
-    public int getLatitude() {
-        return latitude;
+    public String getHoraire_travail() {
+        return horaire_travail;
     }
 
-    public void setLatitude(int latitude) {
-        this.latitude = latitude;
+    public void setHoraire_travail(String horaire_travail) {
+        this.horaire_travail = horaire_travail;
     }
-
-    public int getLongitude() {
-        return longitude;
-    }
-
-    public void setLongitude(int longitude) {
-        this.longitude = longitude;
-    }
-
+    
     @Override
     public String toString() {
-        return "Magasin{" + "id_magasin=" + id_magasin + ", pays=" + pays + ", nom=" + nom + ", latitude=" + latitude + ", longitude=" + longitude + '}';
+        return "Magasin{" + "id_magasin=" + id_magasin + ", pays=" + pays + ", log=" + log + ", lat=" + lat + ", nom=" + nom + ",horaire_travail" +horaire_travail+'}';
     }
+
+   
     
     
     

@@ -24,7 +24,6 @@ import pidev.entity.Produit;
 
 public class Stock {
 
-    @FXML
     private Circle btnClose1;
 
     @FXML
@@ -64,6 +63,8 @@ public class Stock {
     private Button bt_Rech;
     ObservableList<Produit> prds = FXCollections.observableArrayList();
     ControleProduit controle = new ControleProduit();
+    @FXML
+    private Button Bt_Stock11;
 
     @FXML
     void SearchEmployer(ActionEvent event) {
@@ -124,12 +125,10 @@ public class Stock {
 		stage.show();
     }
 
-    @FXML
     void handleMouseEvent(MouseEvent event) {
 
     }
 
-    @FXML
     void initialize() {
         assert btnClose1 != null : "fx:id=\"btnClose1\" was not injected: check your FXML file 'Stock.fxml'.";
         assert Bt_Dashboard1 != null : "fx:id=\"Bt_Dashboard1\" was not injected: check your FXML file 'Stock.fxml'.";
@@ -155,5 +154,14 @@ public class Stock {
 		Catégorie.setCellValueFactory(new PropertyValueFactory<Produit, String>("categorie"));
 		Dépot.setCellValueFactory(new PropertyValueFactory<Produit, Integer>("id_depot"));
 		Tableau.setItems(prds);
+    }
+
+    @FXML
+    private void Livraison(ActionEvent event) throws IOException {
+         Parent root = FXMLLoader.load(getClass().getResource("AfficherAdmin_Livraison.fxml"));
+              Scene scene = new Scene(root);
+              Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+              stage.setScene(scene);
+              stage.show();
     }
 }

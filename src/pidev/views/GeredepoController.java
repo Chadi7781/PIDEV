@@ -51,7 +51,6 @@ ObservableList<Depot>observableList;
     /**
      * Initializes the controller class.
      */
-    @FXML
     void initialize() {
         assert table != null : "fx:id=\"table\" was not injected: check your FXML file 'geredepo.fxml'.";
         assert adr != null : "fx:id=\"adr\" was not injected: check your FXML file 'geredepo.fxml'.";
@@ -138,5 +137,15 @@ ObservableList<Depot>observableList;
               Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
               stage.setScene(scene);
               stage.show();
+    }
+
+    @FXML
+    private void Livraison(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("AfficherAdmin_Livraison.fxml"));
+              Scene scene = new Scene(root);
+              Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+              stage.setScene(scene);
+              stage.show();
+
     }
 }

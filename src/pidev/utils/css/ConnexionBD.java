@@ -16,7 +16,7 @@ import java.sql.SQLException;
 
 public class ConnexionBD {
 
-    private static String url="jdbc:mysql://localhost:3306/gestion_entrepot";
+    private static String url="jdbc:mysql://localhost:3308/gestion_entrepot";
     private static String login = "root";
     private static String password = "";
     private static Connection conn;
