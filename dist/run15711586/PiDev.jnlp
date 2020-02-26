@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="PiDev.jnlp">
+  <information>
+    <title>PiDev</title>
+    <vendor>Maryem</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="PiDev.jar" size="1221417" download="eager" />
+    <jar href="lib\AnimateFX-1.2.0.jar" size="85823" download="eager" />
+    <jar href="lib\charm-glisten-4.4.1.jar" size="1040787" download="eager" />
+    <jar href="lib\fontawesomefx-8.9.jar" size="571068" download="eager" />
+    <jar href="lib\itextpdf-5.1.0.jar" size="1614453" download="eager" />
+    <jar href="lib\javax.mail.jar" size="659033" download="eager" />
+    <jar href="lib\jfoenix-1.0.0.jar" size="2186636" download="eager" />
+    <jar href="lib\joda-time-2.10.5.jar" size="643043" download="eager" />
+    <jar href="lib\mysql-connector-java-5.1.48-bin.jar" size="1006959" download="eager" />
+    <jar href="lib\zxing-1.7-javase.jar" size="22002" download="eager" />
+    <jar href="lib\zxing-core-2.0.jar" size="432773" download="eager" />
+  </resources>
+  <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="PiDev" >
+    <param name="requiredFXVersion" value="8.0+"/>
+  </applet-desc>
+  <jfx:javafx-desc  width="800" height="600" main-class="pidev.views.PiDev"  name="PiDev" />
+  <update check="always"/>
+</jnlp>

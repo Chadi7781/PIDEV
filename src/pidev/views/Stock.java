@@ -128,7 +128,7 @@ public class Stock {
     void handleMouseEvent(MouseEvent event) {
 
     }
-
+    @FXML
     void initialize() {
         assert btnClose1 != null : "fx:id=\"btnClose1\" was not injected: check your FXML file 'Stock.fxml'.";
         assert Bt_Dashboard1 != null : "fx:id=\"Bt_Dashboard1\" was not injected: check your FXML file 'Stock.fxml'.";

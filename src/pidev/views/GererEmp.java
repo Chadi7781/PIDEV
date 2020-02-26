@@ -205,7 +205,7 @@ public class GererEmp {
     }
 
     
-
+        @FXML
 	void initialize() {
 		assert Tableau != null : "fx:id=\"Tableau\" was not injected: check your FXML file 'GererEmp.fxml'.";
 		assert ID_Emp != null : "fx:id=\"ID_Emp\" was not injected: check your FXML file 'GererEmp.fxml'.";

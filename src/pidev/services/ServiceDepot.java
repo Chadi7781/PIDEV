@@ -339,7 +339,7 @@ public class ServiceDepot {
         
         ArrayList<Depot> l = new ArrayList<Depot>();
         try {
-            PreparedStatement st = Conn.prepareStatement("select * from depot where etat='Disponible'");
+            PreparedStatement st = Conn.prepareStatement("select * from depot where etat='dispo'");
             
             ResultSet rs = st.executeQuery();
             while (rs.next()) {

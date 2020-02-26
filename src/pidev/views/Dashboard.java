@@ -85,7 +85,7 @@ public class Dashboard {
     }
 
     
-    
+    @FXML
     void initialize() throws SQLException {
         assert Bt_Dashboard2 != null : "fx:id=\"Bt_Dashboard2\" was not injected: check your FXML file 'Dashboard.fxml'.";
         assert Bt_Stock2 != null : "fx:id=\"Bt_Stock2\" was not injected: check your FXML file 'Dashboard.fxml'.";
