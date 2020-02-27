@@ -1,77 +1,134 @@
 package pidev.entity;
+import java.util.Objects;
+import java.sql.Timestamp;    
+import java.util.Date;    
+import java.text.SimpleDateFormat;
+/**
+ *
+ * @author amall
+ */
 public class Commande {
-    private int id_comm;
-    private String date ;
-    private int quantite;
-    private String adresse_desti;
-    private double prix;
-    private String type;
+    
+    private int id_commande;
+    private int id;
+    private Date date;
+    private String adresse_dest;
+    private int prix_total;
 
-    public Commande(int id_comm, String date, int quantite, String adresse_desti, double prix, String type) {
-        this.id_comm = id_comm;
+    public Commande() {
+    }
+
+    public Commande(int id, Date date, String adresse_dest, int prix_total) {
+        this.id = id;
         this.date = date;
-        this.quantite = quantite;
-        this.adresse_desti = adresse_desti;
-        this.prix = prix;
-        this.type = type;
-    }
-    
-    
-    
-
-    public int getId_comm() {
-        return id_comm;
+        this.adresse_dest = adresse_dest;
+        this.prix_total = prix_total;
     }
 
-    public String getDate() {
+    public Commande(String adresse_dest) {
+        this.adresse_dest = adresse_dest;
+    }
+    
+
+    public Commande(int id, String adresse_dest) {
+        this.id = id;
+        this.adresse_dest = adresse_dest;
+    }
+    
+
+    public Commande(int id_commande, int id, Date date, String adresse_dest, int prix_total) {
+        this.id_commande = id_commande;
+        this.id = id;
+        this.date = date;
+        this.adresse_dest = adresse_dest;
+        this.prix_total = prix_total;
+
+    }
+
+    public int getId_commande() {
+        return id_commande;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public Date getDate() {
         return date;
     }
 
-    public int getQuantite() {
-        return quantite;
+    public String getAdresse_dest() {
+        return adresse_dest;
     }
 
-    public String getAdresse_desti() {
-        return adresse_desti;
+    public int getPrix_total() {
+        return prix_total;
     }
 
-    public double getPrix() {
-        return prix;
+    public void setId_commande(int id_commande) {
+        this.id_commande = id_commande;
     }
 
-    public String getType() {
-        return type;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setId_comm(int id_comm) {
-        this.id_comm = id_comm;
-    }
-
-    public void setDate(String date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
-    public void setQuantite(int quantite) {
-        this.quantite = quantite;
+    public void setAdresse_dest(String adresse_dest) {
+        this.adresse_dest = adresse_dest;
     }
 
-    public void setAdresse_desti(String adresse_desti) {
-        this.adresse_desti = adresse_desti;
+    public void setPrix_total(int prix_total) {
+        this.prix_total = prix_total;
     }
 
-    public void setPrix(double prix) {
-        this.prix = prix;
-    }
 
-    public void setType(String type) {
-        this.type = type;
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 97 * hash + this.id_commande;
+        return hash;
     }
 
     @Override
-    public String toString() {
-        return "Commande{" + "id_comm=" + id_comm + ", date=" + date + ", quantite=" + quantite + ", adresse_desti=" + adresse_desti + ", prix=" + prix + ", type=" + type + '}';
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Commande other = (Commande) obj;
+        if (this.id_commande != other.id_commande) {
+            return false;
+        }
+        if (this.id != other.id) {
+            return false;
+        }
+        if (this.prix_total != other.prix_total) {
+            return false;
+        }
+        if (!Objects.equals(this.adresse_dest, other.adresse_dest)) {
+            return false;
+        }
+        if (!Objects.equals(this.date, other.date)) {
+            return false;
+        }
+        return true;
     }
     
-    
+
+
+
+    @Override
+    public String toString() {
+        return "Commande{" + "id_commande=" + id_commande + ", id=" + id + ", date=" + date + ", adresse_dest=" + adresse_dest + ", prix_total=" + prix_total + '}';
+    }
     
 }

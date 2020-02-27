@@ -119,7 +119,12 @@ public class AcceuilClientController implements Initializable {
 
 
     @FXML
-    private void boutique(ActionEvent event) {
+    private void boutique(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("Vitrine.fxml"));
+              Scene scene = new Scene(root);
+              Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+              stage.setScene(scene);
+              stage.show();
     }
 
     @FXML

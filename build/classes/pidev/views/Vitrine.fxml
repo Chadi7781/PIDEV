@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="774.0" prefWidth="1116.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidev.views.VitrineController">
+    <stylesheets>
+        <URL value="@../utils/css/vitrine.css" />
+    </stylesheets>
+   <children>
+      <BorderPane prefHeight="200.0" prefWidth="200.0">
+         <bottom>
+            <Pane prefHeight="776.0" prefWidth="336.0" styleClass="left" stylesheets="@../utils/css/vitrine.css" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="20.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true">
+                     <styleClass>
+                        <String fx:value="envoyer_btn" />
+                        <String fx:value="content-area-circle-btns" />
+                        <String fx:value="img" />
+                     </styleClass>
+                     <image>
+                        <Image url="@../utils/images/s4s.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="35.0" layoutY="406.0" stylesheets="@../utils/css/vitrine.css" text="Stock For Speed">
+                     <font>
+                        <Font name="Impact" size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </bottom>
+      </BorderPane>
+      <AnchorPane layoutX="200.0" prefHeight="776.0">
+         <children>
+            <BorderPane layoutY="80.0" prefHeight="676.0" prefWidth="918.0">
+               <top>
+                  <ScrollPane fx:id="scrlpane" prefHeight="695.0" prefWidth="918.0" BorderPane.alignment="CENTER">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="695.0" prefWidth="902.0">
+                           <children>
+                              <GridPane fx:id="gridPane" layoutX="14.0" layoutY="11.0" prefHeight="655.0" prefWidth="878.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                              </GridPane>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </ScrollPane>
+               </top>
+            </BorderPane>
+            <BorderPane prefHeight="81.0" prefWidth="918.0">
+               <center>
+                  <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <TextField fx:id="searchbar" layoutX="14.0" layoutY="24.0" prefHeight="33.0" prefWidth="250.0" promptText="🔍 Chercher..." />
+                        <Label fx:id="cat" layoutX="276.0" layoutY="30.0" prefHeight="22.0" prefWidth="54.0" text="Catégorie:" />
+                        <Pane fx:id="retour" layoutX="855.0" layoutY="21.0" onMouseClicked="#Home" prefHeight="40.0" prefWidth="40.0">
+                           <children>
+                              <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                              <image>
+                              <Image url="@../utils/images/return.png" />
+                              </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                        <Pane fx:id="panier" layoutX="799.0" layoutY="21.0" prefHeight="40.0" prefWidth="40.0">
+                           <children>
+                              <ImageView fx:id="panierr" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                              <image>
+                                  <Image url="@../utils/images/cart.png" />
+                              </image>    
+                              </ImageView>
+                           </children>
+                        </Pane>
+                        <Label layoutX="459.0" layoutY="32.0" text="Trier par:" />
+                        <Button fx:id="ok_btn" layoutX="656.0" layoutY="26.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="42.0" stylesheets="@../utils/css/vitrine.css" text="OK!" />
+                        <ComboBox fx:id="lstcategorie" layoutX="343.0" layoutY="26.0" prefHeight="32.0" prefWidth="89.0" />
+                        <ComboBox fx:id="lsttri" layoutX="516.0" layoutY="26.0" prefHeight="31.0" prefWidth="132.0" />
+                        <Label fx:id="errmsg" layoutX="23.0" layoutY="59.0" />
+                     </children>
+                  </Pane>
+               </center>
+            </BorderPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

@@ -24,7 +24,7 @@ public class GestionProduitService {
                             Produit produit = new Produit();
 				produit.setCategorie(rs.getString(Utility.CATEGORIE));
 				produit.setDescription(rs.getString(Utility.DESCRIPTION));
-				produit.setEtat(rs.getBoolean(Utility.ETAT));
+				produit.setEtat(rs.getString(Utility.ETAT));
 				produit.setId_depot(rs.getInt(Utility.ID_DEPOT));
 				produit.setNom_pd(rs.getString(Utility.nom_produit));
 				produit.setPhoto(rs.getString(Utility.PHOTO_PRODUIT));
@@ -50,7 +50,7 @@ public class GestionProduitService {
                             Produit produit = new Produit();
 				produit.setCategorie(rs.getString(Utility.CATEGORIE));
 				produit.setDescription(rs.getString(Utility.DESCRIPTION));
-				produit.setEtat(rs.getBoolean(Utility.ETAT));
+				produit.setEtat(rs.getString(Utility.ETAT));
 				produit.setId_depot(rs.getInt(Utility.ID_DEPOT));
 				produit.setNom_pd(rs.getString(Utility.nom_produit));
 				produit.setPhoto(rs.getString(Utility.PHOTO_PRODUIT));
