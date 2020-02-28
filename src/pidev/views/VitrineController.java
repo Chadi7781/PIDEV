@@ -110,7 +110,6 @@ public class VitrineController implements Initializable {
                             errmsg.setText("");
 
     if (!searchbar.getText().matches("^[a-zA-Z0-9 ]*$")) {
-                    // when it not matches the pattern (1.0 - 6.0)
                     // set the textField empty
                     searchbar.setText("");
                     errmsg.setText("veuillez saisir des lettres ou des nombres");
@@ -237,9 +236,10 @@ public class VitrineController implements Initializable {
                     input = new FileInputStream(l.get(k).getPhoto());
                     image = new Image(input);
                     imageView = new ImageView(image);
-                
-                    Label pname = new Label(l.get(k).getNom_pd());
-                    Label pprix = new Label(String.valueOf(l.get(k).getPrix()));
+                    String sname="libellé: ";
+                    String sprix="prix: ";
+                    Label pname = new Label(sname+l.get(k).getNom_pd());
+                    Label pprix = new Label(sprix+String.valueOf(l.get(k).getPrix()));
                     Button button = new Button("Ajouter au panier");
                     button.setOnAction(( ActionEvent ) ->
                         {

@@ -31,7 +31,7 @@
          <children>
             <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="43.0" layoutY="14.0" pickOnBounds="true" smooth="false">
                <image>
-                  <Image url="@../images/s4s.png" />
+                  <Image url="@../utils/images/s4smdwra.png" />
                </image>
                <styleClass>
                   <String fx:value="envoyer_btn" />

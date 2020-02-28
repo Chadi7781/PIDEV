@@ -112,7 +112,7 @@ public class TraiterLivraisonAdminController implements Initializable {
         SelectedLivraison =livraison;
         expAdmin.setText(SelectedLivraison.getAdresse_depart());
         expdestinatatire.setText(SelectedLivraison.getAdresse_arrive());
-        Adminphoto.setImage(new Image(new FileInputStream("C:\\wamp64\\www\\JavaImages\\"+SelectedLivraison.getPhoto_produit())));
+        Adminphoto.setImage(new Image(new FileInputStream("C:\\wamp\\www\\JavaImages\\"+SelectedLivraison.getPhoto_produit())));
         prixadmin.setText(String.valueOf(SelectedLivraison.getPrix()));
         fragileAdmin.setText(SelectedLivraison.getFragile());
         adminDate.setText(SelectedLivraison.getDate_reception());

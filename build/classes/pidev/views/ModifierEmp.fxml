@@ -49,7 +49,7 @@
       </Pane>
       <ImageView fitHeight="38.0" fitWidth="41.0" layoutX="598.0" layoutY="525.0" pickOnBounds="true" smooth="false" styleClass="img">
          <image>
-            <Image url="@../../../../../Users/htc/Documents/NetBeansProjects/prj/src/prj/utils/images/Image1.png" />
+            <Image url="@../utils/images/s4smdwra.png" />
          </image>
       </ImageView>
       <Text fx:id="alertCIN" fill="#ee0404" layoutX="245.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="142.99999833106995" />
@@ -67,7 +67,7 @@
          <children>
             <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="43.0" layoutY="14.0" pickOnBounds="true" smooth="false">
                <image>
-                  <Image url="@../images/s4s.png" />
+                  <Image url="@../utils/images/s4smdwra.png" />
                </image>
                <styleClass>
                   <String fx:value="envoyer_btn" />

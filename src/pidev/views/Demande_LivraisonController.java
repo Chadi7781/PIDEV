@@ -375,6 +375,7 @@ public class Demande_LivraisonController implements Initializable {
         l.setFragile("non");}
 
     }
+    @FXML
     public void combobox(ActionEvent event)
     {
        int  valeur=0;
@@ -422,7 +423,7 @@ public class Demande_LivraisonController implements Initializable {
        }
         System.out.println("valeur" + valeur);
     }
-        
+        @FXML
     public void valider(ActionEvent event) throws IOException {
         if (Adresse_expt.getText().isEmpty()){
             controle.setText(" Tout les Champs sont obligatoires !");
@@ -454,7 +455,7 @@ public class Demande_LivraisonController implements Initializable {
            FileOutputStream fileOutputStream = null;
                     try {
                     
-                        fileOutputStream = new FileOutputStream("C:\\wamp64\\www\\JavaImages\\" + photo.get(photo.size()-1));
+                        fileOutputStream = new FileOutputStream("C:\\wamp\\www\\JavaImages\\" + photo.get(photo.size()-1));
 
 			fileOutputStream.write(Files.readAllBytes(file.toPath()));
 			fileOutputStream.flush();
@@ -487,7 +488,7 @@ public class Demande_LivraisonController implements Initializable {
        if (result.get() == buttonTypeOne){
            LivraisonService.generate_qr(l.getAdresse_arrive(), l.getAdresse_depart());
            
-           String FILE_NAME = "C:\\wamp64\\www\\PDF\\S4SFacture"+l.getAdresse_arrive()+".pdf";
+           String FILE_NAME = "C:\\wamp\\www\\PDF\\S4SFacture"+l.getAdresse_arrive()+".pdf";
         Document document = new Document();
         try {
             PdfWriter.getInstance(document, new FileOutputStream(new File(FILE_NAME)));
@@ -542,9 +543,9 @@ public class Demande_LivraisonController implements Initializable {
             p9.add(Integer.toString(l.getPrix())); //no alignment
             document.add(p8);
             document.add(new Paragraph("Photo de produit", f2));
-            com.itextpdf.text.Image image3=  com.itextpdf.text.Image.getInstance("C:/wamp64/www/JavaImages/"+l.getPhoto_produit());
-            com.itextpdf.text.Image image1=  com.itextpdf.text.Image.getInstance("C://wamp64/www/QRCode/"+l.getAdresse_arrive()+".png");
-            com.itextpdf.text.Image image2=  com.itextpdf.text.Image.getInstance("C:/wamp64/www/JavaImages/s4smdwra.png");
+            com.itextpdf.text.Image image3=  com.itextpdf.text.Image.getInstance("C:/wamp/www/JavaImages/"+l.getPhoto_produit());
+            com.itextpdf.text.Image image1=  com.itextpdf.text.Image.getInstance("C://wamp/www/QRCode/"+l.getAdresse_arrive()+".png");
+            com.itextpdf.text.Image image2=  com.itextpdf.text.Image.getInstance("C:/wamp/www/JavaImages/s4smdwra.png");
             image2.setAbsolutePosition(500f,750f);
             image3.scalePercent(15f);
             image2.scalePercent(15f);
@@ -617,7 +618,7 @@ public class Demande_LivraisonController implements Initializable {
          demande_livraison.show();
          
        }
-        
+        @FXML
      public void annuler(ActionEvent event) throws IOException{
          
          Alert alert = new Alert(AlertType.ERROR);

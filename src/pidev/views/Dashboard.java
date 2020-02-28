@@ -1,6 +1,7 @@
 package pidev.views;
 
 import com.gluonhq.charm.glisten.control.TextField;
+import com.jfoenix.controls.JFXButton;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.text.DecimalFormat;
@@ -45,6 +46,8 @@ public class Dashboard {
     private Button Bt_Stock21;
     @FXML
     private Button livraison;
+    @FXML
+    private JFXButton logos;
 
 
     @FXML
@@ -84,7 +87,6 @@ public class Dashboard {
 
     }
 
-    
     @FXML
     void initialize() throws SQLException {
         assert Bt_Dashboard2 != null : "fx:id=\"Bt_Dashboard2\" was not injected: check your FXML file 'Dashboard.fxml'.";
@@ -125,6 +127,15 @@ public class Dashboard {
               stage.setScene(scene);
               stage.show();
     }
+
+   /* @FXML
+    private void logoutt(ActionEvent event) throws IOException {
+     Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
+              Scene scene = new Scene(root);
+              Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+              stage.setScene(scene);
+              stage.show();
+    }*/
 
     
 }

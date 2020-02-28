@@ -218,7 +218,7 @@ public class LivraisonService {
 		}}
         public static void generate_qr(String image_name,String qrCodeData) {
         try {
-            String filePath = "C:\\wamp64\\www\\QRCode\\"+image_name+".png";
+            String filePath = "C:\\wamp\\www\\QRCode\\"+image_name+".png";
             String charset = "UTF-8"; // or "ISO-8859-1"
             Map < EncodeHintType, ErrorCorrectionLevel > hintMap = new HashMap < EncodeHintType, ErrorCorrectionLevel > ();
             hintMap.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.L);

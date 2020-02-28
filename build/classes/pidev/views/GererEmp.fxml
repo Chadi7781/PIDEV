@@ -44,7 +44,7 @@
       </Button>
       <ImageView fitHeight="38.0" fitWidth="41.0" layoutX="680.0" layoutY="577.0" pickOnBounds="true" smooth="false" styleClass="img">
          <image>
-            <Image url="@../../../../../Users/htc/Documents/NetBeansProjects/prj/src/prj/utils/images/Image1.png" />
+            <Image url="@../utils/images/s4smdwra.png" />
          </image>
       </ImageView>
       <Button layoutX="565.0" layoutY="64.0" mnemonicParsing="false" onAction="#SearchEmployer" text="Chercher" />
@@ -53,7 +53,7 @@
          <children>
             <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="43.0" layoutY="14.0" pickOnBounds="true" smooth="false">
                <image>
-                  <Image url="@../images/s4s.png" />
+                  <Image url="@../utils/images/s4smdwra.png" />
                </image>
                <styleClass>
                   <String fx:value="envoyer_btn" />

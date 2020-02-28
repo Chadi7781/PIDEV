@@ -131,6 +131,7 @@ public class AfficherClient_livraisonController implements Initializable {
 
     
     }
+    
   public void delete()
   {
         LivraisonService smg = new LivraisonService();
@@ -143,7 +144,7 @@ public class AfficherClient_livraisonController implements Initializable {
         Livraison l = afficherClient.getSelectionModel().getSelectedItem();
         label_adresse_expediteur.setText(l.getAdresse_depart());
         label_adresse_destinataire.setText(l.getAdresse_arrive());
-        image_photo.setImage(new Image(new FileInputStream("C:\\wamp64\\www\\JavaImages\\"+l.getPhoto_produit())));
+        image_photo.setImage(new Image(new FileInputStream("C:\\wamp\\www\\JavaImages\\"+l.getPhoto_produit())));
         label_prix.setText(String.valueOf(l.getPrix()));
         label_fragile.setText(l.getFragile());
         int poids=l.getPoids();
