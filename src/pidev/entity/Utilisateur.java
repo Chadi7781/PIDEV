@@ -34,6 +34,8 @@ public class Utilisateur {
     private String prenom;
     private String cin;
     private Date datenaissance;
+    private String disponible;
+    private String governat;
 
 
     public Utilisateur(int id, String username, String username_canonical, String email, String email_canonical, String enabled, String salt, String password, String last_login, String confirmation_token, String password_requested_at, String roles, String activite, String telephone, String adresse, String photo, String mission, String date_naissance, String prenom, String cin) {
@@ -57,6 +59,14 @@ public class Utilisateur {
         this.date_naissance = date_naissance;
         this.prenom = prenom;
         this.cin = cin;
+        
+    }
+    public Utilisateur(String username,String disponible , String prenom, String mission) {
+        this.username = username;
+        this.disponible = disponible;
+        this.prenom = prenom;
+         this.mission = mission;
+        
     }
 
     public Utilisateur() {
@@ -248,7 +258,13 @@ public class Utilisateur {
         return "Utilisateur{" + "id=" + id + ", username=" + username + ", username_canonical=" + username_canonical + ", email=" + email + ", email_canonical=" + email_canonical + ", enabled=" + enabled + ", salt=" + salt + ", password=" + password + ", last_login=" + last_login + ", confirmation_token=" + confirmation_token + ", password_requested_at=" + password_requested_at + ", roles=" + roles + ", activite=" + activite + ", telephone=" + telephone + ", adresse=" + adresse + ", photo=" + photo + ", mission=" + mission + ", date_naissance=" + date_naissance + ", prenom=" + prenom + ", cin=" + cin + '}';
     }
     
-    
+     public String getDisponible() {
+        return disponible;
+    }
+
+    public void setDisponible(String disponible) {
+        this.disponible = disponible;
+    }
     
 
 }
