@@ -221,9 +221,20 @@ public class AfficherAdmin_LivraisonController implements Initializable {
               stage.setScene(scene);
               stage.show();
     }
-      
+    @FXML
+     private void GestionVehicules(ActionEvent event) throws IOException {
+         /*
+     
+           Parent root = FXMLLoader.load(getClass().getResource("chedi.fxml"));
+              Scene scene = new Scene(root);
+              Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+              stage.setScene(scene);
+              stage.show();
+    
+}*/ 
 
     }
+}
      
      
      

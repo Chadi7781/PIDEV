@@ -5,23 +5,120 @@
  */
 package pidev.entity;
 
+import com.jfoenix.controls.JFXButton;
+import java.sql.Blob;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.Objects;
 
-/**
- *
- * @author PC
+/** 
+ *.* @author PC
  */
+
+
 public class Reclamation {
     String objet;
     String description;
-    
-    //LocalDate date;
+    int etat;
+    String date;
+    int id_rec;
+    int id;
+    String image;
+    String email;
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public int getId_rec() {
+        return id_rec;
+    }
+
+    public void setId_rec(int id_rec) {
+        this.id_rec = id_rec;
+    }
+
+    public int getId_user() {
+        return id;
+    }
+
+    public void setId_user(int id) {
+        this.id = id;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public int getId() {
+         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Reclamation(String objet, String description, String image) {
+        this.objet = objet;
+        this.description = description;
+        this.image = image;
+    }
+        public Reclamation(String objet, String description,int id_rec, int etat,int id,String email) {
+        this.objet = objet;
+        this.description = description;
+        this.etat=etat;
+        this.id_rec=id_rec;
+        this.id=id;
+        this.email = email;
+    }
+        
+
+
+
+    public Reclamation(String objet, String description, String date,int id) {
+        this.objet = objet;
+        this.description = description;
+        
+        this.date=date;
+        this.id=id;
+    }
+  
 
     public Reclamation(String objet, String description) {
         this.objet = objet;
         this.description = description;
+    }
+
+
+ 
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    
+    
+
+    public int getEtat() {
+        return etat;
+    }
+
+    public void setEtat(int etat) {
+        this.etat = etat;
+    }
+
+    public Reclamation() {
     }
 
     public String getObjet() {
@@ -38,6 +135,14 @@ public class Reclamation {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+   
+    
+
+    @Override
+    public String toString() {
+        return "Reclamation{" + "objet=" + objet + ", description=" + description + ", etat=" + etat + ", date=" + date + ", id_rec=" + id_rec + ", id=" + id + ", image=" + image + '}';
     }
 
    

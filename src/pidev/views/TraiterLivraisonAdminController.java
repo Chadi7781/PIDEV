@@ -11,6 +11,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.value.ObservableValue;
@@ -36,7 +37,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 import pidev.entity.Livraison;
+import pidev.entity.Utilisateur;
 import pidev.services.LivraisonService;
+import pidev.services.LivreurService;
 
 
 /**
@@ -72,6 +75,12 @@ public class TraiterLivraisonAdminController implements Initializable {
      @FXML
     private CheckBox confirmerbox;
      private Livraison SelectedLivraison;
+     @FXML
+    private ComboBox<String> checkgovernat;
+     @FXML
+    private ComboBox<String> nomLivreur;
+       @FXML
+    private Label dispo;
       
 
 
@@ -131,6 +140,37 @@ public class TraiterLivraisonAdminController implements Initializable {
             
         
     }}
+    @FXML
+    void OngovernatSelect(ActionEvent event) {
+        nomLivreur.getItems().clear();
+        
+        ArrayList <String> disponible = new ArrayList<>();
+        ArrayList <String> nom = new ArrayList<>();
+        
+        LivreurService ms = new LivreurService();
+        
+        String gouvrnorat;
+        gouvrnorat = checkgovernat.getSelectionModel().getSelectedItem().toString();
+        
+        
+        ArrayList <Utilisateur> livreur = ms.afficherLivreurParGouvernorat(gouvrnorat);
+        
+        System.out.println(livreur);
+        
+        for (Utilisateur g : livreur){
+             System.out.println(g);
+            nom.add(g.getUsername());
+            disponible.add(g.getDisponible());
+        
+        }
+        
+        nomLivreur.getItems().addAll(nom);
+        nomLivreur.setValue(nom.get(0));
+        dispo.setText(disponible.get(0));
+        livreur.clear();
+        nom.clear();
+
+    }
         @FXML
     void confirmeretat(ActionEvent event) throws SQLException, IOException {
         // Livraison l = tableviewAdmin.getSelectionModel().getSelectedItem();

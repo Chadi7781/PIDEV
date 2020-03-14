@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -60,5 +61,13 @@
             <Image url="@../utils/images/Image1.png" />
          </image>
       </ImageView>
+      <JFXButton fx:id="apresVentes" alignment="CENTER" buttonType="RAISED" layoutX="356.0" layoutY="271.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#handleActionRecFeed" prefHeight="35.0" prefWidth="188.0" ripplerFill="#ffffff05" style="-fx-background-color: black;" styleClass="envoyer_btn" stylesheets="@../utils/css/stylehseet.css" text="Service Aprés Ventes" textFill="#4059a9">
+         <font>
+            <Font name="Impact" size="18.0" />
+         </font>
+         <effect>
+            <Glow />
+         </effect>
+      </JFXButton>
    </children>
 </AnchorPane>

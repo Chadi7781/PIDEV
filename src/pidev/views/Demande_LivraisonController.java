@@ -170,7 +170,7 @@ public class Demande_LivraisonController implements Initializable {
 
     Dragboard db;
     Livraison l = new Livraison();
-    
+    //behi hathi app wino interfaces ta
     File file;
     
 
@@ -189,7 +189,7 @@ public class Demande_LivraisonController implements Initializable {
         hbox.setAlignment(Pos.CENTER);
         hbox.getChildren().add(center);
         labelprix.setStyle("-fx-text-fill = #000000");
-        
+         // 
         gouvernorat.getItems().addAll("Ariana","Béja","Ben Arous","Bizerte","Gabès","Gafsa","Jendouba","Kairouan","Kasserine","Kébili","Le Kef","Mahdia","La Manouba","Médenine","Monastir","Nabeul","Sfax","Sidi Bouzid","Siliana","Sousse","Tataouine","Tozeur","Tunis","Zaghouan");
         Comboxpoids.getItems().addAll("0 < Poids < 10", "10 < Poids < 20", "20 < Poids < 30", "+30");
         

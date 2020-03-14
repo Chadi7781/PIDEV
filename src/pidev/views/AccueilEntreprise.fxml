@@ -75,5 +75,13 @@
       </ImageView>
       <JFXButton fx:id="gererlivraison1" layoutX="349.0" layoutY="414.0" onAction="#gererlivraison" prefHeight="158.0" prefWidth="229.0" text=" " />
       <JFXButton fx:id="EditeProfil" layoutX="48.0" layoutY="414.0" onAction="#EditeProfil" prefHeight="165.0" prefWidth="229.0" text=" " />
+      <JFXButton fx:id="apresVentes" alignment="CENTER" buttonType="RAISED" layoutX="432.0" layoutY="310.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#handleActionRecFeed" prefHeight="35.0" prefWidth="188.0" ripplerFill="#ffffff05" style="-fx-background-color: black;" styleClass="envoyer_btn" stylesheets="@../utils/css/stylehseet.css" text="Service Aprés Ventes" textFill="#4059a9">
+         <font>
+            <Font name="Impact" size="18.0" />
+         </font>
+         <effect>
+            <Glow />
+         </effect>
+      </JFXButton>
    </children>
 </AnchorPane>

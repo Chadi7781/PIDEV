@@ -54,6 +54,8 @@ public class AcceuilClientController implements Initializable {
     private JFXButton logos;
     @FXML
     private JFXButton edit;
+    @FXML
+    private JFXButton apresVentes;
 
     /**
      * Initializes the controller class.
@@ -150,6 +152,37 @@ public class AcceuilClientController implements Initializable {
               stage.setScene(scene);
               stage.show();
     }
+    
+    
+  private double xOffset = 0;
+        private double yOffset = 0;
+    @FXML
+    private void handleActionRecFeed(ActionEvent event) throws IOException {
+            Parent root = FXMLLoader.load(getClass().getResource("ajout_reclamation.fxml"));
+              Scene scene = new Scene(root);
+                            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+        
+        stage.setScene(scene);
+        //stage.initStyle(StageStyle.TRANSPARENT);
+        root.setOnMousePressed(((MouseEvent event1) -> {
+            xOffset = event1.getSceneX();
+            yOffset = event1.getScreenY();
+        }));
+        
+        root.setOnMouseDragged((MouseEvent event1)->{
+            stage.setX(event1.getSceneX() - xOffset);
+            stage.setY(event1.getSceneY() - yOffset);
+
+        });
+        
+                stage.setScene(scene);
+                new animatefx.animation.ZoomIn(root).play();
+
+        stage.show();
+            
+        }
+   
 
 
 }

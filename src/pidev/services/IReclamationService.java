@@ -5,8 +5,14 @@
  */
 package pidev.services;
 
+import java.sql.ResultSet;
 import java.util.List;
+import javafx.collections.ObservableList;
+import javafx.scene.chart.BarChart;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.PieChart;
 import pidev.entity.Reclamation;
+import pidev.entity.Utilisateur;
 
 /**
  *
@@ -15,8 +21,20 @@ import pidev.entity.Reclamation;
 public interface IReclamationService {
     public void ajouterReclamation(Reclamation p);  
     public void modifierReclamation(Reclamation p);
-    public void SupprimerReclamation(Reclamation p);
-    public List<Reclamation> afficherReclamation(Reclamation p);
+    public ObservableList<Reclamation> getAllReclamation();
+    
+        public ObservableList<Reclamation> getReclamationByEtatNonTraite();
+            public ObservableList<Reclamation> getReclamationByEtatTraite();
+
+
+    public void  traiterReclamation(Reclamation p);
+    
+    public int getNbrReclamation();
+    
+    
+   
+ 
+    
     
     
 }

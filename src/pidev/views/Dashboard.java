@@ -48,6 +48,8 @@ public class Dashboard {
     private Button livraison;
     @FXML
     private Button Bt_Dashboard21;
+    @FXML
+    private Button btn_Rec_Feed;
 
 
     @FXML
@@ -144,6 +146,16 @@ public class Dashboard {
               stage.setScene(scene);
               stage.show();
         
+    }
+
+    @FXML
+    private void handleActionButtonRecFeed(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("menu_admin.fxml"));
+              Scene scene = new Scene(root);
+              Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+              stage.setScene(scene);
+               new animatefx.animation.ZoomIn(root).play();
+
     }
 
     
