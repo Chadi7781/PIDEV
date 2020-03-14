@@ -6,6 +6,7 @@
 package pidev.views;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
 import java.net.URL;
 import java.text.DateFormat;
@@ -19,6 +20,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -73,29 +76,76 @@ public class DemandDepotController implements Initializable {
     public static Integer pri;
     public static Integer surfac;
     public static Integer idde;
+    public static String idll;
+public static String id11;
+    public static int id15;
     @FXML
     private TableColumn<Depot, String> datedebut;
     @FXML
     private TableColumn<Depot, String> datefin;
+    @FXML
+    private Label labelrecherch;
+    @FXML
+    private JFXTextField recherche;
+    @FXML
+    private JFXButton Ajouter;
+    @FXML
+    private JFXButton afficher;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        valider2.setDisable(true);
+         Ajouter.setDisable(true);
+          afficher.setDisable(true);
+         valider2.setDisable(true);
         ServiceDepot sd = new ServiceDepot();
         List<Depot> plist = sd.findAllDepots();
         System.out.println(plist);
         iddepot.setCellValueFactory(new PropertyValueFactory<>("id"));
         prix.setCellValueFactory(new PropertyValueFactory<>("prix"));
-        adresse.setCellValueFactory(new PropertyValueFactory<>("pays"));
+        adresse.setCellValueFactory(new PropertyValueFactory<>("adr"));
         surface.setCellValueFactory(new PropertyValueFactory<>("surface"));
         datedebut.setVisible(false);
         datefin.setVisible(false);
         //etat.setCellValueFactory(new PropertyValueFactory<>("etat"));
         ObservableList<Depot> oblist = FXCollections.observableArrayList(plist);
-        depot.setItems(oblist);
+      
+        FilteredList<Depot> filteredData = new FilteredList<>(oblist, b -> true);
+
+        recherche.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredData.setPredicate(depot -> {
+                // If filter text is empty, display all persons.
+
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+
+                // Compare first name and last name of every person with filter text.
+                String lowerCaseFilter = newValue.toLowerCase();
+
+                if (depot.getAdr().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+                    return true; // Filter matches first name.
+                } else if (String.valueOf(depot.getSurface()).indexOf(lowerCaseFilter) != -1) {
+                    return true; // Filter matches last name.
+                } else if (String.valueOf(depot.getPrix()).indexOf(lowerCaseFilter) != -1) {
+                    return true;
+                } else {
+                    return false; // Does not match.
+                }
+            });
+        });
+
+        SortedList<Depot> sortedData = new SortedList<>(filteredData);
+
+        // 4. Bind the SortedList comparator to the TableView comparator.
+        // 	  Otherwise, sorting the TableView would have no effect.
+        sortedData.comparatorProperty().bind(depot.comparatorProperty());
+
+        // 5. Add sorted (and filtered) data to the table.
+        depot.setItems(sortedData);
+        
     }
 
     @FXML
@@ -104,7 +154,7 @@ public class DemandDepotController implements Initializable {
 
     @FXML
     private void valider(ActionEvent event) throws IOException {
-        ServiceDepot sd = new ServiceDepot();
+          ServiceDepot sd = new ServiceDepot();
         ServiceClient sc = new ServiceClient();
         if (depot.getSelectionModel().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -153,6 +203,8 @@ public class DemandDepotController implements Initializable {
 
     @FXML
     private void mesdepots(ActionEvent event) {
+        Ajouter.setDisable(false);
+         afficher.setDisable(false);
         datedebut.setVisible(true);
         datefin.setVisible(true);
         valider2.setDisable(false);
@@ -191,12 +243,45 @@ public class DemandDepotController implements Initializable {
             }
             iddepot.setCellValueFactory(new PropertyValueFactory<>("id"));
             prix.setCellValueFactory(new PropertyValueFactory<>("prix"));
-            adresse.setCellValueFactory(new PropertyValueFactory<>("pays"));
+            adresse.setCellValueFactory(new PropertyValueFactory<>("adr"));
             surface.setCellValueFactory(new PropertyValueFactory<>("surface"));
             datedebut.setCellValueFactory(new PropertyValueFactory<>("datedebut"));
             datefin.setCellValueFactory(new PropertyValueFactory<>("datefin"));
             ObservableList<Depot> oblist = FXCollections.observableArrayList(plist);
-            depot.setItems(oblist);
+
+            FilteredList<Depot> filteredData = new FilteredList<>(oblist, b -> true);
+
+            recherche.textProperty().addListener((observable, oldValue, newValue) -> {
+                filteredData.setPredicate(depot -> {
+                    // If filter text is empty, display all persons.
+
+                    if (newValue == null || newValue.isEmpty()) {
+                        return true;
+                    }
+
+                    // Compare first name and last name of every person with filter text.
+                    String lowerCaseFilter = newValue.toLowerCase();
+
+                    if (depot.getAdr().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+                        return true; // Filter matches first name.
+                    } else if (String.valueOf(depot.getSurface()).indexOf(lowerCaseFilter) != -1) {
+                        return true; // Filter matches last name.
+                    } else if (String.valueOf(depot.getPrix()).indexOf(lowerCaseFilter) != -1) {
+                        return true;
+                    } else {
+                        return false; // Does not match.
+                    }
+                });
+            });
+
+            SortedList<Depot> sortedData = new SortedList<>(filteredData);
+
+            // 4. Bind the SortedList comparator to the TableView comparator.
+            // 	  Otherwise, sorting the TableView would have no effect.
+            sortedData.comparatorProperty().bind(depot.comparatorProperty());
+
+            // 5. Add sorted (and filtered) data to the table.
+            depot.setItems(sortedData);
             depot.refresh();
         } catch (IOException ex) {
             Logger.getLogger(DemandDepotController.class.getName()).log(Level.SEVERE, null, ex);
@@ -207,7 +292,8 @@ public class DemandDepotController implements Initializable {
 
     @FXML
     private void louer(ActionEvent event) {
-        datedebut.setVisible(false);
+         Ajouter.setDisable(true);
+          datedebut.setVisible(false);
         datefin.setVisible(false);
         valider.setDisable(false);
         ServiceDepot sd = new ServiceDepot();
@@ -215,7 +301,7 @@ public class DemandDepotController implements Initializable {
         System.out.println(plist);
         iddepot.setCellValueFactory(new PropertyValueFactory<>("id"));
         prix.setCellValueFactory(new PropertyValueFactory<>("prix"));
-        adresse.setCellValueFactory(new PropertyValueFactory<>("pays"));
+        adresse.setCellValueFactory(new PropertyValueFactory<>("adr"));
         surface.setCellValueFactory(new PropertyValueFactory<>("surface"));
 
         //etat.setCellValueFactory(new PropertyValueFactory<>("etat"));
@@ -236,6 +322,52 @@ public class DemandDepotController implements Initializable {
         prStage.setResizable(false);
 
         prStage.show();
+    }
+
+    @FXML
+    private void Ajouter(ActionEvent event) throws IOException {
+         if (depot.getSelectionModel().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Alerte");
+            alert.setHeaderText(null);
+            alert.setContentText("!!!  Selctionnez un depot du tableau !!!");
+            alert.showAndWait();
+        } else {
+        id11=depot.getSelectionModel().getSelectedItem().getId().toString();
+       idll=depot.getSelectionModel().getSelectedItem().getId().toString();
+         FXMLLoader loader = new FXMLLoader();
+        rec.getScene().getWindow().hide();
+        Stage prStage = new Stage();
+        loader.setLocation(getClass().getResource("categorieentre.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        prStage.setScene(scene);
+        prStage.setResizable(false);
+
+        prStage.show();  }
+    }
+
+    @FXML
+    private void afficher(ActionEvent event) throws IOException {
+          if (depot.getSelectionModel().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Alerte");
+            alert.setHeaderText(null);
+            alert.setContentText("!!!  Selctionnez un depot du tableau !!!");
+            alert.showAndWait();
+        } else {
+         id11=depot.getSelectionModel().getSelectedItem().getId().toString();
+            FXMLLoader loader = new FXMLLoader();
+        rec.getScene().getWindow().hide();
+        Stage prStage = new Stage();
+        loader.setLocation(getClass().getResource("afficherdepotparproduit.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        prStage.setScene(scene);
+        prStage.setResizable(false);
+
+        prStage.show(); 
+    }
     }
 
 }

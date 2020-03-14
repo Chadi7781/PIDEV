@@ -12,13 +12,13 @@ public class Produit {
     private int prix;
     private String description;
     private String Etat;
-    private String categorie;
+    private int categorie;
     private int id_depot;
     private String nom_pd;
     private int Quantite;
     private String ADR;
     
-    public Produit(int id,int prix, String Etat, String categorie, String nom_pd, int Quantite) {
+    public Produit(int id,int prix, String Etat, int categorie, String nom_pd, int Quantite) {
         this.id_pro=id;
         this.prix = prix;
         this.Etat = Etat;
@@ -29,7 +29,7 @@ public class Produit {
     }
 
       
-    public Produit(int id_pro, String photo, int poids, int prix, String description, String Etat, String categorie, int id_depot, String nom_pd, int Quantite) {
+    public Produit(int id_pro, String photo, int poids, int prix, String description, String Etat, int categorie, int id_depot, String nom_pd, int Quantite) {
         this.id_pro = id_pro;
         this.photo = photo;
         this.poids = poids;
@@ -42,7 +42,7 @@ public class Produit {
         this.Quantite = Quantite;
     }
     //amal
-    public Produit(String nom_pd, String photo, int prix, String description, String categorie) {
+    public Produit(String nom_pd, String photo, int prix, String description, int categorie) {
         this.photo = photo;
         this.description = description;
         this.categorie = categorie;
@@ -65,7 +65,7 @@ public class Produit {
         this.Quantite = p.Quantite;
     }
 
-    public int getId_pro() {
+    public Integer getId_pro() {
         return id_pro;
     }
 
@@ -89,7 +89,7 @@ public class Produit {
         return Etat;
     }
 
-    public String getCategorie() {
+    public Integer getCategorie() {
         return categorie;
     }
 
@@ -133,7 +133,7 @@ public class Produit {
         this.Etat = Etat;
     }
 
-    public void setCategorie(String categorie) {
+    public void setCategorie(int categorie) {
         this.categorie = categorie;
     }
 

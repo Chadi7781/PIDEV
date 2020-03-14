@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXTogglePane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidev.views.ModificationController">
+   <children>
+      <AnchorPane id="AnchorPane" layoutX="-6.0" prefHeight="500.0" prefWidth="600.0">
+         <children>
+            <BorderPane layoutX="2.0" prefHeight="500.0" prefWidth="500.0">
+               <left>
+                  <Pane prefHeight="519.0" prefWidth="190.0" styleClass="left" stylesheets="@../utils/css/stylehseet.css" BorderPane.alignment="CENTER">
+                     <children>
+                        <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="61.0" layoutY="170.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../utils/images/s4s.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="46.0" layoutY="270.0" text="Stock For Speed">
+                           <font>
+                              <Font name="Impact" size="20.0" />
+                           </font>
+                        </Label>
+                        <HBox layoutX="23.0" layoutY="14.0" prefHeight="30.0" prefWidth="146.0" spacing="5.0">
+                           <children>
+                              <Circle fill="#ff4444" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+                              <Circle fill="#fbdd2d" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+                              <Circle fill="#00c71c" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </Pane>
+               </left>
+               <center>
+                  <JFXTogglePane BorderPane.alignment="CENTER">
+                     <children>
+                        <StackPane prefHeight="150.0" prefWidth="200.0">
+                           <children>
+                              <JFXTogglePane>
+                                 <children>
+                                    <Pane prefHeight="478.0" prefWidth="523.0">
+                                       <children>
+                                          <Label id=".labeltitre" layoutX="129.0" layoutY="14.0" prefHeight="40.0" prefWidth="221.0" styleClass="labeltitre" text="Modifier Produit">
+                                             <font>
+                                                <Font name="Ebrima Bold" size="25.0" />
+                                             </font>
+                                          </Label>
+                                          <JFXTextField fx:id="libb" layoutX="116.0" layoutY="92.0" maxWidth="399.0" minWidth="261.0" prefHeight="31.0" prefWidth="261.0" promptText="Libellé" />
+                                          <JFXTextField fx:id="desc" layoutX="121.0" layoutY="145.0" maxWidth="382.0" minWidth="284.0" prefHeight="49.0" prefWidth="284.0" promptText="Description" />
+                                          <JFXTextField fx:id="qte" layoutX="122.0" layoutY="205.0" maxWidth="399.0" minWidth="266.0" prefHeight="31.0" prefWidth="266.0" promptText="Quantite" />
+                                          <JFXTextField fx:id="prix" layoutX="99.0" layoutY="250.0" maxWidth="399.0" minWidth="289.0" prefHeight="31.0" prefWidth="308.0" promptText="Prix" />
+                                          <JFXTextField fx:id="poids" layoutX="104.0" layoutY="294.0" maxWidth="399.0" minWidth="256.0" prefHeight="31.0" prefWidth="256.0" promptText="Poids" />
+                                          <JFXButton fx:id="image" layoutX="138.0" layoutY="345.0" onAction="#image" text="Choissire image" />
+                                          <JFXButton fx:id="valider" buttonType="RAISED" layoutX="268.0" layoutY="439.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#validerprod" prefHeight="35.0" prefWidth="100.0" ripplerFill="#4059a9" styleClass="envoyer_btn" stylesheets="@../utils/css/stylehseet.css" text="Modifie">
+                                             <font>
+                                                <Font name="Impact" size="17.0" />
+                                             </font>
+                                          </JFXButton>
+                                          <ImageView fx:id="back" fitHeight="27.0" fitWidth="85.0" layoutX="16.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../utils/images/back.png" />
+                                             </image>
+                                          </ImageView>
+                                          <JFXButton fx:id="btn" layoutX="14.0" layoutY="14.0" onAction="#retour" prefHeight="8.0" prefWidth="31.0" />
+                                          <Label layoutX="43.0" layoutY="99.0" text="Libelle" />
+                                          <Label layoutX="31.0" layoutY="161.0" text="Description" />
+                                          <Label layoutX="31.0" layoutY="212.0" text="Quantite" />
+                                          <Label layoutX="29.0" layoutY="257.0" prefHeight="17.0" prefWidth="39.0" text="Prix" />
+                                          <Label layoutX="35.0" layoutY="301.0" text="Poids" />
+                                          <ImageView fx:id="img" fitHeight="118.0" fitWidth="158.0" layoutX="63.0" layoutY="372.0" pickOnBounds="true" preserveRatio="true" />
+                                       </children>
+                                    </Pane>
+                                 </children>
+                              </JFXTogglePane>
+                           </children>
+                        </StackPane>
+                     </children>
+                  </JFXTogglePane>
+               </center>
+            </BorderPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

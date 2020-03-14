@@ -18,6 +18,7 @@ import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import pidev.utils.css.ConnexionBD;
+//import static pidev.views.CategorieentreController.idcat;
 
 public class serviceProduit1 {
     private Connection con;
@@ -144,12 +145,12 @@ public Integer getPoidsbyId(int id){
 
 
     
-    public void ajouter(Produit p,int id,int idc) {
+    public void ajouter(Produit p,int id,int idc ,Integer idcat) {
         
         try {
             ste = con.createStatement();
        
-        String requeteInsert = "INSERT INTO produit VALUES (NULL , '"+p.getPhoto()+"', "+ p.getPoids() + ", " + p.getPrix() +  ",'" + "disponible" + "', '" + p.getDescription() + "' ,null ,"+id+" , '" + p.getNom_pd() + "'," + p.getQuantite() + ","+idc+");";
+        String requeteInsert = "INSERT INTO produit VALUES (NULL , '"+p.getPhoto()+"', "+ p.getPoids() + ", " + p.getPrix() +  ",'" + "disponible" + "', '" + p.getDescription() + "' ," + idcat + ","+id+" , '" + p.getNom_pd() + "'," + p.getQuantite() + ","+idc+");";
            System.out.println(requeteInsert);                           
         ste.executeUpdate(requeteInsert); 
         } catch (SQLException ex) {
@@ -157,12 +158,12 @@ public Integer getPoidsbyId(int id){
          
         }   }
 
-       public void ajouter1(Produit p,int id)
+       public void ajouter1(Produit p,int id,int idc)
     {
         try {
           ste = con.createStatement();
        
-        String requeteInsert = "INSERT INTO produit VALUES (NULL , '"+p.getPhoto()+"', "+ p.getPoids() + ", " + p.getPrix() +  ",'" + "disponible" + "', '" + p.getDescription() + "' ,'"+p.getCategorie()+"' ,null , '" + p.getNom_pd() + "'," + p.getQuantite() + ","+id+");";
+        String requeteInsert = "INSERT INTO produit VALUES (NULL , '"+p.getPhoto()+"', "+ p.getPoids() + ", " + p.getPrix() +  ",'" + "disponible" + "', '" + p.getDescription() + "' ,'"+idc+"' ,null , '" + p.getNom_pd() + "'," + p.getQuantite() + ","+id+");";
            System.out.println(requeteInsert);                           
         ste.executeUpdate(requeteInsert);
     } catch (SQLException ex) {
@@ -181,7 +182,7 @@ public Integer getPoidsbyId(int id){
     pre.setDouble(3, p.getPrix());
    
     pre.setString(4, p.getDescription());
-    pre.setString(5, p.getCategorie());
+    pre.setInt(5, p.getCategorie());
      
      pre.setString(6, p.getNom_pd());
      pre.setInt(7,id);
@@ -225,7 +226,7 @@ public Integer getPoidsbyId(int id){
   
      while (res.next()) {        
       
-               String categorie=res.getString(7);
+               int categorie=res.getInt(7);
                Integer prix=res.getInt(4);
                String Etat=res.getString(5);
                 String nom_pd=res.getString(9);
@@ -264,7 +265,7 @@ public Integer getPoidsbyId(int id){
   
      while (res.next()) {        
       
-               String categorie=res.getString(7);
+               int categorie=res.getInt(7);
                Integer prix=res.getInt(4);
                String Etat=res.getString(5);
                 String nom_pd=res.getString(9);
@@ -326,7 +327,7 @@ public Integer getPoidsbyId(int id){
                int prix=res.getInt("prix");
                String description=res.getString("desription");
                String Etat=res.getString("Etat");
-               String catg=res.getString("categorie");
+               int catg=res.getInt("categorie");
                int id_depot=res.getInt("id_depot");
                String libelle=res.getString("libelle");
                int quantite=res.getInt("quantite");

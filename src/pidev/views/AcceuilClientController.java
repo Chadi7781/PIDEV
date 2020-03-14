@@ -128,7 +128,18 @@ public class AcceuilClientController implements Initializable {
     }
 
     @FXML
-    private void gererproduit(ActionEvent event) {
+    private void gererproduit(ActionEvent event) throws IOException {
+         FXMLLoader loader = new FXMLLoader();
+        nom.getScene().getWindow().hide();
+        Stage prStage = new Stage();
+        loader.setLocation(getClass().getResource("Gerre_vente1.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        prStage.setScene(scene);
+        prStage.setResizable(false);
+      
+       
+        prStage.show();
     }
 
     @FXML

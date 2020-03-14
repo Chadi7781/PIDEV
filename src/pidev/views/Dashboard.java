@@ -47,7 +47,7 @@ public class Dashboard {
     @FXML
     private Button livraison;
     @FXML
-    private JFXButton logos;
+    private Button Bt_Dashboard21;
 
 
     @FXML
@@ -87,7 +87,6 @@ public class Dashboard {
 
     }
 
-    @FXML
     void initialize() throws SQLException {
         assert Bt_Dashboard2 != null : "fx:id=\"Bt_Dashboard2\" was not injected: check your FXML file 'Dashboard.fxml'.";
         assert Bt_Stock2 != null : "fx:id=\"Bt_Stock2\" was not injected: check your FXML file 'Dashboard.fxml'.";
@@ -136,6 +135,16 @@ public class Dashboard {
               stage.setScene(scene);
               stage.show();
     }*/
+
+    @FXML
+    private void categorie(ActionEvent event) throws IOException {
+             Parent root = FXMLLoader.load(getClass().getResource("affichercategorie.fxml"));
+              Scene scene = new Scene(root);
+              Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+              stage.setScene(scene);
+              stage.show();
+        
+    }
 
     
 }

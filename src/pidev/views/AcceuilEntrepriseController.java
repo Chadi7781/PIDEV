@@ -151,7 +151,18 @@ public class AcceuilEntrepriseController implements Initializable {
     }
 
     @FXML
-    private void gererProduit(ActionEvent event) {
+    private void gererProduit(ActionEvent event) throws IOException {
+          FXMLLoader loader = new FXMLLoader();
+        nom.getScene().getWindow().hide();
+        Stage prStage = new Stage();
+            loader.setLocation(getClass().getResource("Gerre_vente.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        prStage.setScene(scene);
+        prStage.setResizable(false);
+
+        prStage.show();
+        
     }
 
   

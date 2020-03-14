@@ -22,7 +22,7 @@ public class GestionProduitService {
 			List<Produit> liste = new LinkedList<Produit>();
 			while (rs.next()) {
                             Produit produit = new Produit();
-				produit.setCategorie(rs.getString(Utility.CATEGORIE));
+				produit.setCategorie(rs.getInt(Utility.CATEGORIE));
 				produit.setDescription(rs.getString(Utility.DESCRIPTION));
 				produit.setEtat(rs.getString(Utility.ETAT));
 				produit.setId_depot(rs.getInt(Utility.ID_DEPOT));
@@ -48,7 +48,7 @@ public class GestionProduitService {
 			List<Produit> liste = new LinkedList<Produit>();
 			while (rs.next()) {
                             Produit produit = new Produit();
-				produit.setCategorie(rs.getString(Utility.CATEGORIE));
+				produit.setCategorie(rs.getInt(Utility.CATEGORIE));
 				produit.setDescription(rs.getString(Utility.DESCRIPTION));
 				produit.setEtat(rs.getString(Utility.ETAT));
 				produit.setId_depot(rs.getInt(Utility.ID_DEPOT));

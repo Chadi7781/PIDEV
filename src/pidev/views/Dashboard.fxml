@@ -30,7 +30,7 @@
          <children>
             <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="43.0" layoutY="14.0" pickOnBounds="true" smooth="false">
                <image>
-                  <Image url="@../images/s4s.png" />
+                  <Image url="@../utils/images/s4s_1.png" />
                </image>
                <styleClass>
                   <String fx:value="envoyer_btn" />
@@ -73,5 +73,10 @@
       <Text layoutX="212.0" layoutY="338.0" strokeType="OUTSIDE" strokeWidth="0.0" text="La moyenne d'age des employés : " wrappingWidth="185.98046875" />
       <TextField fx:id="Moyenne_Age_Input" layoutX="476.0" layoutY="323.0" prefHeight="38.0" prefWidth="149.0" />
       <Text layoutX="327.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre de chaque catégorie de mission " wrappingWidth="255.98046875" />
+      <Button fx:id="Bt_Dashboard21" layoutX="-3.0" layoutY="399.0" mnemonicParsing="false" onAction="#categorie" prefHeight="38.0" prefWidth="172.0" style="-fx-background-color: #191970;" text="Categorie" textFill="WHITE">
+         <font>
+            <Font name="Arial" size="18.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

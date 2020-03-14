@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import java.lang.String?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidev.views.CategoriecliController">
+   <children>
+      <AnchorPane id="AnchorPane" layoutX="10.0" layoutY="10.0" prefHeight="561.0" prefWidth="731.0">
+         <children>
+            <Pane layoutX="-6.0" prefHeight="561.0" prefWidth="229.0" styleClass="left" stylesheets="@../utils/css/stylehseet.css">
+               <children>
+                  <HBox layoutX="23.0" layoutY="14.0" spacing="5.0">
+                     <children>
+                        <Circle fx:id="btnClose" fill="#f44336" onMouseClicked="#handleMouseEvent" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="#fbdd2d" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="#00c71c" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+                     </children>
+                  </HBox>
+                  <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="61.0" layoutY="170.0" pickOnBounds="true" smooth="false">
+                     <image>
+                        <Image url="@../utils/images/s4s.png" />
+                     </image>
+                     <styleClass>
+                        <String fx:value="envoyer_btn" />
+                        <String fx:value="content-area-circle-btns" />
+                        <String fx:value="img" />
+                     </styleClass>
+                  </ImageView>
+                  <Label layoutX="46.0" layoutY="270.0" stylesheets="@../utils/css/stylehseet.css" text="Stock For Speed">
+                     <font>
+                        <Font name="Impact" size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Label id=".labeltitre" fx:id="rec" layoutX="315.0" layoutY="25.0" styleClass="labeltitre" text="Categorie" textAlignment="CENTER" textOverrun="CLIP">
+               <font>
+                  <Font name="Ebrima Bold" size="25.0" />
+               </font>
+            </Label>
+            <TableView fx:id="table" layoutX="231.0" layoutY="92.0" prefHeight="333.0" prefWidth="479.0">
+               <columns>
+                  <TableColumn fx:id="cat" prefWidth="107.0" text="categorie" />
+                  <TableColumn fx:id="idc" minWidth="0.0" prefWidth="0.0" text="idc" visible="false" />
+               </columns>
+            </TableView>
+            <ImageView fitHeight="35.0" fitWidth="58.0" layoutX="231.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../utils/images/back.png" />
+               </image>
+            </ImageView>
+            <JFXButton fx:id="back" layoutX="222.0" layoutY="1.0" onAction="#back" prefHeight="49.0" prefWidth="54.0" text=" " />
+            <JFXButton fx:id="Ajouter" alignment="CENTER" buttonType="RAISED" layoutX="230.0" layoutY="454.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#Ajouter" prefHeight="35.0" prefWidth="143.0" ripplerFill="#4059a9" styleClass="envoyer_btn" stylesheets="@../utils/css/stylehseet.css" text="Ajouter Produit" textFill="#4059a9">
+               <font>
+                  <Font name="Impact" size="17.0" />
+               </font>
+               <effect>
+                  <Glow />
+               </effect>
+            </JFXButton>
+            <JFXButton fx:id="afficher" alignment="CENTER" buttonType="RAISED" layoutX="391.0" layoutY="456.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#afficher" prefHeight="35.0" prefWidth="143.0" ripplerFill="#4059a9" styleClass="envoyer_btn" stylesheets="@../utils/css/stylehseet.css" text="Afficher" textFill="#4059a9">
+               <font>
+                  <Font name="Impact" size="17.0" />
+               </font>
+               <effect>
+                  <Glow />
+               </effect>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
