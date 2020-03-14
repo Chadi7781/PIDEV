@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidev.views.PayerController">
+   <children>
+      <Label layoutX="250.0" layoutY="169.0" prefHeight="20.0" prefWidth="191.0" text="Saisir votre numero de carte:" textFill="#990033">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="284.0" layoutY="213.0" prefHeight="20.0" prefWidth="123.0" text="Mois d'expiration:" textFill="#990033">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="547.0" layoutY="198.0" text="Année d'expiration:" textFill="#990033">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="372.0" layoutY="266.0" prefHeight="17.0" prefWidth="71.0" text="CVC Code:" textFill="#990033">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="txtAmount" focusColor="#93858a" labelFloat="true" layoutX="180.0" layoutY="79.0" maxWidth="301.0" minWidth="139.0" prefHeight="38.0" prefWidth="139.0" promptText="Amount">
+         <font>
+            <Font name="Roboto Medium" size="14.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="moisexp" focusColor="#93858a" layoutX="441.0" layoutY="198.0" prefHeight="25.0" prefWidth="46.0" />
+      <JFXTextField fx:id="anneexp" layoutX="687.0" layoutY="185.0" prefHeight="25.0" prefWidth="62.0" />
+      <JFXTextField fx:id="Numcarte" layoutX="489.0" layoutY="149.0" prefHeight="25.0" prefWidth="180.0" />
+      <JFXTextField fx:id="cvccode" layoutX="476.0" layoutY="251.0" prefHeight="25.0" prefWidth="71.0" />
+      <JFXButton layoutX="363.0" layoutY="322.0" onAction="#payer" prefHeight="25.0" prefWidth="115.0" text="Payer" />
+      <ImageView fitHeight="216.0" fitWidth="152.0" layoutX="18.0" layoutY="10.0" pickOnBounds="true">
+         <image>
+            <Image url="@../utils/images/pic.png" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="22.0" layoutY="68.0" prefHeight="35.0" prefWidth="129.0" text="Amount to pay:" textFill="#f2eeee">
+         <font>
+            <Font name="Roboto Medium" size="15.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="15.0" layoutY="118.0" prefHeight="39.0" prefWidth="143.0" text="5 USA" textFill="#f2eeee">
+         <font>
+            <Font name="Roboto Medium" size="21.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

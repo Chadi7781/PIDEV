@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="300.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidev.views.AfficherproclController">
+   <children>
+      <AnchorPane id="AnchorPane" layoutX="10.0" layoutY="10.0" prefHeight="518.0" prefWidth="930.0">
+         <children>
+            <BorderPane layoutX="-7.0" prefHeight="500.0" prefWidth="700.0">
+               <left>
+                  <Pane prefHeight="513.0" prefWidth="229.0" styleClass="left" stylesheets="@../utils/css/stylehseet.css" BorderPane.alignment="CENTER">
+                     <children>
+                        <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="76.0" layoutY="130.0" pickOnBounds="true" smooth="false">
+                           <image>
+                              <Image url="@../utils/images/s4s.png" />
+                           </image>
+                           <styleClass>
+                              <String fx:value="envoyer_btn" />
+                              <String fx:value="content-area-circle-btns" />
+                              <String fx:value="img" />
+                           </styleClass>
+                        </ImageView>
+                        <Label layoutX="46.0" layoutY="250.0" stylesheets="@../pidev/utils/css/stylehseet.css" text="Stock For Speed">
+                           <font>
+                              <Font name="Impact" size="20.0" />
+                           </font>
+                        </Label>
+                        <HBox layoutX="35.0" layoutY="15.0" spacing="5.0">
+                           <children>
+                              <Circle fx:id="btnClose" fill="#f44336" onMouseClicked="#handleMouseEvent" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+                              <Circle fill="#fbdd2d" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+                              <Circle fill="#00c71c" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </Pane>
+               </left>
+               <center>
+                  <Pane prefHeight="496.0" prefWidth="601.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <TableView fx:id="table" prefHeight="436.0" prefWidth="639.0" stylesheets="@../utils/css/table.css">
+                           <columns>
+                              <TableColumn fx:id="libb" prefWidth="120.0" text="Libelle" />
+                              <TableColumn fx:id="prix" prefWidth="100.0" text="Prix" />
+                              <TableColumn fx:id="etat" prefWidth="104.0" text="Etat" />
+                              <TableColumn fx:id="qt" prefWidth="129.0" text="Quantite" />
+                              <TableColumn fx:id="idprod" minWidth="0.0" prefWidth="18.0" text="ID" visible="false" />
+                           </columns>
+                        </TableView>
+                        <Button layoutX="143.0" layoutY="449.0" mnemonicParsing="false" onAction="#modif" prefHeight="25.0" prefWidth="96.0" styleClass="envoyer_btn" text="Modifier" />
+                        <Button layoutX="249.0" layoutY="449.0" mnemonicParsing="false" onAction="#supp" prefHeight="25.0" prefWidth="96.0" styleClass="envoyer_btn" text="Supprimer" />
+                        <Button layoutX="356.0" layoutY="449.0" mnemonicParsing="false" onAction="#retour" prefHeight="25.0" prefWidth="96.0" styleClass="envoyer_btn" text="Retour" />
+                        <Button layoutX="459.0" layoutY="451.0" mnemonicParsing="false" onAction="#partager" prefHeight="25.0" prefWidth="96.0" styleClass="envoyer_btn" text="payer" />
+                     </children>
+                  </Pane>
+               </center>
+            </BorderPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

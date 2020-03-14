@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTogglePane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidev.views.Gerre_venteController">
+   <children>
+      <BorderPane layoutX="2.0" prefHeight="500.0" prefWidth="698.0">
+         <left>
+            <Pane prefHeight="500.0" prefWidth="223.0" styleClass="left" stylesheets="@../utils/css/stylehseet.css" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="61.0" layoutY="170.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../utils/images/s4s_1.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="46.0" layoutY="270.0" text="Stock For Speed">
+                     <font>
+                        <Font name="Impact" size="20.0" />
+                     </font>
+                  </Label>
+                  <HBox layoutX="23.0" layoutY="14.0" prefHeight="30.0" prefWidth="146.0" spacing="5.0">
+                     <children>
+                        <Circle fill="#ff4444" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="#fbdd2d" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="#00c71c" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+                     </children>
+                  </HBox>
+               </children>
+            </Pane>
+         </left>
+         <center>
+            <JFXTogglePane BorderPane.alignment="CENTER">
+               <children>
+                  <StackPane prefHeight="150.0" prefWidth="200.0">
+                     <children>
+                        <JFXTogglePane>
+                           <children>
+                              <Pane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Label id=".labeltitre" layoutX="129.0" layoutY="14.0" prefHeight="40.0" prefWidth="194.0" styleClass="labeltitre" text="Gére Produit">
+                                       <font>
+                                          <Font name="Ebrima Bold" size="25.0" />
+                                       </font>
+                                    </Label>
+                                    <JFXButton fx:id="consulter" buttonType="RAISED" layoutX="88.0" layoutY="205.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#consulterproduit" prefHeight="35.0" prefWidth="252.0" styleClass="envoyer_btn" stylesheets="@../utils/css/stylehseet.css" text="Consulter Produit">
+                                       <font>
+                                          <Font name="Impact" size="17.0" />
+                                       </font>
+                                    </JFXButton>
+                                    <JFXButton fx:id="ajouterp" buttonType="RAISED" contentDisplay="BOTTOM" layoutX="88.0" layoutY="138.0" onAction="#ajoutproduit" prefHeight="38.0" prefWidth="252.0" styleClass="envoyer_btn" stylesheets="@../utils/css/stylehseet.css" text="Ajouter Produit" textFill="#0011ff">
+                                       <font>
+                                          <Font name="Impact" size="17.0" />
+                                       </font>
+                                    </JFXButton>
+                                    <JFXButton fx:id="retour" layoutX="29.0" layoutY="10.0" onAction="#retour" prefHeight="40.0" prefWidth="76.0" text="i" />
+                                    <ImageView fitHeight="28.0" fitWidth="46.0" layoutX="47.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../utils/images/back.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </Pane>
+                           </children>
+                        </JFXTogglePane>
+                     </children>
+                  </StackPane>
+               </children>
+            </JFXTogglePane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
