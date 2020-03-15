@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import org.controlsfx.control.Rating?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidevclient.views.FeedbackServiceController">
+   <children>
+      <AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="791.0">
+         <children>
+            <BorderPane fx:id="border_pane" prefHeight="500.0" prefWidth="791.0" style="-fx-background-color: #fff;">
+               <left>
+                  <Pane prefHeight="537.0" prefWidth="225.0" styleClass="left" BorderPane.alignment="CENTER">
+                     <children>
+                        <HBox layoutX="23.0" layoutY="14.0" spacing="5.0">
+                           <children>
+                              <Circle fx:id="btnClose" fill="#f44336" onMouseClicked="#handleMouseEvent" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+                              <Circle fill="#fbdd2d" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+                              <Circle fill="#00c71c" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="61.0" layoutY="170.0" pickOnBounds="true" smooth="false">
+                           <image>
+                              <Image url="@../util/images/s4s.png" />
+                           </image>
+                           <styleClass>
+                              <String fx:value="envoyer_btn" />
+                              <String fx:value="content-area-circle-btns" />
+                              <String fx:value="img" />
+                           </styleClass>
+                        </ImageView>
+                        <Label layoutX="46.0" layoutY="270.0" stylesheets="@../../../PiDev/src/pidev/utils/css/stylehseet.css" text="Stock For Speed">
+                           <font>
+                              <Font name="Impact" size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <stylesheets>
+                        <URL value="@util/stylehseet.css" />
+                        <URL value="@../util/stylehseet.css" />
+                     </stylesheets>
+                  </Pane>
+               </left>
+               <center>
+                  <StackPane fx:id="stackPane" prefHeight="500.0" prefWidth="500.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ffff;">
+                           <children>
+                              <Label fx:id="rec2" layoutX="157.0" layoutY="47.0" prefHeight="32.0" prefWidth="252.0" style="-fx-text-fill: linear-gradient(to bottom left,#6F4CBB,#431FA0);" styleClass="labeltitre" text="Ajouter Feedback">
+                                 <font>
+                                    <Font name="Ebrima Bold" size="25.0" />
+                                 </font>
+                                 <stylesheets>
+                                    <URL value="@../util/stylehseet.css" />
+                                 </stylesheets>
+                              </Label>
+                              <JFXTextArea fx:id="txt_desc_feed" layoutX="41.0" layoutY="132.0" promptText="Ecrire Votre description ici" unFocusColor="#4059a9" />
+                              <Label layoutX="51.0" layoutY="115.0" text="Description" />
+                              <Label layoutX="41.0" layoutY="327.0" text="Rating" />
+                              <Rating fx:id="rating_feedback" layoutX="174.0" layoutY="344.0" />
+                              <ImageView fx:id="btnBackFeedback" fitHeight="31.0" fitWidth="39.0" layoutX="17.0" layoutY="34.0" onDragDetected="#handleMouseEvent" onMouseClicked="#handleMouseEvent" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../util/images/back.png" />
+                                 </image>
+                              </ImageView>
+                              <JFXButton fx:id="btnEnvoyerFeedback" alignment="CENTER" buttonType="RAISED" layoutX="93.0" layoutY="396.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#handleButtonAction" prefHeight="35.0" prefWidth="369.0" ripplerFill="#4059a9" styleClass="envoyer_btn" text="Envoyer" textFill="#4059a9">
+                                 <font>
+                                    <Font name="Impact" size="17.0" />
+                                 </font>
+                                 <effect>
+                                    <Glow />
+                                 </effect>
+                                 <stylesheets>
+                                    <URL value="@utils/css/stylehseet.css" />
+                                    <URL value="@../util/stylehseet.css" />
+                                 </stylesheets>
+                              </JFXButton>
+                           </children>
+                        </Pane>
+                     </children></StackPane>
+               </center>
+               <children>
+                  <JFXButton alignment="CENTER" buttonType="RAISED" layoutX="42.0" layoutY="330.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="100.0" ripplerFill="#4059a9" styleClass="envoyer_btn" stylesheets="@../util/css/stylehseet.css" text="Envoyer" textFill="#4059a9">
+                     <font>
+                        <Font name="Impact" size="17.0" />
+                     </font>
+                     <effect>
+                        <Glow />
+                     </effect>
+                  </JFXButton>
+                  <JFXButton alignment="CENTER" buttonType="RAISED" layoutX="219.0" layoutY="330.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="100.0" ripplerFill="#4059a9" styleClass="envoyer_btn" stylesheets="@../util/css/stylehseet.css" text="Annuler" textFill="#4059a9">
+                     <font>
+                        <Font name="Impact" size="17.0" />
+                     </font>
+                     <effect>
+                        <Glow />
+                     </effect>
+                  </JFXButton>
+               </children>
+            </BorderPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

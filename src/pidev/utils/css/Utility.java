@@ -3,8 +3,8 @@ package pidev.utils.css;
 
 
 public interface Utility {
-	public static String tableNameUser = "fos_user";
-	public static String ID = "ID";
+	public static String tableNameUser = "employe";
+	public static String ID = "ID-emp";
 	public static String NOM = "USERNAME";
 	public static String PRENOM = "PRENOM";
 	public static String EMAIL = "EMAIL";

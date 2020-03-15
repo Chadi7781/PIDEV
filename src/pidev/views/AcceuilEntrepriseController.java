@@ -69,6 +69,8 @@ public class AcceuilEntrepriseController implements Initializable {
     private JFXButton EditeProfil;
     @FXML
     private JFXButton apresVentes;
+    @FXML
+    private JFXButton LouerVehicule;
 
     /**
      * Initializes the controller class.
@@ -195,6 +197,21 @@ public class AcceuilEntrepriseController implements Initializable {
         stage.show();
             
         }
+
+    @FXML
+    private void LouerVehicule(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        nom.getScene().getWindow().hide();
+        Stage prStage = new Stage();
+            loader.setLocation(getClass().getResource("LouerVehicule.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        prStage.setScene(scene);
+        prStage.setResizable(false);
+
+        prStage.show();
+        
+    }
         
         
     

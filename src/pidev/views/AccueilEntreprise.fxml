@@ -16,17 +16,17 @@
          </image>
       </ImageView>
       <ImageView fx:id="img" fitHeight="174.0" fitWidth="178.0" layoutX="232.0" layoutY="78.0" pickOnBounds="true" preserveRatio="true" />
-      <Label fx:id="nom" layoutX="605.0" layoutY="108.0" prefHeight="30.0" prefWidth="165.0">
+      <Label fx:id="nom" layoutX="620.0" layoutY="125.0" prefHeight="30.0" prefWidth="165.0">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="adresse" layoutX="662.0" layoutY="150.0" prefHeight="30.0" prefWidth="135.0" textFill="WHITE">
+      <Label fx:id="adresse" layoutX="662.0" layoutY="165.0" prefHeight="30.0" prefWidth="135.0" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="activite" layoutX="635.0" layoutY="202.0" prefHeight="30.0" prefWidth="135.0">
+      <Label fx:id="activite" layoutX="662.0" layoutY="165.0" prefHeight="30.0" prefWidth="135.0">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
@@ -49,7 +49,7 @@
       <JFXButton fx:id="gererlivraison" layoutX="349.0" layoutY="421.0" onAction="#gererlivraison" prefHeight="158.0" prefWidth="229.0" text=" " />
       <JFXButton fx:id="boutique" layoutX="605.0" layoutY="411.0" onAction="#boutique" prefHeight="165.0" prefWidth="209.0" text=" " />
       <JFXButton fx:id="gererProduit" layoutX="819.0" layoutY="411.0" onAction="#gererProduit" prefHeight="165.0" prefWidth="223.0" text=" " />
-      <Label fx:id="datenais" layoutX="620.0" layoutY="202.0" prefHeight="25.0" prefWidth="135.0">
+      <Label fx:id="datenais" layoutX="662.0" layoutY="206.0" prefHeight="25.0" prefWidth="135.0">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
@@ -60,7 +60,7 @@
          </image>
       </ImageView>
       <JFXButton fx:id="logos" layoutX="1020.0" layoutY="39.0" onAction="#logoutt" prefHeight="47.0" prefWidth="37.0" text=" " />
-      <JFXButton fx:id="depot" alignment="CENTER" buttonType="RAISED" layoutX="232.0" layoutY="310.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#depott" prefHeight="35.0" prefWidth="158.0" ripplerFill="#ffffff05" style="-fx-background-color: black;" styleClass="envoyer_btn" stylesheets="@../utils/css/stylehseet.css" text="Louer Depot" textFill="#4059a9">
+      <JFXButton fx:id="depot" alignment="CENTER" buttonType="RAISED" layoutX="227.0" layoutY="284.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#depott" prefHeight="35.0" prefWidth="188.0" ripplerFill="#ffffff05" style="-fx-background-color: black;" styleClass="envoyer_btn" stylesheets="@../utils/css/stylehseet.css" text="Louer Depot" textFill="#4059a9">
          <font>
             <Font name="Impact" size="18.0" />
          </font>
@@ -75,7 +75,15 @@
       </ImageView>
       <JFXButton fx:id="gererlivraison1" layoutX="349.0" layoutY="414.0" onAction="#gererlivraison" prefHeight="158.0" prefWidth="229.0" text=" " />
       <JFXButton fx:id="EditeProfil" layoutX="48.0" layoutY="414.0" onAction="#EditeProfil" prefHeight="165.0" prefWidth="229.0" text=" " />
-      <JFXButton fx:id="apresVentes" alignment="CENTER" buttonType="RAISED" layoutX="432.0" layoutY="310.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#handleActionRecFeed" prefHeight="35.0" prefWidth="188.0" ripplerFill="#ffffff05" style="-fx-background-color: black;" styleClass="envoyer_btn" stylesheets="@../utils/css/stylehseet.css" text="Service Aprés Ventes" textFill="#4059a9">
+      <JFXButton fx:id="apresVentes" alignment="CENTER" buttonType="RAISED" layoutX="227.0" layoutY="320.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#handleActionRecFeed" prefHeight="35.0" prefWidth="188.0" ripplerFill="#ffffff05" style="-fx-background-color: black;" styleClass="envoyer_btn" stylesheets="@../utils/css/stylehseet.css" text="Service Aprés Ventes" textFill="#4059a9">
+         <font>
+            <Font name="Impact" size="18.0" />
+         </font>
+         <effect>
+            <Glow />
+         </effect>
+      </JFXButton>
+      <JFXButton fx:id="LouerVehicule" alignment="CENTER" buttonType="RAISED" layoutX="227.0" layoutY="355.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#LouerVehicule" prefHeight="35.0" prefWidth="188.0" ripplerFill="#ffffff05" style="-fx-background-color: black;" styleClass="envoyer_btn" stylesheets="@../utils/css/stylehseet.css" text="Louer Vehicule" textFill="#4059a9">
          <font>
             <Font name="Impact" size="18.0" />
          </font>

@@ -36,8 +36,8 @@ public class SendMail
         props.put("mail.smtp.port", "587");	
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
-        String myAccountEmail ="mariem.bechikhali@esprit.tn";
-        String password ="193JFT1455";
+        String myAccountEmail ="s4sb.tobeornottobe@gmail.com";
+        String password ="tobeornottobe";
         Session session = Session.getDefaultInstance(props,new Authenticator() 
         {
             @Override
@@ -57,6 +57,6 @@ public class SendMail
             message.setFrom(new InternetAddress(myAccountEmail));
             message.setRecipient(Message.RecipientType.TO, new InternetAddress(recepient));
             message.setSubject("Mot de passe");
-            message.setText(mot+" Est Votre code de verification");
+            message.setText(mot+" Est Votre code de verification du compte S4S");
             return message;
     }}

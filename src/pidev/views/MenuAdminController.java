@@ -359,7 +359,7 @@ public class MenuAdminController extends Application  implements Initializable  
               alertError.showAndWait();
               }
               else {
-                    vehicule = new Vehicule(matricule,marque,etat,governoratSelected);
+//                    vehicule = new Vehicule(matricule,marque,etat,governoratSelected);
                      vehiculeService=new VehiculeService();
                      vehiculeService.ajouterVehicule(vehicule);
                      System.out.println("add");

@@ -116,7 +116,8 @@ public class LoginController implements Initializable {
                  FXMLLoader loader = new FXMLLoader();
                 label.getScene().getWindow().hide();
                 Stage prStage = new Stage();
-                loader.setLocation(getClass().getResource("Dashboard.fxml"));
+              loader.setLocation(getClass().getResource("Dashboard.fxml"));
+         //        loader.setLocation(getClass().getResource("AjouterEmp.fxml"));
                 Parent root = loader.load();
                 Scene scene = new Scene(root);
                 prStage.setScene(scene);

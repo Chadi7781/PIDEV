@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.LinkedList;
 import java.util.List;
+import pidev.entity.USER;
 import pidev.entity.Utilisateur;
 import pidev.utils.css.ConnexionBD;
 import pidev.utils.css.Utility;
@@ -20,8 +21,8 @@ public class GestionEmployerService {
 	static Statement stmt = null;
 	static PreparedStatement req = null;
 
-	public static Utilisateur getUnEmployeCIN(Utilisateur u) {
-		Utilisateur user = new Utilisateur();
+	public static USER getUnEmployeCIN(USER u) {
+		USER user = new USER();
 		try {
 			conx = ConnexionBD.getInstance().getConnection();
 			stmt = conx.createStatement();
@@ -33,12 +34,12 @@ public class GestionEmployerService {
 				user.setCin(rs.getString(Utility.CIN));
 				user.setDatenaissance(rs.getDate(Utility.DATE_NAISSANCE));
 				user.setEmail(rs.getString(Utility.EMAIL));
-				user.setUsername(rs.getString(Utility.NOM));
+				user.setNom(rs.getString(Utility.NOM));
 				user.setPrenom(rs.getString(Utility.PRENOM));
 				user.setId(rs.getInt(Utility.ID));
-				user.setRoles(rs.getString(Utility.ROLE));
+				user.setRole(rs.getString(Utility.ROLE));
 				user.setMission(rs.getString(Utility.MISSION));
-				user.setTelephone(rs.getString(Utility.telephone));
+				user.setNumtel(rs.getString(Utility.telephone));
 			}
 			return user;
 		} catch (SQLException e) {
@@ -61,7 +62,7 @@ public class GestionEmployerService {
         
         public static int getNbrIngenieur () throws SQLException{
             conx = ConnexionBD.getInstance().getConnection();
-            String sql ="SELECT count(*) from fos_user WHERE roles like '%EMPLOYE%' and mission like 'Ing%nieur'";
+            String sql ="SELECT count(*) from employe WHERE roles like '%EMPLOYE%' and mission like 'Ing%nieur'";
             req=conx.prepareStatement(sql);
             rs=req.executeQuery();
             if (rs.next()){
@@ -72,7 +73,7 @@ public class GestionEmployerService {
         
         public static int getNbrTechnicien () throws SQLException{
             conx = ConnexionBD.getInstance().getConnection();
-            String sql ="SELECT count(*) from fos_user WHERE roles like '%EMPLOYE%' and mission like 'Techniciens'";
+            String sql ="SELECT count(*) from employe WHERE roles like '%EMPLOYE%' and mission like 'Techniciens'";
             req=conx.prepareStatement(sql);
             rs=req.executeQuery();
             if (rs.next()){
@@ -84,7 +85,7 @@ public class GestionEmployerService {
         
         public static int getNbrLivreur () throws SQLException{
             conx = ConnexionBD.getInstance().getConnection();
-            String sql ="SELECT count(*) from fos_user WHERE roles like '%EMPLOYE%' and mission like 'Livreur'";
+            String sql ="SELECT count(*) from employe WHERE roles like '%EMPLOYE%' and mission like 'Livreur'";
             req=conx.prepareStatement(sql);
             rs=req.executeQuery();
             if (rs.next()){
@@ -96,25 +97,25 @@ public class GestionEmployerService {
         
                 
 
-	public static List<Utilisateur> AfficheToutEmploye() {
+	public static List<USER> AfficheToutEmploye() {
 		try {
 			conx = ConnexionBD.getInstance().getConnection();
 			stmt = conx.createStatement();
 			rs = stmt.executeQuery("SELECT * FROM " + Utility.tableNameUser + " WHERE " + Utility.ROLE + " like '"
 					+ Utility.ROLE_EMPLOYER + "'");
 
-			List<Utilisateur> liste = new LinkedList<Utilisateur>();
+			List<USER> liste = new LinkedList<USER>();
 			while (rs.next()) {
-				Utilisateur employe = new Utilisateur();
+				USER employe = new USER();
 				employe.setAdresse(rs.getString(Utility.ADRESSE));
 				employe.setCin(rs.getString(Utility.CIN));
 				employe.setDatenaissance(rs.getDate(Utility.DATE_NAISSANCE));
 				employe.setEmail(rs.getString(Utility.EMAIL));
-				employe.setUsername(rs.getString(Utility.NOM));
+				employe.setNom(rs.getString(Utility.NOM));
 				employe.setPrenom(rs.getString(Utility.PRENOM));
 				employe.setId(rs.getInt(Utility.ID));
 				employe.setMission(rs.getString(Utility.MISSION));
-				employe.setTelephone(rs.getString(Utility.telephone));
+				employe.setNumtel(rs.getString(Utility.telephone));
 				liste.add(employe);
 			}
 			return liste;
@@ -146,10 +147,9 @@ public class GestionEmployerService {
 	 * @param employe
 	 * @return
 	 */
-	public static int AjoutUnEmploye(Utilisateur employe) {
+	public static int AjoutUnEmploye(USER employe) {
 		try {
 			conx = ConnexionBD.getInstance().getConnection();
-			stmt = conx.createStatement();
                         String requet = "INSERT INTO " + Utility.tableNameUser + " (" + Utility.listattribut
 					+ ") VALUES (?,?,?,?,?,?,?,?,?,'modpass'";
                         if (employe.getMission()=="Livreur")
@@ -157,15 +157,15 @@ public class GestionEmployerService {
                         else 
                             requet=requet+Utility.comma+"null"+Utility.parenthaise;
 			req = conx.prepareStatement(requet);
-			req.setString(1, employe.getUsername());
+			req.setString(1, employe.getNom());
 			req.setString(2, employe.getPrenom());
 			req.setString(3, employe.getEmail());
 			req.setString(4, employe.getAdresse());
-			req.setDate(5, employe.getDatenaissance());
+			req.setDate(5, employe.getDateNaissance());
 			req.setString(6, employe.getCin());
-			req.setString(7, employe.getRoles());
+			req.setString(7, employe.getRole());
 			req.setString(8, employe.getMission());
-			req.setString(9, employe.getTelephone());
+			req.setString(9, employe.getNumtel());
 			return req.executeUpdate();
 		} catch (SQLException e) {
 			System.out.println("Erreur :" + e.getMessage());
@@ -173,21 +173,20 @@ public class GestionEmployerService {
 		}
 	}
 
-	public static int ModificationUnEmploye(Utilisateur employe) {
+	public static int ModificationUnEmploye(USER employe) {
 		try {
 			conx = ConnexionBD.getInstance().getConnection();
-			stmt = conx.createStatement();
 			req = conx.prepareStatement("UPDATE " + Utility.tableNameUser + " SET " + Utility.listattributupdate
 					+ " WHERE " + Utility.ID + " =?");
-			req.setString(1, employe.getUsername());
+			req.setString(1, employe.getNom());
 			req.setString(2, employe.getPrenom());
 			req.setString(3, employe.getEmail());
 			req.setString(4, employe.getAdresse());
-			req.setDate(5, employe.getDatenaissance());
+			req.setDate(5, employe.getDateNaissance());
 			req.setString(6, employe.getCin());
-			req.setString(7, employe.getRoles());
+			req.setString(7, employe.getRole());
 			req.setString(8, employe.getMission());
-			req.setString(9, employe.getTelephone());
+			req.setString(9, employe.getNumtel());
 			req.setInt(10, employe.getId());
 			return req.executeUpdate();
 		} catch (SQLException e) {
@@ -201,26 +200,25 @@ public class GestionEmployerService {
 	 * @param nom
 	 * @return
 	 */
-	public static List getUnEmployeNom(Utilisateur user) {
+	public static List getUnEmployeNom(USER user) {
 		
 		try {
 			conx = ConnexionBD.getInstance().getConnection();
 			stmt = conx.createStatement();
-			stmt = conx.createStatement();
 			rs = stmt.executeQuery("SELECT * FROM " + Utility.tableNameUser + " WHERE " + Utility.ROLE + " like '"
-					+ Utility.ROLE_EMPLOYER + "' AND " + Utility.NOM + " like '%" + user.getUsername()+ "%'");
-                        List<Utilisateur> liste = new LinkedList<Utilisateur>();
+					+ Utility.ROLE_EMPLOYER + "' AND " + Utility.NOM + " like '%" + user.getNom() + "%'");
+                        List<USER> liste = new LinkedList<USER>();
 			while (rs.next()) {
-                            Utilisateur employe = new Utilisateur();
+                            USER employe = new USER();
 				employe.setAdresse(rs.getString(Utility.ADRESSE));
 				employe.setCin(rs.getString(Utility.CIN));
 				employe.setDatenaissance(rs.getDate(Utility.DATE_NAISSANCE));
 				employe.setEmail(rs.getString(Utility.EMAIL));
-				employe.setUsername(rs.getString(Utility.NOM));
+				employe.setNom(rs.getString(Utility.NOM));
 				employe.setPrenom(rs.getString(Utility.PRENOM));
 				employe.setId(rs.getInt(Utility.ID));
 				employe.setMission(rs.getString(Utility.MISSION));
-				employe.setTelephone(rs.getString(Utility.telephone));
+				employe.setNumtel(rs.getString(Utility.telephone));
                                 liste.add(employe);
 			}
 			return liste;
@@ -230,7 +228,7 @@ public class GestionEmployerService {
 		return null;
 	}
 
-	public static boolean SupprimerUnEmploye(Utilisateur user) {
+	public static boolean SupprimerUnEmploye(USER user) {
 		try {
 			conx = ConnexionBD.getInstance().getConnection();
 			stmt = conx.createStatement();
@@ -241,6 +239,5 @@ public class GestionEmployerService {
 			return false;
 		}
 	}
-       
 
 }

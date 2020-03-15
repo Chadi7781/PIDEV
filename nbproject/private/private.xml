@@ -3,29 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Chédy/Documents/PIDEV/src/pidev/views/Dashboard.java</file>
-            <file>file:/C:/Users/Chédy/Documents/PIDEV/src/pidev/services/FeedbackService.java</file>
-            <file>file:/C:/Users/Chédy/Documents/PIDEV/src/pidev/services/VehiculeService.java</file>
-            <file>file:/C:/Users/Chédy/Documents/PIDEV/src/pidev/services/ReclamationService.java</file>
-            <file>file:/C:/Users/Chédy/Documents/PIDEV/src/pidev/views/PiDev.java</file>
-            <file>file:/C:/Users/Chédy/Documents/PIDEV/src/pidev/services/ServiceDepot.java</file>
-            <file>file:/C:/Users/Chédy/Documents/PIDEV/src/pidev/views/AcceuilClientController.java</file>
-            <file>file:/C:/Users/Chédy/Documents/PIDEV/src/pidev/services/ProduitCommandeService.java</file>
-            <file>file:/C:/Users/Chédy/Documents/PIDEV/src/pidev/views/ajout_reclamation.fxml</file>
-            <file>file:/C:/Users/Chédy/Documents/PIDEV/src/pidev/views/MenuController.java</file>
-            <file>file:/C:/Users/Chédy/Documents/PIDEV/src/pidev/entity/Reclamation.java</file>
-            <file>file:/C:/Users/Chédy/Documents/PIDEV/src/pidev/views/Demande_LivraisonController.java</file>
-            <file>file:/C:/Users/Chédy/Documents/PIDEV/src/pidev/views/MenuAdminController.java</file>
-            <file>file:/C:/Users/Chédy/Documents/PIDEV/src/pidev/views/ReclamationServiceController.java</file>
-            <file>file:/C:/Users/Chédy/Documents/PIDEV/src/pidev/views/AcceuilEntrepriseController.java</file>
-            <file>file:/C:/Users/Chédy/Documents/PIDEV/src/pidev/views/LoginController.java</file>
-            <file>file:/C:/Users/Chédy/Documents/PIDEV/src/pidev/views/AfficherAdmin_LivraisonController.java</file>
-            <file>file:/C:/Users/Chédy/Documents/PIDEV/src/pidev/views/InscriptionClientController.java</file>
-            <file>file:/C:/Users/Chédy/Documents/PIDEV/src/pidev/views/menu_admin.fxml</file>
-            <file>file:/C:/Users/Chédy/Documents/PIDEV/src/pidev/views/CreerCompteController.java</file>
-            <file>file:/C:/Users/Chédy/Documents/PIDEV/src/pidev/views/FeedbackServiceController.java</file>
-            <file>file:/C:/Users/Chédy/Documents/PIDEV/src/pidev/entity/Utilisateur.java</file>
-            <file>file:/C:/Users/Chédy/Documents/PIDEV/src/pidev/views/DemandDepotController.java</file>
+            <file>file:/C:/Users/Maryem/Documents/NetBeansProjects/PiiDev/src/pidev/entity/Vehicule.java</file>
+            <file>file:/C:/Users/Maryem/Documents/NetBeansProjects/PiiDev/src/pidev/views/AjouterVehiculeController.java</file>
+            <file>file:/C:/Users/Maryem/Documents/NetBeansProjects/PiiDev/src/pidev/views/AfficherVehiculeController.java</file>
+            <file>file:/C:/Users/Maryem/Documents/NetBeansProjects/PiiDev/src/pidev/services/VehiculeService.java</file>
         </group>
     </open-files>
 </project-private>

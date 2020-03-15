@@ -45,7 +45,7 @@ public class ServiceDepot {
         ArrayList<Depot> l = new ArrayList<Depot>();
         try {
             PreparedStatement st = Conn.prepareStatement("select * from depot where etat='dispo'");
-
+            System.out.println(st);
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
                 Depot d = new Depot();

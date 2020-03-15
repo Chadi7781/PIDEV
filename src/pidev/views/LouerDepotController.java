@@ -96,11 +96,11 @@ public class LouerDepotController implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("login.fxml"));
             LoginController irc = loader.getController();
             String mail = irc.username;
-         LocalDate d = date.getValue();
+        LocalDate d = date.getValue();
          LocalDate d1 = date1.getValue();
           if (d1.compareTo(d) < 0) {
 
-                    ServiceDepot sd = new ServiceDepot();
+         ServiceDepot sd = new ServiceDepot();
          ServiceClient sc = new ServiceClient();
          sd.LouerDepot(id, sc.getIdbymail(mail), d1.toString(), d.toString());
          

@@ -77,7 +77,7 @@ public class DemandDepotController implements Initializable {
     public static Integer surfac;
     public static Integer idde;
     public static String idll;
-public static String id11;
+    public static String id11;
     public static int id15;
     @FXML
     private TableColumn<Depot, String> datedebut;
@@ -97,9 +97,9 @@ public static String id11;
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-         Ajouter.setDisable(true);
-          afficher.setDisable(true);
-         valider2.setDisable(true);
+        Ajouter.setDisable(true);
+        afficher.setDisable(true);
+        valider2.setDisable(true);
         ServiceDepot sd = new ServiceDepot();
         List<Depot> plist = sd.findAllDepots();
         System.out.println(plist);
@@ -111,7 +111,7 @@ public static String id11;
         datefin.setVisible(false);
         //etat.setCellValueFactory(new PropertyValueFactory<>("etat"));
         ObservableList<Depot> oblist = FXCollections.observableArrayList(plist);
-      
+
         FilteredList<Depot> filteredData = new FilteredList<>(oblist, b -> true);
 
         recherche.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -145,7 +145,7 @@ public static String id11;
 
         // 5. Add sorted (and filtered) data to the table.
         depot.setItems(sortedData);
-        
+
     }
 
     @FXML
@@ -154,7 +154,7 @@ public static String id11;
 
     @FXML
     private void valider(ActionEvent event) throws IOException {
-          ServiceDepot sd = new ServiceDepot();
+        ServiceDepot sd = new ServiceDepot();
         ServiceClient sc = new ServiceClient();
         if (depot.getSelectionModel().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -204,7 +204,7 @@ public static String id11;
     @FXML
     private void mesdepots(ActionEvent event) {
         Ajouter.setDisable(false);
-         afficher.setDisable(false);
+        afficher.setDisable(false);
         datedebut.setVisible(true);
         datefin.setVisible(true);
         valider2.setDisable(false);
@@ -292,8 +292,8 @@ public static String id11;
 
     @FXML
     private void louer(ActionEvent event) {
-         Ajouter.setDisable(true);
-          datedebut.setVisible(false);
+        Ajouter.setDisable(true);
+        datedebut.setVisible(false);
         datefin.setVisible(false);
         valider.setDisable(false);
         ServiceDepot sd = new ServiceDepot();
@@ -326,48 +326,49 @@ public static String id11;
 
     @FXML
     private void Ajouter(ActionEvent event) throws IOException {
-         if (depot.getSelectionModel().isEmpty()) {
+        if (depot.getSelectionModel().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Alerte");
             alert.setHeaderText(null);
             alert.setContentText("!!!  Selctionnez un depot du tableau !!!");
             alert.showAndWait();
         } else {
-        id11=depot.getSelectionModel().getSelectedItem().getId().toString();
-       idll=depot.getSelectionModel().getSelectedItem().getId().toString();
-         FXMLLoader loader = new FXMLLoader();
-        rec.getScene().getWindow().hide();
-        Stage prStage = new Stage();
-        loader.setLocation(getClass().getResource("categorieentre.fxml"));
-        Parent root = loader.load();
-        Scene scene = new Scene(root);
-        prStage.setScene(scene);
-        prStage.setResizable(false);
+            id11 = depot.getSelectionModel().getSelectedItem().getId().toString();
+            idll = depot.getSelectionModel().getSelectedItem().getId().toString();
+            FXMLLoader loader = new FXMLLoader();
+            rec.getScene().getWindow().hide();
+            Stage prStage = new Stage();
+            loader.setLocation(getClass().getResource("categorieentre.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            prStage.setScene(scene);
+            prStage.setResizable(false);
 
-        prStage.show();  }
+            prStage.show();
+        }
     }
 
     @FXML
     private void afficher(ActionEvent event) throws IOException {
-          if (depot.getSelectionModel().isEmpty()) {
+        if (depot.getSelectionModel().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Alerte");
             alert.setHeaderText(null);
             alert.setContentText("!!!  Selctionnez un depot du tableau !!!");
             alert.showAndWait();
         } else {
-         id11=depot.getSelectionModel().getSelectedItem().getId().toString();
+            id11 = depot.getSelectionModel().getSelectedItem().getId().toString();
             FXMLLoader loader = new FXMLLoader();
-        rec.getScene().getWindow().hide();
-        Stage prStage = new Stage();
-        loader.setLocation(getClass().getResource("afficherdepotparproduit.fxml"));
-        Parent root = loader.load();
-        Scene scene = new Scene(root);
-        prStage.setScene(scene);
-        prStage.setResizable(false);
+            rec.getScene().getWindow().hide();
+            Stage prStage = new Stage();
+            loader.setLocation(getClass().getResource("afficherdepotparproduit.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            prStage.setScene(scene);
+            prStage.setResizable(false);
 
-        prStage.show(); 
-    }
+            prStage.show();
+        }
     }
 
 }

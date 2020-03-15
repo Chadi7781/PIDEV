@@ -14,6 +14,8 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
@@ -58,7 +60,6 @@
                                           <URL value="@../utils/css/stylehseet.css" />
                                        </stylesheets>
                                     </JFXButton>
-                                    <JFXDatePicker fx:id="date" defaultColor="#4059a9" layoutX="54.0" layoutY="295.0" overLay="true" prefHeight="43.0" prefWidth="185.0" promptText="Date de naissance" />
                                     <JFXTextField fx:id="nom" labelFloat="true" layoutX="54.0" layoutY="103.0" maxWidth="293.0" minWidth="137.0" prefHeight="37.0" prefWidth="137.0" promptText="Nom" unFocusColor="#4059a9" />
                                     <JFXTextField fx:id="email" labelFloat="true" layoutX="54.0" layoutY="157.0" maxWidth="350.0" minWidth="287.0" prefHeight="37.0" prefWidth="350.0" promptText="Email" unFocusColor="#4059a9" />
                                     <JFXTextField fx:id="prenom" labelFloat="true" layoutX="263.0" layoutY="103.0" maxWidth="293.0" minWidth="137.0" prefHeight="37.0" prefWidth="137.0" promptText="Prenom" unFocusColor="#4059a9" />
@@ -82,6 +83,16 @@
                                        </image>
                                     </ImageView>
                                     <JFXButton fx:id="Desactiver" layoutX="405.0" layoutY="5.0" onAction="#Desactiver" prefHeight="61.0" prefWidth="62.0" text=" " />
+                                    <JFXDatePicker fx:id="date" editable="false" layoutX="54.0" layoutY="307.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="44.0" prefWidth="164.0" promptText="Date de naissance" style=": ;">
+                                       <defaultColor>
+                                          <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                                             <stops>
+                                                <Stop color="#3b5dc3" />
+                                                <Stop color="#a4238ffc" offset="1.0" />
+                                             </stops>
+                                          </RadialGradient>
+                                       </defaultColor>
+                                    </JFXDatePicker>
                                  </children>
                               </Pane>
                            </children>

@@ -96,7 +96,7 @@ public class ServiceClient implements iServiceClient {
             pt.setString(16, c.getDate_naissance());
             pt.setString(17, c.getPrenom());
             pt.setInt(18, id);
-          //  System.out.println(req);
+           System.out.println(pt);
 
             pt.executeUpdate();
         } catch (SQLException ex) {
