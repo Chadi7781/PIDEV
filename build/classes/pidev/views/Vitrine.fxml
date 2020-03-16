@@ -100,6 +100,15 @@
                         <ComboBox fx:id="lstcategorie" layoutX="343.0" layoutY="26.0" prefHeight="32.0" prefWidth="89.0" />
                         <ComboBox fx:id="lsttri" layoutX="516.0" layoutY="26.0" prefHeight="31.0" prefWidth="132.0" />
                         <Label fx:id="errmsg" layoutX="23.0" layoutY="59.0" />
+                        <Pane fx:id="favorite" layoutX="747.0" layoutY="21.0" prefHeight="40.0" prefWidth="40.0">
+                           <children>
+                              <ImageView fx:id="favotitee" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                              <image>
+                                  <Image url="@../utils/images/star.png" />
+                              </image>  
+                              </ImageView>  
+                           </children>
+                        </Pane>
                      </children>
                   </Pane>
                </center>

@@ -3,10 +3,20 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Maryem/Documents/NetBeansProjects/PiiDev/src/pidev/entity/Vehicule.java</file>
-            <file>file:/C:/Users/Maryem/Documents/NetBeansProjects/PiiDev/src/pidev/views/AjouterVehiculeController.java</file>
-            <file>file:/C:/Users/Maryem/Documents/NetBeansProjects/PiiDev/src/pidev/views/AfficherVehiculeController.java</file>
-            <file>file:/C:/Users/Maryem/Documents/NetBeansProjects/PiiDev/src/pidev/services/VehiculeService.java</file>
+            <file>file:/C:/Users/amall/Documents/PIDEV/src/pidev/views/LoginController.java</file>
+            <file>file:/C:/Users/amall/Documents/PIDEV/src/pidev/views/ControlEmploye.java</file>
+            <file>file:/C:/Users/amall/Documents/PIDEV/src/pidev/services/ServiceClient.java</file>
+            <file>file:/C:/Users/amall/Documents/PIDEV/src/pidev/views/ModifierEmp.java</file>
+            <file>file:/C:/Users/amall/Documents/PIDEV/src/pidev/views/Dashboard.java</file>
+            <file>file:/C:/Users/amall/Documents/PIDEV/src/pidev/views/AccueilEntreprise.fxml</file>
+            <file>file:/C:/Users/amall/Documents/PIDEV/src/pidev/entity/Commande.java</file>
+            <file>file:/C:/Users/amall/Documents/PIDEV/src/pidev/views/GererEmp.java</file>
+            <file>file:/C:/Users/amall/Documents/PIDEV/src/pidev/services/GestionEmployerService.java</file>
+            <file>file:/C:/Users/amall/Documents/PIDEV/src/pidev/utils/css/Utility.java</file>
+            <file>file:/C:/Users/amall/Documents/PIDEV/src/pidev/services/GestionProduitService.java</file>
+            <file>file:/C:/Users/amall/Documents/PIDEV/src/pidev/views/AjouterEmp.java</file>
+            <file>file:/C:/Users/amall/Documents/PIDEV/src/pidev/views/AccueilClient.fxml</file>
+            <file>file:/C:/Users/amall/Documents/PIDEV/src/pidev/views/Dashboard.fxml</file>
         </group>
     </open-files>
 </project-private>

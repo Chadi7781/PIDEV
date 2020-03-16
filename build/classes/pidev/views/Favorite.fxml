@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="774.0" prefWidth="1116.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidev.views.FavoriteController">
+   <children>
+      <BorderPane prefHeight="200.0" prefWidth="200.0">
+         <bottom>
+            <Pane prefHeight="776.0" prefWidth="336.0" styleClass="left" stylesheets="@../utils/css/favorite.css" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="20.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true">
+                     <styleClass>
+                        <String fx:value="envoyer_btn" />
+                        <String fx:value="content-area-circle-btns" />
+                        <String fx:value="img" />
+                     </styleClass>
+                     <image>
+                        <Image url="@../utils/images/s4s.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="35.0" layoutY="406.0" stylesheets="@../utils/css/favorite.css" text="Stock For Speed">
+                     <font>
+                        <Font name="Impact" size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </bottom>
+      </BorderPane>
+      <AnchorPane layoutX="199.0" prefHeight="774.0" prefWidth="929.0">
+         <children>
+            <BorderPane layoutX="1.0" layoutY="81.0" prefHeight="694.0" prefWidth="918.0">
+               <center>
+                  <AnchorPane prefHeight="636.0" prefWidth="791.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <TableView fx:id="tabpanier" layoutX="7.0" prefHeight="640.0" prefWidth="780.0">
+                            <!--<columns>
+                             <TableColumn prefWidth="342.0" text="Nom Produit" />
+                              <TableColumn prefWidth="138.0" text="Prix unitaire" />
+                              <TableColumn prefWidth="130.0" text="Quantité" />
+                           </columns>--></TableView>
+                        
+                     </children>
+                  </AnchorPane>
+               </center>
+               <right>
+                  <AnchorPane prefHeight="694.0" prefWidth="127.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Button fx:id="supprimer_btn" layoutX="3.0" layoutY="465.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="113.0" text="Supprimer" />
+                     </children>
+                  </AnchorPane>
+               </right>
+            </BorderPane>
+            <BorderPane prefHeight="81.0" prefWidth="918.0">
+               <left>
+                  <Pane prefHeight="81.0" prefWidth="919.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Pane fx:id="retour" layoutX="855.0" layoutY="21.0" prefHeight="40.0" prefWidth="40.0">
+                           <children>
+                              <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../utils/images/return.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="210.0" layoutY="13.0" prefHeight="58.0" prefWidth="485.0" text="Vos produits favoris" textAlignment="CENTER" textFill="#757373">
+                           <font>
+                              <Font size="40.0" />
+                           </font>
+                        </Label>
+                        <Pane fx:id="history" layoutX="799.0" layoutY="21.0" prefHeight="40.0" prefWidth="40.0">
+                           <children>
+                              <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../utils/images/history.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                     </children>
+                  </Pane>
+               </left>
+            </BorderPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

@@ -48,7 +48,12 @@ public class Dashboard {
     private Button livraison;
     @FXML
     private JFXButton logos;
-
+    @FXML
+    private Button Bt_Dashboard21;	    
+    @FXML	
+    private Button btn_Rec_Feed;	
+    @FXML	
+    private Button Gestion_vehicule;
 
     @FXML
           void gotoEmploye(ActionEvent event) throws IOException {
@@ -136,6 +141,35 @@ public class Dashboard {
               stage.setScene(scene);
               stage.show();
     }*/
+  @FXML	
+    private void categorie(ActionEvent event) throws IOException {	
+             Parent root = FXMLLoader.load(getClass().getResource("affichercategorie.fxml"));	
+              Scene scene = new Scene(root);	
+              Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();	
+              stage.setScene(scene);	
+              stage.show();	
 
+    }	
+
+    @FXML	
+    private void handleActionButtonRecFeed(ActionEvent event) throws IOException {	
+        Parent root = FXMLLoader.load(getClass().getResource("menu_admin.fxml"));	
+              Scene scene = new Scene(root);	
+              Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();	
+              stage.setScene(scene);	
+               new animatefx.animation.ZoomIn(root).play();	
+
+    }	
+
+    @FXML	
+    private void Gestion_vehicule(ActionEvent event) throws IOException {	
+
+        Parent root = FXMLLoader.load(getClass().getResource("AfficherVehicule.fxml"));	
+              Scene scene = new Scene(root);	
+              Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();	
+              stage.setScene(scene);	
+               new animatefx.animation.ZoomIn(root).play();	
+
+    }
     
 }

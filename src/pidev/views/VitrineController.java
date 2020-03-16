@@ -69,7 +69,8 @@ public class VitrineController implements Initializable {
     private Button ok_btn;
     @FXML 
     private Label errmsg;
-    
+    @FXML
+    private Pane favorite;
     @FXML
   /**
      * Initializes the controller class.
@@ -79,6 +80,8 @@ public class VitrineController implements Initializable {
      */
     
     Set<LignePanier> spanier = new HashSet<LignePanier>();
+
+
     @FXML
     private void Home(ActionEvent event) throws IOException {
           ServiceClient sc = new ServiceClient();
@@ -127,6 +130,19 @@ public class VitrineController implements Initializable {
                 PanierController pc = loader.getController();
                 pc.render(spanier);
                 panier.getScene().setRoot(root_panier);
+                
+
+            } catch (IOException e) {
+            e.printStackTrace();
+        }
+        });
+                 favorite.setOnMouseClicked((ActionEvent) -> {
+            try {               
+                
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("favorite.fxml")); 
+                Parent root_favorite = loader.load();
+                FavoriteController pc = loader.getController();
+                favorite.getScene().setRoot(root_favorite);
                 
 
             } catch (IOException e) {
@@ -241,6 +257,9 @@ public class VitrineController implements Initializable {
                     Label pname = new Label(sname+l.get(k).getNom_pd());
                     Label pprix = new Label(sprix+String.valueOf(l.get(k).getPrix()));
                     Button button = new Button("Ajouter au panier");
+                    Button button2 = new Button("⋆");
+
+                  
                     button.setOnAction(( ActionEvent ) ->
                         {
                             Produit pretrived = (Produit) button.getParent().getUserData();
@@ -256,7 +275,7 @@ public class VitrineController implements Initializable {
                     VBox element = new VBox();
                     Produit pset = new Produit(l.get(k));
                     element.setUserData(pset);
-                    element.getChildren().addAll(imageView, pname, pprix, button);
+                    element.getChildren().addAll(imageView, pname, pprix, button, button2);
                     element.setOnMouseClicked(( ActionEvent ) ->
                         {
                             Produit pretrived = (Produit) element.getUserData();

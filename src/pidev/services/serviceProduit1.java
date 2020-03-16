@@ -79,19 +79,19 @@ public String getDescbyId(int id) throws SQLException{
     
         }
 
-public String getCategobyId(int id){
+public Integer getCategobyId(int id){
         try {
             PreparedStatement st = con.prepareStatement("select * from produit where id=?");
             st.setInt(1, id);
             ResultSet rs = st.executeQuery();
             rs.beforeFirst();
             if (rs.next()) {
-                return rs.getString("categorie");
+                return rs.getInt("idcat");
             }
         } catch (SQLException ex) {
             Logger.getLogger(serviceProduit1.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return "";
+        return 0;
     
         }
 
@@ -313,7 +313,8 @@ public Integer getPoidsbyId(int id){
         if(ordre=="Prix descendant"){
         porder="order by prix desc";
         }
-        PreparedStatement ps = con.prepareStatement ("select * from produit where ((libelle like ?) or (desription like ?)) and categorie like ? "+porder);
+        //SELECT produit.id,produit.photo,produit.poids,produit.prix,produit.desription,produit.etat, categorie.nom,produit.id_depot,produit.libelle,produit.quantite FROM produit INNER JOIN categorie ON produit.idcat=categorie.id WHERE ((libelle like 'm') or (desription like 'm')) and categorie.nom like 'autre' 
+        PreparedStatement ps = con.prepareStatement ("SELECT produit.id,produit.photo,produit.poids,produit.prix,produit.desription,produit.etat,produit.idcat,categorie.nom,produit.id_depot,produit.libelle,produit.quantite FROM produit INNER JOIN categorie ON produit.idcat=categorie.id where ((libelle like ?) or (desription like ?)) and categorie.nom like ? "+porder);
         ps.setString(1, "%" + entry + "%");
         ps.setString(2, "%" + entry + "%");
         ps.setString(3, pcategorie);
@@ -327,7 +328,7 @@ public Integer getPoidsbyId(int id){
                int prix=res.getInt("prix");
                String description=res.getString("desription");
                String Etat=res.getString("Etat");
-               int catg=res.getInt("categorie");
+               int catg=res.getInt("idcat");
                int id_depot=res.getInt("id_depot");
                String libelle=res.getString("libelle");
                int quantite=res.getInt("quantite");
