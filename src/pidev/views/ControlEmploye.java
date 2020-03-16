@@ -3,15 +3,14 @@ package pidev.views;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
-import pidev.entity.USER;
+import pidev.entity.Utilisateur;
 import pidev.services.GestionEmployerService;
 
 
 
 public class ControlEmploye {
 
-	
-	public boolean ControleEmail(USER u) {
+	public boolean ControleEmail(Utilisateur u) {
 		// regex expression to verify if the mail inserted follow how emails should be
 		// written
 		if ((u.getEmail()).matches(
@@ -21,7 +20,7 @@ public class ControlEmploye {
 		return false;
 	}
 
-	public boolean ControleCIN(USER u) {
+	public boolean ControleCIN(Utilisateur u) {
 		// regex expression to verify if the cin inserted contains only 8 numbers
 		if ((u.getCin()).matches("[0-9]{8}")) {
 			return true;
@@ -29,23 +28,23 @@ public class ControlEmploye {
 		return false;
 	}
 
-	public boolean ControleTELNUMBER(USER u) {
+	public boolean ControleTELNUMBER(Utilisateur u) {
 		// regex expression to verify if the cin inserted contains only 8 numbers
-		if ((u.getNumtel()).matches("[0-9]{8}")) {
+		if ((u.getTelephone()).matches("[0-9]{8}")) {
 			return true;
 		}
 		return false;
 	}
 
-	public static boolean ControleDate(USER u) {
+	public static boolean ControleDate(Utilisateur u) {
 
-		if (u.getDateNaissance() == null)
+		if (u.getDatenaissance() == null)
 			return false;
 		return true;
 	}
 
-	public static boolean ControleNOM(USER u) {
-		String str = (u.getNom()).toLowerCase();
+	public static boolean ControleNOM(Utilisateur u) {
+		String str = (u.getUsername()).toLowerCase();
                 if (str.length() == 0)
                     return false;
 		char[] charArray = str.toCharArray();
@@ -59,14 +58,14 @@ public class ControlEmploye {
 		return true;
 	}
         
-        	public static boolean ControleROLE(USER u) {
+        	public static boolean ControleROLE(Utilisateur u) {
 		String str = (u.getMission()).toLowerCase();
                 if (str.length() == 0)
                     return false;
 		return true;
 	}
 
-	public static boolean ControlePRENOM(USER u) {
+	public static boolean ControlePRENOM(Utilisateur u) {
 		String str = (u.getPrenom()).toLowerCase();
                 if (str.length() == 0)
                     return false;
@@ -80,7 +79,7 @@ public class ControlEmploye {
 		return true;
 	}
 
-	public static boolean ControleADRESSE(USER u) {
+	public static boolean ControleADRESSE(Utilisateur u) {
 		String str = (u.getAdresse()).toLowerCase();
                 if (str.length() == 0)
                     return false;
@@ -94,15 +93,15 @@ public class ControlEmploye {
 		return true;
 	}
 
-	public boolean verif(USER e) {
-		if (e.getAdresse() == null && e.getCin() == null && e.getDateNaissance() == null && e.getEmail() == null
-				&& e.getNom() == null && e.getPrenom() == null)
+	public boolean verif(Utilisateur e) {
+		if (e.getAdresse() == null && e.getCin() == null && e.getDatenaissance() == null && e.getEmail() == null
+				&& e.getUsername() == null && e.getPrenom() == null)
 			return true;
 		else
 			return false;
 	}
 
-	public String AjouterEmploye(USER u) {
+	public String AjouterEmploye(Utilisateur u) {
 		String retourstr = "";
 		if ((verif(getUnEmployeCIN(u)))) {
 
@@ -115,14 +114,14 @@ public class ControlEmploye {
 		return retourstr;
 	}
 
-	public USER getUnEmployeCIN(USER u) {
+	public Utilisateur getUnEmployeCIN(Utilisateur u) {
 		if (ControleCIN(u)) {
 			return GestionEmployerService.getUnEmployeCIN(u);
 		}
 		return null;
 	}
 
-	public List getUnEmployenom(USER u) {
+	public List getUnEmployenom(Utilisateur u) {
 		if (ControleNOM(u)) {
 			return GestionEmployerService.getUnEmployeNom(u);
 		}
@@ -146,18 +145,18 @@ public class ControlEmploye {
 	}
         
         public int getMoyenneAge() {
-            List<USER> liste =AfficheToutEmploye();
+            List<Utilisateur> liste =AfficheToutEmploye();
             int moyenne = 0;
             int dateactuel = LocalDate.now().getYear();
-            for (USER u:liste){
-                moyenne=moyenne+(dateactuel-(u.getDateNaissance().toLocalDate().getYear()));  
+            for (Utilisateur u:liste){
+                moyenne=moyenne+(dateactuel-(u.getDatenaissance().toLocalDate().getYear()));  
         }
             return moyenne;
         }
 
-	public String ModificationUnEmploye(USER u) {
+	public String ModificationUnEmploye(Utilisateur u) {
             String retourstr = "";
-            USER user = getUnEmployeCIN(u);
+            Utilisateur user = getUnEmployeCIN(u);
             if (!verif(user)) {
                 u.setId(user.getId());
                 if (GestionEmployerService.ModificationUnEmploye(u) == 0)
@@ -168,10 +167,10 @@ public class ControlEmploye {
 
 	}
 
-	public boolean SupprimerUnEmploye(USER u) {
-		if (u.getId() != null)
+	public boolean SupprimerUnEmploye(Utilisateur u) {
+	
 			return GestionEmployerService.SupprimerUnEmploye(u);
-		return false;
+
 	}
 
 	public List AfficheToutEmploye() {
@@ -181,4 +180,5 @@ public class ControlEmploye {
 
 	public boolean SupprimerToutEmploye() {
 		return GestionEmployerService.SupprimerToutEmploye();
-	}}
+	}
+}

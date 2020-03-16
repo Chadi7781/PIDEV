@@ -1,7 +1,6 @@
 package pidev.views;
 
 import com.gluonhq.charm.glisten.control.TextField;
-import pidev.entity.USER;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
@@ -24,34 +23,35 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import pidev.entity.Utilisateur;
 
 public class GererEmp {
 	ControlEmploye control = new ControlEmploye();
 
 
 	@FXML
-	private TableView<USER> Tableau;
+	private TableView<Utilisateur> Tableau;
 
 	@FXML
-	private TableColumn<USER, String> ID_Emp;
+	private TableColumn<Utilisateur, String> ID_Emp;
 
 	@FXML
-	private TableColumn<USER, String> Nom;
+	private TableColumn<Utilisateur, String> Nom;
 
 	@FXML
-	private TableColumn<USER, String> Prenom;
+	private TableColumn<Utilisateur, String> Prenom;
 
 	@FXML
-	private TableColumn<USER, Date> Dare_naissance;
+	private TableColumn<Utilisateur, Date> Dare_naissance;
 
 	@FXML
-	private TableColumn<USER, String> adresse;
+	private TableColumn<Utilisateur, String> adresse;
 
 	@FXML
-	private TableColumn<USER, String> Num_Tel;
+	private TableColumn<Utilisateur, String> Num_Tel;
 
 	@FXML
-	private TableColumn<USER, String> Role;
+	private TableColumn<Utilisateur, String> Role;
 
 	@FXML
 	private TextField RechercherEmp;
@@ -88,15 +88,15 @@ public class GererEmp {
         @FXML
         private Text alertRechere;
 
-	ObservableList<USER> users = FXCollections.observableArrayList();
-	ObservableList<USER> allusers;
-	ObservableList<USER> selectedusers;
+	ObservableList<Utilisateur> users = FXCollections.observableArrayList();
+	ObservableList<Utilisateur> allusers;
+	ObservableList<Utilisateur> selectedusers;
     @FXML
     private Button Bt_Stock11;
 
 	@FXML
 	void AjouterEmployer(ActionEvent event) throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/pidev/views/AjouterEmp.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("AjouterEmp.fxml"));
 		Scene scene = new Scene(root);
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		stage.setScene(scene);
@@ -107,11 +107,11 @@ public class GererEmp {
 	@FXML
 	void ModifierEmployer(ActionEvent event) throws IOException {
             FXMLLoader loader  = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/pidev/views/ModifierEmp.fxml"));
+            loader.setLocation(getClass().getResource("ModifierEmp.fxml"));
             Parent root = loader.load();
 	    Scene scene = new Scene(root);
             ModifierEmp modifier = loader.getController();
-            modifier.initdata((USER) Tableau.getSelectionModel().getSelectedItems().get(0));
+            modifier.initdata((Utilisateur) Tableau.getSelectionModel().getSelectedItems().get(0));
 	    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 	    stage.setScene(scene);
 	    stage.show();
@@ -121,13 +121,13 @@ public class GererEmp {
 
 	@FXML
 	void SearchEmployer(ActionEvent event) {
-            USER u = new USER();
-            u.setNom(RechercherEmp.getText().toString().toLowerCase());
+            Utilisateur u = new Utilisateur();
+            u.setUsername(RechercherEmp.getText().toString().toLowerCase());
             if (!control.ControleNOM(u)){
                 alertRechere.setText("Nom invalide");
             }
             	users.clear();
-		List<USER> listemps = control.getUnEmployenom(u);
+		List<Utilisateur> listemps = control.getUnEmployenom(u);
 		if (listemps != null ) {
                     if (!listemps.isEmpty()) {
 		    for (int i = 0; i < listemps.size(); i++) {
@@ -142,10 +142,10 @@ public class GererEmp {
 	void SupprimerEmployer(ActionEvent event) {
 		selectedusers = Tableau.getSelectionModel().getSelectedItems();
 		if (selectedusers.size() > 0) {
-			for (USER u : selectedusers)
+			for (Utilisateur u : selectedusers)
 				control.SupprimerUnEmploye(u);
 			users.clear();
-			List<USER> listemps = control.AfficheToutEmploye();
+			List<Utilisateur> listemps = control.AfficheToutEmploye();
 			for (int i = 0; i < listemps.size(); i++) {
 				users.add(listemps.get(i));
 			}
@@ -161,7 +161,7 @@ public class GererEmp {
 
 	@FXML
 	void gotodashbord(ActionEvent event) throws IOException {
-                Parent root = FXMLLoader.load(getClass().getResource("/pidev/views/Dashboard.fxml"));
+                Parent root = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
 		Scene scene = new Scene(root);
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		stage.setScene(scene);
@@ -174,7 +174,7 @@ public class GererEmp {
 	}
           @FXML
           void gotoEmploye(ActionEvent event) throws IOException {
-              Parent root = FXMLLoader.load(getClass().getResource("/pidev/views/GererEmp.fxml"));
+              Parent root = FXMLLoader.load(getClass().getResource("GererEmp.fxml"));
               Scene scene = new Scene(root);
               Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
               stage.setScene(scene);
@@ -185,7 +185,7 @@ public class GererEmp {
     @FXML
     void gotoStock(ActionEvent event) throws IOException {
         
-              Parent root = FXMLLoader.load(getClass().getResource("/pidev/views/Stock.fxml"));
+              Parent root = FXMLLoader.load(getClass().getResource("Stock.fxml"));
               Scene scene = new Scene(root);
               Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
               stage.setScene(scene);
@@ -196,7 +196,7 @@ public class GererEmp {
         @FXML
     void gotoDepot(ActionEvent event) throws IOException {
         
-              Parent root = FXMLLoader.load(getClass().getResource("/pidev/views/geredepo.fxml"));
+              Parent root = FXMLLoader.load(getClass().getResource("geredepo.fxml"));
               Scene scene = new Scene(root);
               Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
               stage.setScene(scene);
@@ -205,7 +205,7 @@ public class GererEmp {
     }
 
     
-
+        @FXML
 	void initialize() {
 		assert Tableau != null : "fx:id=\"Tableau\" was not injected: check your FXML file 'GererEmp.fxml'.";
 		assert ID_Emp != null : "fx:id=\"ID_Emp\" was not injected: check your FXML file 'GererEmp.fxml'.";
@@ -228,23 +228,29 @@ public class GererEmp {
 		assert Bt_Dashboard1 != null : "fx:id=\"Bt_Dashboard1\" was not injected: check your FXML file 'GererEmp.fxml'.";
 		assert Bt_Emp1 != null : "fx:id=\"Bt_Emp1\" was not injected: check your FXML file 'GererEmp.fxml'.";
 		assert Bt_Stock1 != null : "fx:id=\"Bt_Stock1\" was not injected: check your FXML file 'GererEmp.fxml'.";
-		List<USER> listemps = control.AfficheToutEmploye();
+		users.clear();
+                List<Utilisateur> listemps = control.AfficheToutEmploye();
 		if (!listemps.isEmpty()) {
 			for (int i = 0; i < listemps.size(); i++) {
 				users.add(listemps.get(i));
 			}
 		}
-		ID_Emp.setCellValueFactory(new PropertyValueFactory<USER, String>("cin"));
-		Nom.setCellValueFactory(new PropertyValueFactory<USER, String>("nom"));
-		Prenom.setCellValueFactory(new PropertyValueFactory<USER, String>("prenom"));
-		Dare_naissance.setCellValueFactory(new PropertyValueFactory<USER, Date>("dateNaissance"));
-		adresse.setCellValueFactory(new PropertyValueFactory<USER, String>("adresse"));
-		Num_Tel.setCellValueFactory(new PropertyValueFactory<USER, String>("numtel"));
-		Role.setCellValueFactory(new PropertyValueFactory<USER, String>("mission"));
+		ID_Emp.setCellValueFactory(new PropertyValueFactory<Utilisateur, String>("cin"));
+		Nom.setCellValueFactory(new PropertyValueFactory<Utilisateur, String>("username"));
+		Prenom.setCellValueFactory(new PropertyValueFactory<Utilisateur, String>("prenom"));
+		Dare_naissance.setCellValueFactory(new PropertyValueFactory<Utilisateur, Date>("datenaissance"));
+		adresse.setCellValueFactory(new PropertyValueFactory<Utilisateur, String>("adresse"));
+		Num_Tel.setCellValueFactory(new PropertyValueFactory<Utilisateur, String>("telephone"));
+		Role.setCellValueFactory(new PropertyValueFactory<Utilisateur, String>("mission"));
 		Tableau.setItems(users);
 	}
 
     @FXML
-    private void Livraison(ActionEvent event) {
+    private void Livraison(ActionEvent event) throws IOException {
+         Parent root = FXMLLoader.load(getClass().getResource("AfficherAdmin_Livraison.fxml"));
+              Scene scene = new Scene(root);
+              Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+              stage.setScene(scene);
+              stage.show();
     }
 }

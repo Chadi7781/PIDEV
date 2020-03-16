@@ -1,4 +1,6 @@
+
 package pidev.views;
+
 
 import java.io.IOException;
 import java.sql.Date;
@@ -20,7 +22,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import pidev.entity.USER;
+import pidev.entity.Utilisateur;
 
 public class ModifierEmp {
     @FXML
@@ -119,7 +121,7 @@ public class ModifierEmp {
         alert.setTitle("Gestion entropôt");
         alert.setHeaderText("Mofication de l'employé");
         Boolean retourstr= true;
-        USER u = new USER(nom, prenom, email, cin, adresse, datenaissance, "EMPLOYE", mission,numtel);
+        Utilisateur u = new Utilisateur(nom, prenom, email, cin, adresse, datenaissance, "EMPLOYE", mission,numtel);
         if (!control.ControleCIN(u)){
             alertCIN.setText("CIN non valable. ");
             retourstr=false;
@@ -211,15 +213,15 @@ public class ModifierEmp {
 		stage.show();   
     }
     
-    public void initdata (USER u){
+    public void initdata (Utilisateur u){
         Cin_Input.setText(u.getCin());
         Adresse_Input.setText(u.getAdresse());
-        DateNaissance_Input.setValue(u.getDateNaissance().toLocalDate());
+        DateNaissance_Input.setValue(u.getDatenaissance().toLocalDate());
         Email_Input.setText(u.getEmail());
-        Nom_Input.setText(u.getNom());
+        Nom_Input.setText(u.getUsername());
         Prenom_Input.setText(u.getPrenom()); 
         ComboxMission.setValue(u.getMission());
-        telephone_input.setText(u.getNumtel());
+        telephone_input.setText(u.getTelephone());
         
     }
 

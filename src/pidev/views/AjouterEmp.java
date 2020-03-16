@@ -1,5 +1,6 @@
 package pidev.views;
 
+import com.gluonhq.charm.glisten.control.TextField;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
@@ -20,84 +21,88 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import pidev.entity.USER;
-import pidev.views.ControlEmploye;
+import pidev.entity.Utilisateur;
 
 public class AjouterEmp {
 
-    @FXML
-    private com.gluonhq.charm.glisten.control.TextField Cin_Input;
+	@FXML
+	private ResourceBundle resources;
 
-    @FXML
-    private com.gluonhq.charm.glisten.control.TextField Nom_Input;
+	@FXML
+	private URL location;
 
-    @FXML
-    private com.gluonhq.charm.glisten.control.TextField Prenom_Input;
+	@FXML
+	private TextField Cin_Input;
 
-    @FXML
-    private com.gluonhq.charm.glisten.control.TextField Adresse_Input;
+	@FXML
+	private TextField Nom_Input;
 
-    @FXML
-    private com.gluonhq.charm.glisten.control.TextField Email_Input;
+	@FXML
+	private TextField Prenom_Input;
 
-    @FXML
-    private DatePicker DateNaissance_Input;
+	@FXML
+	private TextField Adresse_Input;
 
-    @FXML
-    private ImageView Photo_Input;
+	@FXML
+	private TextField Email_Input;
 
-    @FXML
-    private Button button_Submit;
+	@FXML
+	private DatePicker DateNaissance_Input;
 
-    @FXML
-    private ComboBox<?> Combomission;
-    private Circle btnClose;
+	@FXML
+	private ImageView Photo_Input;
 
-    @FXML
-    private Button Bt_Dashboard;
+	@FXML
+	private Button button_Submit;
 
-    @FXML
-    private Button Bt_Emp;
+	@FXML
+	private ComboBox<?> Combomission;
 
-    @FXML
-    private Button Bt_Stock;
+	@FXML
+	private Circle btnClose;
 
-    @FXML
-    private com.gluonhq.charm.glisten.control.TextField Téléphoneinput;
+	@FXML
+	private Button Bt_Dashboard;
 
-    @FXML
-    private Text alertNom;
+	@FXML
+	private Button Bt_Emp;
 
-    @FXML
-    private Text alertCIN;
+	@FXML
+	private Button Bt_Stock;
 
-    @FXML
-    private Text alertPrenom;
+	@FXML
+    private TextField Téléphoneinput;
 
-    @FXML
-    private Text alertAdresse;
+	@FXML
+	private Text alertNom;
 
-    @FXML
-    private Text alertDatenaissance;
+	@FXML
+	private Text alertCIN;
 
-    @FXML
-    private Text alertEmail;
+	@FXML
+	private Text alertPrenom;
 
-    @FXML
-    private Text alertRole;
+	@FXML
+	private Text alertAdresse;
 
-    @FXML
-    private Text alertTel;
-    @FXML
-    private Button Bt_Stock1;
+	@FXML
+	private Text alertDatenaissance;
 
-    @FXML
+	@FXML
+	private Text alertEmail;
+
+	@FXML
+	private Text alertRole;
+
+	@FXML
+	private Text alertTel;
+
+	@FXML
     void handleButtonSubmitAction(ActionEvent event) {
         ControlEmploye control = new ControlEmploye();
         String nom = Nom_Input.getText().toString().toLowerCase();
@@ -111,103 +116,106 @@ public class AjouterEmp {
             datenaissance = Date.valueOf(DateNaissance_Input.getValue());
         }
         String mission = "";
-        if (Combomission.getSelectionModel().getSelectedItem() != null) {
-            mission = Combomission.getSelectionModel().getSelectedItem().toString();
+        if (Combomission.getSelectionModel().getSelectedItem() != null){
+        mission = Combomission.getSelectionModel().getSelectedItem().toString();
         }
         String numtel = Téléphoneinput.getText().toString().toLowerCase();
-        Alert alert = new Alert(AlertType.INFORMATION);
+        Alert alert = new Alert(AlertType.INFORMATION);          
         alert.setTitle("Gestion entropôt");
         alert.setHeaderText("Ajout de l'employé");
-        Boolean retourstr = true;
-        USER u = new USER(nom, prenom, email, cin, adresse, datenaissance, "EMPLOYE", mission, numtel);
-        if (!control.ControleCIN(u)) {
+        Boolean retourstr= true;
+        Utilisateur u = new Utilisateur(nom, prenom, email, cin, adresse, datenaissance, "EMPLOYE", mission,numtel);
+        if (!control.ControleCIN(u)){
             alertCIN.setText("CIN non valable. ");
-            retourstr = false;
+            retourstr=false;
         }
-        if (!control.ControleROLE(u)) {
+        if (!control.ControleROLE(u)){
             alertRole.setText("Role non valable. ");
-            retourstr = false;
+            retourstr=false;
         }
-
-        if (!control.ControleTELNUMBER(u)) {
+        
+        if (!control.ControleTELNUMBER(u)){
             alertTel.setText("Numero de telephone non valable. ");
-            retourstr = false;
+            retourstr=false;
         }
-        if (!control.ControleEmail(u)) {
+        if (!control.ControleEmail(u)){
             alertEmail.setText("Email non valable. ");
-            retourstr = false;
+            retourstr=false;
         }
-        if (!control.ControleNOM(u)) {
+        if (!control.ControleNOM(u)){
             alertNom.setText("Nom non valable. ");
-            retourstr = false;
+            retourstr=false;
         }
-        if (!control.ControlePRENOM(u)) {
+        if (!control.ControlePRENOM(u)){
             alertPrenom.setText("Prenom non valable. ");
-            retourstr = false;
+            retourstr=false;
         }
-        if (!control.ControleADRESSE(u)) {
+        if (!control.ControleADRESSE(u)){
             alertAdresse.setText("Adresse non valable. ");
-            retourstr = false;
+            retourstr=false;
         }
-        if (!control.ControleDate(u)) {
+        if (!control.ControleDate(u)){
             alertDatenaissance.setText("Date naissance non valable. ");
-            retourstr = false;
+            retourstr=false;
         }
-        if (retourstr == true) {
-            String ajoutEmployer = control.AjouterEmploye(u);
-            if (ajoutEmployer.equals("")) {
-                alert.setContentText("Employer ajouté avec succès !");
-                alert.showAndWait();
-            } else {
-                alert.setContentText(ajoutEmployer);
-                alert.showAndWait();
-            }
+        if (retourstr==true) {
+        String ajoutEmployer = control.AjouterEmploye(u);
+        if (ajoutEmployer.equals("")){
+            alert.setContentText("Employer ajouté avec succès !");
+            alert.showAndWait();
+        }
+        else {
+            alert.setContentText(ajoutEmployer);
+            alert.showAndWait();
         }
     }
-
-    void handleMouseEvent(MouseEvent event) {
-
     }
 
-    @FXML
+	@FXML
+	void handleMouseEvent(MouseEvent event) {
+
+	}
+        @FXML
     void gotoDashbord(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/pidev/views/Dashboard.fxml"));
-        Scene scene = new Scene(root);
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
+         Parent root = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
+		Scene scene = new Scene(root);
+		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		stage.setScene(scene);
+		stage.show();
 
     }
 
     @FXML
     void gotoEmploye(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/pidev/views/GererEmp.fxml"));
-        Scene scene = new Scene(root);
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
+         Parent root = FXMLLoader.load(getClass().getResource("GererEmp.fxml"));
+		Scene scene = new Scene(root);
+		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		stage.setScene(scene);
+		stage.show();
 
     }
 
     @FXML
     void gotoDepot(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/pidev/views/geredepo.fxml"));
-        Scene scene = new Scene(root);
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
+         Parent root = FXMLLoader.load(getClass().getResource("geredepo.fxml"));
+		Scene scene = new Scene(root);
+		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		stage.setScene(scene);
+		stage.show();
 
     }
-
-    @FXML
+    
+            @FXML
     void gotoStock(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/pidev/views/Stock.fxml"));
-        Scene scene = new Scene(root);
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
+         Parent root = FXMLLoader.load(getClass().getResource("Stock.fxml"));
+		Scene scene = new Scene(root);
+		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		stage.setScene(scene);
+		stage.show();   
     }
 
+
+	@FXML
     void initialize() throws FileNotFoundException {
         assert Cin_Input != null : "fx:id=\"Cin_Input\" was not injected: check your FXML file 'AjouterEmp.fxml'.";
         assert Nom_Input != null : "fx:id=\"Nom_Input\" was not injected: check your FXML file 'AjouterEmp.fxml'.";
@@ -231,8 +239,8 @@ public class AjouterEmp {
         assert alertEmail != null : "fx:id=\"alertEmail\" was not injected: check your FXML file 'AjouterEmp.fxml'.";
         assert alertRole != null : "fx:id=\"alertRole\" was not injected: check your FXML file 'AjouterEmp.fxml'.";
         assert alertTel != null : "fx:id=\"alertTel\" was not injected: check your FXML file 'AjouterEmp.fxml'.";
-
-       List<String> list = new ArrayList<>();
+        
+        List<String> list = new ArrayList<>();
         list.add("Livreur");
         list.add("Ouvrier");
         list.add("Techniciens");
