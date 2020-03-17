@@ -52,7 +52,7 @@ public class TraiterLivraisonAdminController implements Initializable {
     /**
      * Initializes the controller class.
      */
-    @FXML
+   @FXML
     private Label expAdmin;
 
     @FXML
@@ -74,14 +74,18 @@ public class TraiterLivraisonAdminController implements Initializable {
     private ImageView Adminphoto;
      @FXML
     private CheckBox confirmerbox;
-     private Livraison SelectedLivraison;
-     @FXML
+    private Livraison SelectedLivraison;
+    @FXML
     private ComboBox<String> checkgovernat;
      @FXML
     private ComboBox<String> nomLivreur;
        @FXML
     private Label dispo;
-      
+
+
+     private static Livraison liv;
+     ArrayList <Utilisateur> listemploye = new ArrayList<>();
+
 
 
     @FXML
@@ -118,10 +122,11 @@ public class TraiterLivraisonAdminController implements Initializable {
             
             }}*/
     public void initData(Livraison livraison) throws FileNotFoundException{
+        liv =livraison;
         SelectedLivraison =livraison;
         expAdmin.setText(SelectedLivraison.getAdresse_depart());
         expdestinatatire.setText(SelectedLivraison.getAdresse_arrive());
-        Adminphoto.setImage(new Image(new FileInputStream("C:\\wamp\\www\\JavaImages\\"+SelectedLivraison.getPhoto_produit())));
+        Adminphoto.setImage(new Image(new FileInputStream("C:\\wamp64\\www\\JavaImages\\"+SelectedLivraison.getPhoto_produit())));
         prixadmin.setText(String.valueOf(SelectedLivraison.getPrix()));
         fragileAdmin.setText(SelectedLivraison.getFragile());
         adminDate.setText(SelectedLivraison.getDate_reception());
@@ -147,6 +152,8 @@ public class TraiterLivraisonAdminController implements Initializable {
         ArrayList <String> disponible = new ArrayList<>();
         ArrayList <String> nom = new ArrayList<>();
         
+        
+        
         LivreurService ms = new LivreurService();
         
         String gouvrnorat;
@@ -158,14 +165,16 @@ public class TraiterLivraisonAdminController implements Initializable {
         System.out.println(livreur);
         
         for (Utilisateur g : livreur){
+            listemploye.add(g);
              System.out.println(g);
             nom.add(g.getUsername());
             disponible.add(g.getDisponible());
-        
+            
+                    
         }
         
         nomLivreur.getItems().addAll(nom);
-        nomLivreur.setValue(nom.get(0));
+       // nomLivreur.setValue(nom.get(0));
         dispo.setText(disponible.get(0));
         livreur.clear();
         nom.clear();
@@ -174,17 +183,26 @@ public class TraiterLivraisonAdminController implements Initializable {
         @FXML
     void confirmeretat(ActionEvent event) throws SQLException, IOException {
         // Livraison l = tableviewAdmin.getSelectionModel().getSelectedItem();
-    
+            
       
            String EtatConfirmer="Confirmer";
            LivraisonService sa=new LivraisonService();
          
       
-        SelectedLivraison.setEtat(EtatConfirmer);
+            liv.setEtat(EtatConfirmer);
+            liv.setID_emp(listemploye.get(nomLivreur.getSelectionModel().getSelectedIndex()).getId());
+            //liv.setID_emp(0);
+            System.out.println("Printing liv \n");
+            System.out.println(liv);
+            System.out.println("Printing liv id \n");
+            System.out.println(liv.getId_livraison());
+        
+        
        
        
-           
-               sa.update(SelectedLivraison,SelectedLivraison.getId_livraison());
+           sa.update(liv,liv.getId_livraison());
+
+               
                 Parent blah = FXMLLoader.load(getClass().getResource("AfficherAdmin_Livraison.fxml"));
             Scene scene = new Scene(blah);
             Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -227,7 +245,7 @@ public class TraiterLivraisonAdminController implements Initializable {
         ObservableList<Livraison> data =FXCollections.observableArrayList(Livraison.generateImageViews(ls.afficherLivraisonClient()));
         data=FXCollections.observableArrayList(obs);*/
         // TODO
-       // AffectationLivreur.getItems().addAll("Ariana","Béja","Ben Arous","Bizerte","Gabès","Gafsa","Jendouba","Kairouan","Kasserine","Kébili","Le Kef","Mahdia","La Manouba","Médenine","Monastir","Nabeul","Sfax","Sidi Bouzid","Siliana","Sousse","Tataouine","Tozeur","Tunis","Zaghouan");
+         checkgovernat.getItems().addAll("Ariana","Béja","Ben Arous","Bizerte","Gabès","Gafsa","Jendouba","Kairouan","Kasserine","Kébili","Le Kef","Mahdia","La Manouba","Médenine","Monastir","Nabeul","Sfax","Sidi Bouzid","Siliana","Sousse","Tataouine","Tozeur","Tunis","Zaghouan");
     }    
     
 }

@@ -78,6 +78,11 @@
                   <Font name="Arial" size="18.0" />	
                </font>	
             </Button>
+             <Button layoutY="516.0" mnemonicParsing="false" onAction="#PointdeCollecte" prefHeight="38.0" prefWidth="176.0" style="-fx-background-color: #191970;" text="Point de Collecte" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
       <Text layoutX="212.0" layoutY="338.0" strokeType="OUTSIDE" strokeWidth="0.0" text="La moyenne d'age des employés : " wrappingWidth="185.98046875" />

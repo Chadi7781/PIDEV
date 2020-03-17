@@ -171,5 +171,13 @@ public class Dashboard {
                new animatefx.animation.ZoomIn(root).play();	
 
     }
+    @FXML
+    void PointdeCollecte(ActionEvent event) throws IOException {
+     Parent blah = FXMLLoader.load(getClass().getResource("Gerer_magasin.fxml"));
+            Scene scene = new Scene(blah);
+            Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            appStage.setScene(scene);
+            appStage.show();
+    }
     
 }

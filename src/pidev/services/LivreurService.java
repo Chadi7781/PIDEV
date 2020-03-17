@@ -47,7 +47,7 @@ public class LivreurService {
         
         try {
            Statement st = Conn.createStatement();
-           String query = "SELECT * from fos_user WHERE governat  = \"" + gouvernorat +"\"";
+           String query = "SELECT ID_emp,username,disponible,mission,prenom from employe WHERE governat  = \"" + gouvernorat +"\"" ;
             
             System.out.println(query);
            ResultSet rs = st.executeQuery(query);
@@ -55,7 +55,7 @@ public class LivreurService {
            
            while(rs.next()){
            
-               liste_livreur.add(new Utilisateur(rs.getString("username"),rs.getString("disponible"),rs.getString("mission"),rs.getString("prenom")));
+               liste_livreur.add(new Utilisateur(rs.getInt("ID_emp"),rs.getString("username"),rs.getString("disponible"),rs.getString("mission"),rs.getString("prenom")));
            
            }
             
@@ -64,7 +64,7 @@ public class LivreurService {
         }
        
          catch (SQLException ex) {
-            Logger.getLogger(LivreurService.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MagasinService.class.getName()).log(Level.SEVERE, null, ex);
         }
         ArrayList liste_magasin = null;
         

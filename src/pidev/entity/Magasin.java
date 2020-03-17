@@ -29,6 +29,13 @@ public class Magasin {
         this.horaire_travail = horaire_travail;
     }
 
+    public Magasin(int id_magasin, String nom, String horaire_travail) {
+        this.id_magasin = id_magasin;
+        this.nom = nom;
+        this.horaire_travail = horaire_travail;
+    }
+    
+
     public Magasin(String pays, int log, int lat, String nom ,String horaire_travail) {
         this.pays = pays;
         this.log = log;

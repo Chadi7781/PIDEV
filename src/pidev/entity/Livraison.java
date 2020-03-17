@@ -26,6 +26,7 @@ public class Livraison {
    private String etat;
    private int id_magasin;
    private int id_user;
+   private int ID_emp;
    
    private String date_reception;
 
@@ -83,6 +84,7 @@ public class Livraison {
     public int getId_livraison() {
         return id_livraison;
     }
+    
 
     public void setId_livraison(int id_livraison) {
         this.id_livraison = id_livraison;
@@ -103,6 +105,15 @@ public class Livraison {
     public void setAdresse_depart(String adresse_depart) {
         this.adresse_depart = adresse_depart;
     }
+
+    public int getID_emp() {
+        return ID_emp;
+    }
+
+    public void setID_emp(int ID_emp) {
+        this.ID_emp = ID_emp;
+    }
+    
 
     public String getAdresse_arrive() {
         return adresse_arrive;

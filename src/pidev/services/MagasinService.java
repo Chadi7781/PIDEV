@@ -39,15 +39,15 @@ public class MagasinService {
     }
     public void ajouterMagasin(Magasin m){
         
-        String sql = "INSERT INTO magasin(pays,log,lat,nom,horaire_travail) VALUES(?,?,?,?,?)";
+        String sql = "INSERT INTO point_collecte(nom,pays,horaire_travail,log,lat) VALUES(?,?,?,?,?)";
  
         try (
            PreparedStatement pstmt = Conn.prepareStatement(sql)) {
-           pstmt.setString(1,m.getPays());
-            pstmt.setInt(2, m.getLog());
-            pstmt.setInt(3,m.getLat());
-            pstmt.setString(4,m.getNom());
-            pstmt.setString(5,m.getHoraire_travail());
+           pstmt.setString(1,m.getNom());
+            pstmt.setString(2, m.getPays());
+            pstmt.setString(3,m.getHoraire_travail());
+            pstmt.setInt(4,m.getLog());
+            pstmt.setInt(5,m.getLat());
             System.out.println(pstmt);
             pstmt.executeUpdate();
         } catch (SQLException e) {
@@ -59,7 +59,7 @@ public class MagasinService {
         
         try {
            Statement st = Conn.createStatement();
-           String query = "SELECT * from magasin";
+           String query = "SELECT * from point_collecte";
             
            
            ResultSet rs = st.executeQuery(query);
@@ -189,15 +189,17 @@ public class MagasinService {
     
      public void ModifierMagasin(Magasin m){
         
-        String sql = "Update magasin set pays=?, log=? ,lat=? ,nom=?,horaire_travail=? where id_magasin=1";
+        String sql = "Update point_collecte set nom=?,horaire_travail=?,pays=?,log=?,lat=? where id_magasin=?";
  
         try (
             PreparedStatement pstmt = Conn.prepareStatement(sql)) {
-            pstmt.setString(1, m.getPays());
-            pstmt.setInt(2, m.getLog());
-            pstmt.setInt(3,m.getLat());
-            pstmt.setString(4, m.getNom());
-            pstmt.setString(4, m.getHoraire_travail());
+           
+            pstmt.setString(1, m.getNom());
+            pstmt.setString(2, m.getHoraire_travail());
+             pstmt.setString(3, m.getPays());
+            pstmt.setInt(4, m.getLog());
+            pstmt.setInt(5,m.getLat());
+            pstmt.setInt(6,m.getId_magasin());
 
             System.out.println(pstmt);
             pstmt.executeUpdate();
@@ -207,7 +209,7 @@ public class MagasinService {
     }
      public void SupprimerMagasin(int id_magasin){
         try {
-            PreparedStatement pt = Conn.prepareStatement("delete from magasin where id_magasin=?");
+            PreparedStatement pt = Conn.prepareStatement("delete from point_collecte where id_magasin=?");
             pt.setInt(1,id_magasin);
             pt.executeUpdate();
             } catch (SQLException ex) {
@@ -215,6 +217,36 @@ public class MagasinService {
         }
         
     }
+      public ArrayList <Magasin> afficherMagasinClient(){
+    
+        
+        try {
+           Statement st = Conn.createStatement();
+           String query = "SELECT * from point_collecte where id_magasin = ?";
+            
+           
+           ResultSet rs = st.executeQuery(query);
+           ArrayList<Magasin> liste_magasin = new ArrayList<>();
+           
+           while(rs.next()){
+           
+               liste_magasin.add(new Magasin(rs.getInt("id_magasin"),rs.getString("nom"),rs.getString("horaire_travail")));
+           
+           }
+            
+           return liste_magasin;
+            
+        }
+       
+         catch (SQLException ex) {
+            Logger.getLogger(MagasinService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        ArrayList liste_magasin = null;
+        
+        return liste_magasin;
+    
+    }
+    
     
 }
 

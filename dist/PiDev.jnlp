@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="PiDev.jar" size="4097050" download="eager" />
+    <jar href="PiDev.jar" size="4104340" download="eager" />
     <jar href="lib\AnimateFX-1.2.0.jar" size="85823" download="eager" />
     <jar href="lib\GMapsFX-2.0.9.jar" size="166541" download="eager" />
     <jar href="lib\annotations-13.0.jar" size="17536" download="eager" />
@@ -20,8 +20,6 @@
     <jar href="lib\commons-logging-1.2.jar" size="61829" download="eager" />
     <jar href="lib\controlsfx-8.40.11.jar" size="985420" download="eager" />
     <jar href="lib\controlsfx-8.40.16.jar" size="1416162" download="eager" />
-    <jar href="lib\fontawesomefx-1.0.0-sources.jar" size="6615" download="eager" />
-    <jar href="lib\fontawesomefx-8.1.jar" size="179086" download="eager" />
     <jar href="lib\fontawesomefx-8.9.jar" size="571068" download="eager" />
     <jar href="lib\gson-2.8.2.jar" size="232932" download="eager" />
     <jar href="lib\httpclient-4.5.8.jar" size="772386" download="eager" />

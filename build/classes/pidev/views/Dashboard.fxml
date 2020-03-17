@@ -68,10 +68,30 @@
                   <Font name="Arial" size="18.0" />
                </font>
             </Button>
+             <Button fx:id="btn_Rec_Feed" layoutX="2.0" layoutY="440.0" mnemonicParsing="false" onAction="#handleActionButtonRecFeed" prefHeight="38.0" prefWidth="172.0" style="-fx-background-color: #191970;" text="Aprés Vente" textFill="WHITE">	
+               <font>	
+                  <Font name="Arial" size="18.0" />	
+               </font>	
+            </Button>	
+            <Button fx:id="Gestion_vehicule" layoutX="2.0" layoutY="478.0" mnemonicParsing="false" onAction="#Gestion_vehicule" prefHeight="38.0" prefWidth="172.0" style="-fx-background-color: #191970;" text="Véhicules" textFill="WHITE">	
+               <font>	
+                  <Font name="Arial" size="18.0" />	
+               </font>	
+            </Button>
+             <Button layoutY="516.0" mnemonicParsing="false" onAction="#PointdeCollecte" prefHeight="38.0" prefWidth="176.0" style="-fx-background-color: #191970;" text="Point de Collecte" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
       <Text layoutX="212.0" layoutY="338.0" strokeType="OUTSIDE" strokeWidth="0.0" text="La moyenne d'age des employés : " wrappingWidth="185.98046875" />
       <TextField fx:id="Moyenne_Age_Input" layoutX="476.0" layoutY="323.0" prefHeight="38.0" prefWidth="149.0" />
       <Text layoutX="327.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre de chaque catégorie de mission " wrappingWidth="255.98046875" />
+      <Button fx:id="Bt_Dashboard21" layoutX="-3.0" layoutY="399.0" mnemonicParsing="false" onAction="#categorie" prefHeight="38.0" prefWidth="172.0" style="-fx-background-color: #191970;" text="Categorie" textFill="WHITE">	
+         <font>	
+            <Font name="Arial" size="18.0" />	
+         </font>	
+      </Button>
    </children>
 </AnchorPane>

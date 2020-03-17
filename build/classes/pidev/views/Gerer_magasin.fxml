@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="774.0" prefWidth="1116.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidev.views.Gerer_magasinController">
+     <children>
+      <Pane prefHeight="80.0" prefWidth="1116.0" style="-fx-background-color: #483D8B;">
+         <children>
+            <Label layoutX="385.0" layoutY="15.0" prefHeight="50.0" prefWidth="346.0" text="Point De Collecte " textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="33.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="59.0" fitWidth="73.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../utils/images/s4smdwra.png" />
+               </image>
+            </ImageView>
+         </children>
+         </Pane>
+      <AnchorPane layoutX="7.0" layoutY="88.0" prefHeight="661.0" prefWidth="1100.0">
+         <children>
+            <AnchorPane layoutX="6.0" layoutY="12.0" prefHeight="647.0" prefWidth="346.0">
+               <children>
+                  <TextField fx:id="textfieldMag" layoutX="31.0" layoutY="65.0" prefHeight="41.0" prefWidth="264.0" promptText="     Nom Du Magasin" />
+                  <ComboBox fx:id="ComboboxGovernat" layoutX="31.0" layoutY="131.0" prefHeight="41.0" prefWidth="264.0" promptText="               Governat" />
+                  <Label layoutX="42.0" layoutY="215.0" prefHeight="31.0" prefWidth="256.0" text="Horaire Du travail" textAlignment="CENTER" textFill="#c7120e">
+                     <font>
+                        <Font name="System Bold" size="19.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="textfieldHoraire" alignment="TOP_LEFT" layoutX="35.0" layoutY="258.0" prefHeight="178.0" prefWidth="256.0" />
+                  <Label layoutX="48.0" layoutY="25.0" prefHeight="27.0" prefWidth="125.0" text="Magasin" textFill="#c7120e">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="48.0" layoutY="472.0" />
+                  <TextField fx:id="textfieldlog" layoutX="35.0" layoutY="478.0" prefHeight="31.0" prefWidth="264.0" promptText="Log" />
+                  <TextField fx:id="textfieldlat" layoutX="35.0" layoutY="530.0" prefHeight="31.0" prefWidth="264.0" promptText="lat" />
+                  <Button fx:id="buttonEnregistrer" layoutX="20.0" layoutY="593.0" mnemonicParsing="false" onAction="#EnregistrerMagasin" prefHeight="33.0" prefWidth="125.0" style="-fx-background-color: fffa75;" text="Ajouter">
+                     <font>
+                        <Font name="Arial Black" size="15.0" />
+                     </font></Button>
+                  <Button layoutX="157.0" layoutY="593.0" mnemonicParsing="false" onAction="#buttonModifier" prefHeight="33.0" prefWidth="170.0" style="-fx-background-color: fffa75;" text="Modifier">
+                     <font>
+                        <Font name="Arial Black" size="15.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="349.0" layoutY="86.0" prefHeight="463.0" prefWidth="750.0">
+               <children>
+                  <TableView fx:id="MagasinTable" layoutY="14.0" onMouseClicked="#ModifierMagasin" prefHeight="439.0" prefWidth="750.0">
+                    <columns>
+                      <TableColumn fx:id="ColumnMagasin" prefWidth="255.0" text="Magasin" />
+                      <TableColumn fx:id="ColumnGovernat" prefWidth="106.0" text="Governat" />
+                        <TableColumn fx:id="ColumnHoraire" prefWidth="211.0" text="Horaire du travail" />
+                        <TableColumn fx:id="columnLog" prefWidth="81.0" text="Log" />
+                        <TableColumn fx:id="columnlat" prefWidth="96.0" text="Lat" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+            <Button layoutX="933.0" layoutY="592.0" mnemonicParsing="false" onAction="#supprimer" prefHeight="31.0" prefWidth="147.0" style="-fx-background-color: fffa75;" text="Supprimer">
+               <font>
+                  <Font name="Arial Black" size="15.0" />
+               </font></Button>
+            <Button layoutX="1033.0" mnemonicParsing="false" onAction="#RetourAction" prefHeight="52.0" prefWidth="66.0">
+               <graphic>
+                  <ImageView fitHeight="27.0" fitWidth="43.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@../utils/images/7871.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </AnchorPane>
+     </children>
+</AnchorPane>

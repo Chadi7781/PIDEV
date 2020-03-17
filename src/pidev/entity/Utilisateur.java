@@ -86,6 +86,14 @@ public class Utilisateur {
         
     }
 
+   public Utilisateur(int id, String username,String disponible, String mission, String prenom) {
+        this.id = id;
+        this.username = username;
+        this.disponible = disponible;
+        this.mission = mission;
+        this.prenom = prenom;
+        
+    }
     public Date getDatenaissance() {
         return datenaissance;
     }

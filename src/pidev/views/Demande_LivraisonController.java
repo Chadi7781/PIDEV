@@ -170,7 +170,7 @@ public class Demande_LivraisonController implements Initializable {
 
     Dragboard db;
     Livraison l = new Livraison();
-    //behi hathi app wino interfaces ta
+    
     File file;
     
 
@@ -189,7 +189,7 @@ public class Demande_LivraisonController implements Initializable {
         hbox.setAlignment(Pos.CENTER);
         hbox.getChildren().add(center);
         labelprix.setStyle("-fx-text-fill = #000000");
-         // 
+        
         gouvernorat.getItems().addAll("Ariana","Béja","Ben Arous","Bizerte","Gabès","Gafsa","Jendouba","Kairouan","Kasserine","Kébili","Le Kef","Mahdia","La Manouba","Médenine","Monastir","Nabeul","Sfax","Sidi Bouzid","Siliana","Sousse","Tataouine","Tozeur","Tunis","Zaghouan");
         Comboxpoids.getItems().addAll("0 < Poids < 10", "10 < Poids < 20", "20 < Poids < 30", "+30");
         
@@ -455,7 +455,7 @@ public class Demande_LivraisonController implements Initializable {
            FileOutputStream fileOutputStream = null;
                     try {
                     
-                        fileOutputStream = new FileOutputStream("C:\\wamp\\www\\JavaImages\\" + photo.get(photo.size()-1));
+                        fileOutputStream = new FileOutputStream("C:\\wamp64\\www\\JavaImages\\" + photo.get(photo.size()-1));
 
 			fileOutputStream.write(Files.readAllBytes(file.toPath()));
 			fileOutputStream.flush();
@@ -488,7 +488,7 @@ public class Demande_LivraisonController implements Initializable {
        if (result.get() == buttonTypeOne){
            LivraisonService.generate_qr(l.getAdresse_arrive(), l.getAdresse_depart());
            
-           String FILE_NAME = "C:\\wamp\\www\\PDF\\S4SFacture"+l.getAdresse_arrive()+".pdf";
+            String FILE_NAME = "C:\\wamp64\\www\\PDF\\S4SFacture"+l.getAdresse_arrive()+".pdf";
         Document document = new Document();
         try {
             PdfWriter.getInstance(document, new FileOutputStream(new File(FILE_NAME)));
@@ -543,9 +543,9 @@ public class Demande_LivraisonController implements Initializable {
             p9.add(Integer.toString(l.getPrix())); //no alignment
             document.add(p8);
             document.add(new Paragraph("Photo de produit", f2));
-            com.itextpdf.text.Image image3=  com.itextpdf.text.Image.getInstance("C:/wamp/www/JavaImages/"+l.getPhoto_produit());
-            com.itextpdf.text.Image image1=  com.itextpdf.text.Image.getInstance("C://wamp/www/QRCode/"+l.getAdresse_arrive()+".png");
-            com.itextpdf.text.Image image2=  com.itextpdf.text.Image.getInstance("C:/wamp/www/JavaImages/s4smdwra.png");
+            com.itextpdf.text.Image image3=  com.itextpdf.text.Image.getInstance("C:/wamp64/www/JavaImages/"+l.getPhoto_produit());
+            com.itextpdf.text.Image image1=  com.itextpdf.text.Image.getInstance("C://wamp64/www/QRCode/"+l.getAdresse_arrive()+".png");
+            com.itextpdf.text.Image image2=  com.itextpdf.text.Image.getInstance("C:/wamp64/www/JavaImages/s4smdwra.png");
             image2.setAbsolutePosition(500f,750f);
             image3.scalePercent(15f);
             image2.scalePercent(15f);

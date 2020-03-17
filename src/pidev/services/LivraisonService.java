@@ -120,11 +120,12 @@ public class LivraisonService {
         }
     }
        public void update(Livraison l,int id) throws SQLException{
-        String sql="UPDATE livraison SET etat=? WHERE id_livraison="+id;
+       String sql="UPDATE livraison SET etat=?,ID_emp=? WHERE id_livraison="+id;
        try (
             PreparedStatement pstmt = Conn.prepareStatement(sql)) {
         
           pstmt.setString(1, l.getEtat());
+           pstmt.setInt(2, l.getID_emp());
        
      
        
@@ -218,7 +219,7 @@ public class LivraisonService {
 		}}
         public static void generate_qr(String image_name,String qrCodeData) {
         try {
-            String filePath = "C:\\wamp\\www\\QRCode\\"+image_name+".png";
+            String filePath = "C:\\wamp64\\www\\QRCode\\"+image_name+".png";
             String charset = "UTF-8"; // or "ISO-8859-1"
             Map < EncodeHintType, ErrorCorrectionLevel > hintMap = new HashMap < EncodeHintType, ErrorCorrectionLevel > ();
             hintMap.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.L);
